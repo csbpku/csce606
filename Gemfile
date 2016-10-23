@@ -29,6 +29,7 @@ gem 'coffee-rails', '~> 4.2'
 
 # Use haml
 gem 'haml'
+<<<<<<< HEAD
 
 # Use haml rails
 gem 'haml-rails'
@@ -36,6 +37,8 @@ gem 'haml-rails'
 # Use gmaps rails
 gem 'gmaps4rails'
 
+=======
+>>>>>>> 6753f03... Update Gemfile
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
 # Turbolinks makes navigating your web application faster. Read more: https://github.com/turbolinks/turbolinks
