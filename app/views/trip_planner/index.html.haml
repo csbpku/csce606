@@ -1,0 +1,98 @@
+%body
+  / Navigation
+  .container-fullwidth
+    %nav.navbar.navbar-default
+      .container-fluid
+        .navbar-header
+          %button.navbar-toggle.collapsed{"data-target" => "#navbar1", "data-toggle" => "collapse", :type => "button"}
+            %span.sr-only Toggle navigation
+            %span.icon-bar
+            %span.icon-bar
+            %span.icon-bar
+          %a.navbar-brand{:href => ""}
+            %img{:src => "http://brandguide.tamu.edu/downloads/logos/TAM-PrimaryMarkA.png"}/
+        #navbar1.navbar-collapse.collapse
+          %ul.nav.navbar-nav
+            %li
+              %a{"data-toggle" => "modal", :href => "#dir"} Direction
+            %li
+              %a{"data-toggle" => "modal", :href => "#layer"} Layer
+          %ul.nav.navbar-nav.navbar-right
+            %li
+              %a{:href => "#"}
+                %span.glyphicon.glyphicon-user
+                Sign Up
+            %li
+              %a{:href => "#"}
+                %span.glyphicon.glyphicon-log-in
+                Login
+        / /.nav-collapse
+      / /.container-fluid
+  / Maps Display
+  #map
+  / Modal
+  #dir.modal.fade{:role => "dialog"}
+    .modal-dialog
+      / Modal content
+      .modal-content
+        .modal-header
+          %button.close{"data-dismiss" => "modal", :type => "button"} ×
+          %h4.modal-title Trip planner
+        .modal-body
+          %form
+            .form-group
+              %label{:for => "from"} From:
+              %input#from.form-control{:type => "text"}/
+            .form-group
+              %label{:for => "to"} To:
+              %input#form.form-control{:type => "text"}/
+            %button.btn.btn-default{:type => "submit"} Find Directions
+        .modal-footer
+          %button.btn.btn-default{"data-dismiss" => "modal", :type => "button"} Close
+  #layer.modal.fade{:role => "dialog"}
+    .modal-dialog
+      / Modal content
+      .modal-content
+        .modal-header
+          %button.close{"data-dismiss" => "modal", :type => "button"} ×
+          %h4.modal-title Layers
+        .modal-body
+          %form
+            .form-group
+              %label.custom-control.custom-checkbox
+                %input.custom-control-input{:name => "layer", :type => "checkbox", :value => "bicycle"}/
+                %span.custom-control-indicator
+                %span.custom-control-description Bicycle Racks
+            .form-group
+              %label.custom-control.custom-checkbox
+                %input.custom-control-input{:name => "layer", :type => "checkbox", :value => "building"}/
+                %span.custom-control-indicator
+                %span.custom-control-description Academic Buildings
+            .form-group
+              %label.custom-control.custom-checkbox
+                %input.custom-control-input{:name => "layer", :type => "checkbox", :value => "parking"}/
+                %span.custom-control-indicator
+                %span.custom-control-description Parking Lots
+            .form-group
+              %label.custom-control.custom-checkbox
+                %input.custom-control-input{:name => "layer", :type => "checkbox", :value => "bus"}/
+                %span.custom-control-indicator
+                %span.custom-control-description Bus Routes
+            %button.btn.btn-default{:type => "submit"} Show Layers
+        .modal-footer
+          %button.btn.btn-default{"data-dismiss" => "modal", :type => "button"} Close
+  :javascript
+    function initMap() {
+            var tamuCenter = {lat: 30.6187199, lng: -96.3364829};
+    
+            var map = new google.maps.Map(document.getElementById('map'), {
+              zoom: 15,
+              center: tamuCenter,
+    		     mapTypeControlOptions: {
+                  style: google.maps.MapTypeControlStyle.HORIZONTAL_BAR,
+                  position: google.maps.ControlPosition.TOP_RIGHT
+              }
+            });
+    	   }
+  %script{:async => "", :defer => "defer", :src => "https://maps.googleapis.com/maps/api/js?key=AIzaSyBGXhzWszzxqmajf5w0AzEmFi5hbgA8VRY&callback=initMap"}
+    :cdata
