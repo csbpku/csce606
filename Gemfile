@@ -6,6 +6,10 @@ gem 'rails', '~> 5.0.0', '>= 5.0.0.1'
 # Use sqlite3 as the database for Active Record
 group :development, :test do
   gem 'sqlite3'
+  gem 'rspec-rails'
+  gem 'capybara'
+  gem 'cucumber-rails', :require => false
+  gem 'database_cleaner'
 end
 group :production do
   gem 'pg'
@@ -60,3 +64,7 @@ end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
+
+
+gem 'rspec', :require => false, :group => :test
+gem 'simplecov', :require => false, :group => :test
