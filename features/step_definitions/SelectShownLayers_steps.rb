@@ -3,7 +3,11 @@ When(/^I press the "Layers"$/) do
   
 end
 
-And(/^I select "Bicycle Racks"$/) do
+Then(/^I should on the Popup that contains "Layers"$/) do
+	expect(page).to have_content("Layers")
+end
+
+When(/^I select "Bicycle Racks"$/) do
 
 end
 	
