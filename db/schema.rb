@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161024025201) do
+ActiveRecord::Schema.define(version: 20161025181922) do
 
   create_table "calendar_dates", force: :cascade do |t|
     t.date    "date"
@@ -35,7 +35,7 @@ ActiveRecord::Schema.define(version: 20161024025201) do
     t.string  "short_name"
     t.string  "long_name"
     t.text    "desc"
-    t.integer "type"
+    t.integer "route_type"
     t.string  "color"
     t.string  "text_color"
   end
