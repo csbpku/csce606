@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161025181922) do
+ActiveRecord::Schema.define(version: 20161025234911) do
 
   create_table "calendar_dates", force: :cascade do |t|
     t.date    "date"
@@ -31,6 +31,14 @@ ActiveRecord::Schema.define(version: 20161025181922) do
     t.date    "end_date"
   end
 
+  create_table "points", force: :cascade do |t|
+    t.integer "shape_id"
+    t.float   "pt_lan"
+    t.float   "pt_lon"
+    t.integer "pt_sequence"
+    t.float   "shape_dist_traveled"
+  end
+
   create_table "routes", force: :cascade do |t|
     t.string  "short_name"
     t.string  "long_name"
@@ -38,14 +46,6 @@ ActiveRecord::Schema.define(version: 20161025181922) do
     t.integer "route_type"
     t.string  "color"
     t.string  "text_color"
-  end
-
-  create_table "shapes", force: :cascade do |t|
-    t.integer "shape_id"
-    t.float   "pt_lan"
-    t.float   "pt_lon"
-    t.integer "pt_sequence"
-    t.float   "shape_dist_traveled"
   end
 
   create_table "stop_times", force: :cascade do |t|
@@ -79,7 +79,6 @@ ActiveRecord::Schema.define(version: 20161025181922) do
     t.integer "shape_id"
     t.index ["calendar_id"], name: "index_trips_on_calendar_id"
     t.index ["route_id"], name: "index_trips_on_route_id"
-    t.index ["shape_id"], name: "index_trips_on_shape_id"
   end
 
 end
