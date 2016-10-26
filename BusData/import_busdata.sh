@@ -1,0 +1,8 @@
+rake import_busdata_csv:create_calendars
+rake import_busdata_csv:create_calendar_dates
+rake import_busdata_csv:create_routes
+rake import_busdata_csv:create_trips
+rake import_busdata_csv:create_points
+rake import_busdata_csv:create_stops
+rake import_busdata_csv:create_stop_times
+
