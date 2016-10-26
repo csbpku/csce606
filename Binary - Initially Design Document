@@ -1,0 +1,36 @@
+Design document
+Project Scope:
+To develop a trip planning website to help understand and serve travel needs of Texas A&M students, faculty, staff and visitors. Through the development, usage and evaluation of the trip planning website, campus planners can implement new ways to better meet traveler needs, reduce vehicular travel and increase bus, pedestrian and bike usage. With a successful trip planning website Texas, A&M University will be able to execute its vision of becoming a transformative transportation campus as stated in the CTTI.
+
+Framework:
+We are using rails framework for this project. We are incorporating car routes with parking information, pedestrian routes, bike routes with racks information and building location on the map. We are using MVC design pattern.
+
+High Level Design:
+Below are the high-level design diagrams to incorporate customer requirement.
+1)	Car route with parking information:
+Parking table schema:
+a.	LotName: name of the parking lot
+b.	LotType: parking lot type, example: surface, surface loading
+c.	Latitude
+d.	Longitude
+
+2)	Pedestrian Route:
+
+
+3)	Bike route with parking information:
+Rack table schema:
+a.	Type: coat hanger, ring etc.
+b.	Total Capacity
+c.	Latitude
+d.	Longitude
+
+4)	Building Finder:
+Building finder table Schema:
+a.	Building Number
+b.	Building Abbreviation
+c.	Building Name
+d.	Address
+e.	Number of floors
+f.	Latitude
+g.	Longitude
+
