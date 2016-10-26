@@ -20,6 +20,13 @@ ActiveRecord::Schema.define(version: 20161026013347) do
   end
 
   create_table "buildings", force: :cascade do |t|
+    t.integer "number"
+    t.string  "abbr"
+    t.string  "name"
+    t.string  "address"
+    t.integer "numberoffloors"
+    t.float   "lan"
+    t.float   "lon"
   end
 
   create_table "calendar_dates", force: :cascade do |t|
