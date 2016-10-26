@@ -10,7 +10,17 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161025234911) do
+ActiveRecord::Schema.define(version: 20161026013347) do
+
+  create_table "bikes", force: :cascade do |t|
+    t.integer "totalcapacity"
+    t.string  "type"
+    t.float   "lan"
+    t.float   "lon"
+  end
+
+  create_table "buildings", force: :cascade do |t|
+  end
 
   create_table "calendar_dates", force: :cascade do |t|
     t.date    "date"
@@ -29,6 +39,9 @@ ActiveRecord::Schema.define(version: 20161025234911) do
     t.integer "sunday"
     t.date    "start_date"
     t.date    "end_date"
+  end
+
+  create_table "cars", force: :cascade do |t|
   end
 
   create_table "points", force: :cascade do |t|
@@ -79,6 +92,9 @@ ActiveRecord::Schema.define(version: 20161025234911) do
     t.integer "shape_id"
     t.index ["calendar_id"], name: "index_trips_on_calendar_id"
     t.index ["route_id"], name: "index_trips_on_route_id"
+  end
+
+  create_table "walks", force: :cascade do |t|
   end
 
 end
