@@ -48,9 +48,6 @@ ActiveRecord::Schema.define(version: 20161026013347) do
     t.date    "end_date"
   end
 
-  create_table "cars", force: :cascade do |t|
-  end
-
   create_table "points", force: :cascade do |t|
     t.integer "shape_id"
     t.float   "pt_lan"
