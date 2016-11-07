@@ -53,3 +53,8 @@
 .navbar-default .navbar-nav > li > a {
     color: white;
 }
+#floating-panel {
+        position: absolute;
+        z-index: 5;
+        text-align: center;
+}
