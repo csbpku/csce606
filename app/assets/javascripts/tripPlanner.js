@@ -21,8 +21,8 @@ function initMap() {
 }
 
         var icons = {
-          buildings: {
-            icon: 'https://maps.google.com/mapfiles/kml/shapes/'
+          Building: {
+            icon: 'https://maps.google.com/mapfiles/kml/shapes/library_maps.png'
           },
         };
 
