@@ -55,12 +55,10 @@
 }
 #floating-panel {
         position: absolute;
-        top: 40px;
-        left: 0%;
+        top: 30px;
+        left: .5%;
         z-index: 5;
         background-color: transparent;
-        padding: 5px;
         text-align: left;
         line-height: 30px;
-        padding-left: 10px;
 }
