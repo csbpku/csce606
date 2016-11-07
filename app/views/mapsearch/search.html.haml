@@ -1,3 +1,5 @@
+#dlt{:style => "display:none;"} #{@parsedDataLatitudes}
+#dln{:style => "display:none;"} #{@parsedDataLongitudes}
 %body
   / Navigation
   .container-fullwidth
@@ -9,7 +11,7 @@
             %span.icon-bar
             %span.icon-bar
             %span.icon-bar
-          %a.navbar-brand{:href => "https://www.tamu.edu/"}
+          %a.navbar-brand{:href => ""}
             %img{:src => "http://brandguide.tamu.edu/downloads/logos/TAM-PrimaryMarkA.png"}/
         #navbar1.navbar-collapse.collapse
           %ul.nav.navbar-nav
@@ -17,6 +19,8 @@
               %a{"data-toggle" => "modal", :href => "#dir"} Direction
             %li
               %a{"data-toggle" => "modal", :href => "#layer"} Layer
+            %li
+              %a{"data-toggle" => "modal", :href => "#search"} Search
           %ul.nav.navbar-nav.navbar-right
             %li
               %a{:href => "#"}
@@ -81,4 +85,67 @@
             %button.btn.btn-default{:type => "submit"} Show Layers
         .modal-footer
           %button.btn.btn-default{"data-dismiss" => "modal", :type => "button"} Close
-  %script{:async => "", :defer => "defer", :src => "https://maps.googleapis.com/maps/api/js?key=AIzaSyBGXhzWszzxqmajf5w0AzEmFi5hbgA8VRY&callback=initMap"}
+  #search.modal.fade{:role => "dialog"}
+    .modal-dialog
+      / Modal content
+      .modal-content
+        .modal-header
+          %button.close{"data-dismiss" => "modal", :type => "button"} ×
+          %h4.modal-title Trip planner
+        .modal-body
+          %form
+            .form-group
+              %label{:for => "from"} Latitude:
+              %input#from.form-control{:type => "text"}/
+            .form-group
+              %label{:for => "from"} Longitude:
+              %input#from.form-control{:type => "text"}/
+            %button.btn.btn-default{:onclick => "redirect();", :type => "submit"} Find Building
+        .modal-footer
+          %button.btn.btn-default{"data-dismiss" => "modal", :type => "button"} Close
+  :javascript
+    function markerdrop() {
+    			var buildingLatitudes = document.getElementById('dlt');
+                var buildingLongitudes = document.getElementById('dln');
+    			var buildingLatitudesInt = buildingLatitudes.innerHTML.slice(1,buildingLatitudes.innerHTML.length-1).split(",");
+    			var buildingLongitudesInt = buildingLongitudes.innerHTML.slice(1,buildingLongitudes.innerHTML.length-1).split(",");
+                //var t = document.getElementById('coords_lat').innerHTML;
+                //var k = t.slice(1,t.length-1).split(",");
+                //var w = document.getElementById('coords_lng').innerHTML;
+                //var j = w.slice(1,w.length-1).split(",");
+                var lati = parseFloat(buildingLatitudesInt[0]);
+                var longi = parseFloat(buildingLongitudesInt[0]);
+                var markerpos = {lat: lati,lng: longi};
+                var map = new google.maps.Map(document.getElementById('map'), {
+                  zoom: 15,
+                  center: markerpos,
+                  mapTypeControlOptions: {
+                      style: google.maps.MapTypeControlStyle.HORIZONTAL_BAR,
+                      position: google.maps.ControlPosition.TOP_RIGHT
+                  }
+                });
+                var marker = new google.maps.Marker({
+                        position: markerpos,
+                        map: map,
+                        title: "hello "
+                });
+                
+                var i;
+                var numberofLocs = buildingLatitudesInt.length
+                for (i = 1; i < numberofLocs; i++) {
+                    lati = parseFloat(buildingLatitudesInt[i]);
+                    longi = parseFloat(buildingLongitudesInt[i]);
+                    markerpos = {lat: lati,lng: longi};
+                    marker = new google.maps.Marker({
+                        position: markerpos,
+                        map: map,
+                        title: "hello "
+                });
+                }
+                
+        	   }
+              
+  %script{:async => "", :defer => "defer", :src => "https://maps.googleapis.com/maps/api/js?key=AIzaSyBGXhzWszzxqmajf5w0AzEmFi5hbgA8VRY&callback=markerdrop"}
+    :cdata
+      <![CDATA[
+      ]]>

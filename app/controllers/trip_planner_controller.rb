@@ -72,7 +72,6 @@ class TripPlannerController < ApplicationController
   end
   
   def find_path(route, depart_stop, destination_stop)
-    
   end
   
   # Depart_address: string for start address
