@@ -87,6 +87,10 @@ GEM
     globalid (0.3.7)
       activesupport (>= 4.1.0)
     gmaps4rails (2.1.2)
+    google_maps_service (0.4.2)
+      hurley (~> 0.1)
+      multi_json (~> 1.11)
+      retriable (~> 2.0)
     haml (4.0.7)
       tilt
     haml-rails (0.9.0)
@@ -100,6 +104,7 @@ GEM
       haml (~> 4.0.0)
       nokogiri (~> 1.6.0)
       ruby_parser (~> 3.5)
+    hurley (0.2)
     i18n (0.7.0)
     jbuilder (2.6.0)
       activesupport (>= 3.0.0, < 5.1)
@@ -164,6 +169,7 @@ GEM
     rb-fsevent (0.9.7)
     rb-inotify (0.9.7)
       ffi (>= 0.5.0)
+    retriable (2.1.0)
     rspec (3.5.0)
       rspec-core (~> 3.5.0)
       rspec-expectations (~> 3.5.0)
@@ -245,6 +251,7 @@ DEPENDENCIES
   database_cleaner
   geocoder
   gmaps4rails
+  google_maps_service
   haml
   haml-rails
   jbuilder (~> 2.5)
