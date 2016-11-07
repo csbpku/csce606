@@ -1,5 +1,6 @@
 require 'geocoder'
 require 'set'
+require 'google_maps_service'
 
 class TripPlannerController < ApplicationController
 
@@ -39,7 +40,7 @@ class TripPlannerController < ApplicationController
   def walking_route(depart_coordinates, destination_coordinates)
     # Return a walking route object
     gmaps = GoogleMapsService::Client.new()
-    gmaps.key = ""
+    gmaps.key = "AIzaSyAOoWZdZFz8nFtVjBlWRysnSoSoSguqCII"
     route = gmaps.directions(depart_coordinates, depart_coordinates, mode: 'walking', alternatives: false)
     unless route.empty?
       return route[0]
@@ -50,12 +51,12 @@ class TripPlannerController < ApplicationController
   def path_from_google_route(route)
     # Contains all points that define a google path
     path_points = []
-    all_steps = route[:leg][0][:steps]
+    all_steps = route[:legs][0][:steps]
     all_steps.each do |curr_step|
       curr_coordinates = [curr_step[:start_location][:lat], curr_step[:start_location][:lng]]
       path_points.push(curr_coordinates)
     end
-    last_coordinates = [route[:leg][0][:end_location][:lat], route[:leg][0][:end_location][:lng]]
+    last_coordinates = [route[:legs][0][:end_location][:lat], route[:legs][0][:end_location][:lng]]
     path_points.push(last_coordinates)
     return path_points
   end
@@ -77,9 +78,9 @@ class TripPlannerController < ApplicationController
   def find_path(route, depart_stop, destination_stop)
     depart_stop_coordinates = [depart_stop.lan, depart_stop.lon]
     destination_stop_coordinates = [destination_stop.lan, destination_stop.lon]
-    mini_distance_depart = Float::IFINITY
+    mini_distance_depart = Float::INFINITY
     mini_depart_point = nil
-    mini_distance_destination = Float::IFINITY
+    mini_distance_destination = Float::INFINITY
     mini_destination_point = nil
     destination_stop_coordinates = [destination_stop.lan, destination_stop.lon]
     all_path_points = Point.where(shape_id:(route.trips[0].shape_id)).order(:pt_sequence)
@@ -110,7 +111,11 @@ class TripPlannerController < ApplicationController
       path_point << all_path_points[mini_depart_point.pt_sequence..-1]
       path_point << all_path_points[1..mini_destination_point.pt_sequence]
     end
-    return path_points
+    raw_point_coordinates = []
+    path_points.each do |curr_point|
+      raw_point_coordinates << [curr_point.pt_lan, curr_point.pt_lon]
+    end
+    return raw_point_coordinates
   end
   
   # Depart_address: string for start address
@@ -140,7 +145,7 @@ class TripPlannerController < ApplicationController
     if (not common_routes.empty?) # On the same route
       final_path_points.push(find_path(common_routes.to_a()[0], depart_stop, destination_stop))
     else # On different route
-      min_walking_distance = Float::IFINITY
+      min_walking_distance = Float::INFINITY
       min_walking_route = nil
       path_of_bus_route_1 = nil
       path_of_bus_route_2 = nil
