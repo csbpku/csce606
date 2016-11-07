@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
   get 'trip_planner/index'
   root 'trip_planner#index'
+  get 'as' => 'mapsearch#search'
   resources :routes
   resources :trips
   resources :stops
