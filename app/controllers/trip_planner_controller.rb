@@ -49,11 +49,21 @@ class TripPlannerController < ApplicationController
   end
   
   def path_from_google_route(route)
-    return nil
+    # Contains all points that define a google path
+    path_points = []
+    all_steps = route[:leg][0][:steps]
+    all_steps.each do |curr_step|
+      curr_coordinates = [curr_step[:start_location][:lat], curr_step[:start_location][:lng]]
+      path_points.push(curr_coordinates)
+    end
+    last_coordinates = [route[:leg][0][:end_location][:lat], route[:leg][0][:end_location][:lng]]
+    path_points.push(last_coordinates)
+    return path_points
   end
   
   def find_routes_set_by_stop(stop)
     # Return a set which contains all routes including input stop
+    
     bus_routes = Route.all
     bus_routes.each do |curr_route|
       curr_route_stops = curr_route.trips.stops
