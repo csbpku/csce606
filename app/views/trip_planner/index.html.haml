@@ -83,3 +83,7 @@
           %button.btn.btn-default{"data-dismiss" => "modal", :type => "button"} Close
   %script{:async => "", :defer => "defer", :src => "https://maps.googleapis.com/maps/api/js?key=AIzaSyBGXhzWszzxqmajf5w0AzEmFi5hbgA8VRY&callback=initMap"}
 #floating-panel
+  %form
+  .form-group
+    %label{:for => "from"} From:
+    %input#from.form-control{:type => "text"}/
