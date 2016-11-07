@@ -54,7 +54,7 @@
     color: white;
 }
 #floating-panel {
-         position: absolute;
+        position: absolute;
         top: 10px;
         left: 25%;
         z-index: 5;
