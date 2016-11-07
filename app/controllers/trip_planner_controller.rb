@@ -1,5 +1,5 @@
 require 'geocoder'
-
+require 'set'
 
 class TripPlannerController < ApplicationController
   Trigon_stop=nil
@@ -48,87 +48,87 @@ class TripPlannerController < ApplicationController
     return nil
   end
   
+  def path_from_google_route(route)
+    return nil
+  end
+  
   def find_routes_set_by_stop(stop)
     # Return a set which contains all routes including input stop
-    routes_set = Array.new
     bus_routes = Route.all
     bus_routes.each do |curr_route|
-      curr_route_stops = curr_route.stops
-      if(curr_route_stops.include?(stop))
-        routes_set.push(curr_route)
-      end
+      curr_route_stops = curr_route.trips.stops
     end
-    return routes_set
+    return nil
   end
   
-  def find_best_route(candidate_route_set)
-    #return the route with shortest walking distance
-    return candidate_route_set[0]
+  def find_path(route, depart_stop, destination_stop)
+    
   end
   
-  def bus_route_planning (depart_location, destination_location)
-    depart_coordinates = address_to_coordinates(depart_location)
-    destination_coordinates = address_to_coordinates(destination_location)
+  # Depart_address: string for start address
+  # Destination_address: string for destination address
+  # Return the path containing all coordinate points, representing the best path
+  def bus_route_planning (depart_address, destination_address)
+    depart_coordinates = address_to_coordinates(depart_address)
+    destination_coordinates = address_to_coordinates(destination_address)
     depart_stop = find_nearest_stop(depart_coordinates)
     destination_stop = find_nearest_stop(destination_coordinates)
     
-    depart_walking_route = walking_route(depart_coordinates, depart_stop.coordinates)
-    destination_walking_route = walking_route(destination_stop.coordinates, destination_coordinates)
+    depart_stop_coordinates = [depart_stop.lan, depart_stop.lon]
+    depart_walking_route = walking_route(depart_coordinates, depart_stop_coordinates)
+    destination_stop_coordinates = [destination_stop.lan, destination_stop.lon]
+    destination_walking_route = walking_route(destination_stop_coordinates, destination_coordinates)
     
-    #S is the set which contains all routes including the departing stop 
+    # This set contains all routes including the departing stop 
     routes_containing_depart = find_routes_set_by_stop(depart_stop)
-    #D is the set which contains all routes including the destination stop 
+    # This set contains all routes including the destination stop 
     routes_containing_destination = find_routes_set_by_stop(destination_stop)
     
-    final_route_set=[]
-    common_routes = routes_containing_depart & routes_containing_depart
-    route=PlanningRoute.new
-    if ( common_routes != nil)
-      common_routes.each do |common_route|
-          bus_route=common_route.subroute(depart_stop, destination_stop)
-          route.add("first_walking", depart_walking_route)
-          route.add("bus_route_1", bus_route)
-          route.add("last_walking", destination_walking_route)
-          final_route_set.add(route)
-      end
-      
-    else
-      min_walking_distance=Float::IFINITY
-      min_walking_route=nil
-      
-      transfer_route=PlanningRoute.new
-      #iterate all the routes in two different set
+    # This array defines the shape of the routing results, it contains multiple coordinates
+    final_path_points = []
+    final_path_points.push(path_from_google_route(depart_walking_route))
+    
+    common_routes = routes_containing_depart.to_set & routes_containing_depart.to_set
+    if (not common_routes.empty?) # On the same route
+      final_path_points.push(find_path(common_routes.to_a()[0], depart_stop, destination_stop))
+    else # On different route
+      min_walking_distance = Float::IFINITY
+      min_walking_route = nil
+      path_of_bus_route_1 = nil
+      path_of_bus_route_2 = nil
+      transfer_walking_route = nil
+      # Iterate all the routes in two different set
       routes_containing_depart.each do |route_1|
         routes_containing_destination.each do |route_2|
-          #iterate all the stops in both routes
-          route_1.each do |stop_1|
-            route_2.each do |stop_2|
-              transfer_walking_route=walking_route(stop1, stop2)
-              if(transfer_walking_route.distance<min_walking_distance)
-                min_walking_distance=transfer_walking_route.distance
-                min_walking_route=transfer_walking_route
-                transfer_route.reset()#route should be reset to a new object
-                transfer_route.add("first_walking", depart_walking_route)
-                transfer_route.add("bus_route_1", route_1.subroute(depart_stop,stop1))
-                transfer_route.add("transfer_walking", min_walking_route)
-                transfer_route.add("bus_route_2", route_2.subroute(stop2,destination_stop))
-                transfer_route.add("last_walking", destination_walking_route)
+          # Iterate all the stops in both routes
+          route_1.stops.each do |stop_1|
+            route_2.stops.each do |stop_2|
+              if(stop1.id != stop2.id) # Not the same stop
+                transfer_walking_route = walking_route(stop1, stop2)
+                transfer_walking_route_distance = transfer_walking_route[:legs][0][:distance][:value]
+              else
+                transfer_walking_route = nil
+                transfer_walking_route_distance = 0
+              end
+              # Find the shortest transfer walking route
+              if(transfer_walking_route_distance < min_walking_distance)
+                min_walking_distance = transfer_walking_route_distance
+                min_walking_route = transfer_walking_route
+                path_of_bus_route_1 = find_path(route_1, depart_stop, stop1)
+                path_of_bus_route_2 = find_path(route_2, stop2, destination_stop)
               end
             end
           end
-          if(min_walking_distance>trigon_walking_distance)
-            min_walking_distance=trigon_walking_distance
-            transfer_route.reset()#route should be reset to a new object
-            transfer_route.add("first_walking", depart_walking_route)
-            transfer_route.add("bus_route_1", route_1.subroute(depart_stop,Trigon_stop))
-            transfer_route.add("bus_route_2", route_2.subroute(Trigon_stop,destination_stop))
-            transfer_route.add("last_walking", destination_walking_route)
-          end
+          # End iterate all stops
         end
       end
-      final_route_set.add(transfer_route)
-    end
-    return find_best_route(final_route_set)
+      # End iterate all routes
+      final_path_points.push(path_of_bus_route_1)
+      final_path_points.push(path_from_google_route(transfer_walking_route))
+      final_path_points.push(path_of_bus_route_2)
+    end #end of on the same or different route
+    # From last bus stop to the destination
+    final_path_points.push(path_from_google_route(destination_walking_route))
+    return final_path_points
   end
-  
 end
