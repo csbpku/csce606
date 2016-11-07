@@ -4,26 +4,51 @@ require 'geocoder'
 class TripPlannerController < ApplicationController
   
   def index
-    
   end
   
   def address_to_coordinates (address)
-    #Call geocode and return coordinates
+    # Call geocode and return coordinates
+    geocoder_results = Geocoder.search(address)
+    unless geocoder_results.empty?
+      coordinates = geocoder_results[0].coordinates
+      return coordinates
+    end
     return nil
   end
   
-  def find_nearest_stop(raw_coordinates)
-    #return a nearest station
-    return nil
+  def find_nearest_stop (raw_coordinates)
+    # Return a nearest station
+    stops = Stop.all
+    min_distance = Float::INFINITY
+    nearest_stop = nil
+    stops.each do |curr_stop|
+      curr_stop_coordinates = [curr_stop.lan, curr_stop.lon]
+      distance = Geocoder::Calculations.distance_between(curr_stop_coordinates, raw_coordinates)
+      if distance < min_distance
+        min_distance = distance
+        nearest_stop = curr_stop
+      end
+    end
+    return nearest_stop
   end
   
   def walking_route(depart_coordinates, destination_coordinates)
-    #return a walking route object
+    # Return a walking route object
+    gmaps = GoogleMapsService::Client.new()
+    gmaps.key = ""
+    route = gmaps.directions(depart_coordinates, depart_coordinates, mode: 'walking', alternatives: false)
+    unless route.empty?
+      return route[0]
+    end
     return nil
   end
   
   def find_routes_set_by_stop(stop)
-    #return a set which contains all routes including input stop
+    # Return a set which contains all routes including input stop
+    bus_routes = Route.all
+    bus_routes.each do |curr_route|
+      curr_route_stops = curr_route.trips.stops
+    end
     return nil
   end
   
