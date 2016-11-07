@@ -73,35 +73,42 @@ class TripPlannerController < ApplicationController
     return routes_set
   end
   
+  # Find the bus path between depart and destination stop given a certain bus route
   def find_path(route, depart_stop, destination_stop)
-    path_points = []
     depart_stop_coordinates = [depart_stop.lan, depart_stop.lon]
     destination_stop_coordinates = [destination_stop.lan, destination_stop.lon]
     mini_distance_depart = Float::IFINITY
     mini_depart_point = nil
     mini_distance_destination = Float::IFINITY
     mini_destination_point = nil
-    destination_stop_coordinates = [destination_stop.lan,destination_stop.lon]
+    destination_stop_coordinates = [destination_stop.lan, destination_stop.lon]
     all_path_points = Point.where(shape_id:(route.trips[0].shape_id)).order(:pt_sequence)
     all_path_points.each do |path_point|
-      path_point_coordinates = [path_point.pt_lan,path_point.pt_lon]
+      path_point_coordinates = [path_point.pt_lan, path_point.pt_lon]
       distance_depart = Geocoder::Calculations.distance_between(path_point_coordinates, depart_stop_coordinates)
       distance_destination = Geocoder::Calculations.distance_between(path_point_coordinates, destination_stop_coordinates)
-      if(mini_distance_depart>distance_depart)
+      if(mini_distance_depart > distance_depart)
         mini_distance_depart = distance_depart
         mini_depart_point = path_point
       end
-      if(mini_distance_destination>distance_destination)
+      if(mini_distance_destination > distance_destination)
         mini_distance_destination = distance_destination
         mini_destination_point = path_point
       end
     end
-    minimum_seq_id = [mini_depart_point.pt_sequence,mini_destination_point.pt_sequence].min
-    maximum_seq_id = [mini_depart_point.pt_sequence,mini_destination_point.pt_sequence].max
-    all_path_points.each do |path_point|
-      if(path_point.pt_sequence>=minimum_seq_id and path_point.pt_sequence<=maximum_seq_id)
-        path_points.push([path_point.pt_lan,path_point.pt_lon])
-      end
+    
+    path_points = []
+    # If the depart point is ahead of the destination point, then just return the path between them, the path may
+    # be something like (start point)2->3->4->5(end point).
+    # But if the destination point has a smaller sequence id than the depart point, this means that in fact,
+    # You need to first go to the final stop, and then start from the final stop (now become the first stop),
+    # And then go to the destination point. In this case the path may be something like:
+    # (start point)5->6/1(final/start point)->2(end point)
+    if mini_depart_point.pt_sequence < mini_destination_point.pt_sequence
+      path_points = all_path_points[mini_depart_point.pt_sequence..mini_destination_point.pt_sequence]
+    else
+      path_point << all_path_points[mini_depart_point.pt_sequence..-1]
+      path_point << all_path_points[1..mini_destination_point.pt_sequence]
     end
     return path_points
   end
