@@ -2,8 +2,13 @@ require 'geocoder'
 
 
 class TripPlannerController < ApplicationController
+  Trigon_stop=nil
   
   def index
+    
+  end
+  
+  def plantrip()#POST METHOD AND PLAN TRIP FOR THE USER
     
   end
   
@@ -37,7 +42,6 @@ class TripPlannerController < ApplicationController
     destination_coordinates = address_to_coordinates(destination_location)
     depart_stop = find_nearest_stop(depart_coordinates)
     destination_stop = find_nearest_stop(destination_coordinates)
-    Trigon_stop=nil
     
     depart_walking_route = walking_route(depart_coordinates, depart_stop.coordinates)
     destination_walking_route = walking_route(destination_stop.coordinates, destination_coordinates)
@@ -49,6 +53,7 @@ class TripPlannerController < ApplicationController
     
     final_route_set=[]
     common_routes = routes_containing_depart & routes_containing_depart
+    route=PlanningRoute.new
     if ( common_routes != nil)
       common_routes.each do |common_route|
           bus_route=common_route.subroute(depart_stop, destination_stop)
@@ -62,7 +67,7 @@ class TripPlannerController < ApplicationController
       min_walking_distance=Float::IFINITY
       min_walking_route=nil
       
-      transfer_route=nil
+      transfer_route=PlanningRoute.new
       #iterate all the routes in two different set
       routes_containing_depart.each do |route_1|
         routes_containing_destination.each do |route_2|
