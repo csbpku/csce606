@@ -62,7 +62,7 @@ class TripPlannerController < ApplicationController
   end
   
   def find_best_route(candidate_route_set)
-    #return the route with shortest walking distance
+    # Return the route with shortest walking distance
     return candidate_route_set[0]
   end
   
@@ -72,17 +72,21 @@ class TripPlannerController < ApplicationController
     depart_stop = find_nearest_stop(depart_coordinates)
     destination_stop = find_nearest_stop(destination_coordinates)
     
-    depart_walking_route = walking_route(depart_coordinates, depart_stop.coordinates)
-    destination_walking_route = walking_route(destination_stop.coordinates, destination_coordinates)
+    depart_stop_coordinates = [depart_stop.lan, depart_stop.lon]
+    # This is a routing result (in hash) return by Google map
+    depart_walking_route = walking_route(depart_coordinates, depart_stop_coordinates)
+    destination_stop_coordinates = [destination_stop.lan, destination_stop.lon]
+    # This is also a routing result (in hash) return by Google map
+    destination_walking_route = walking_route(destination_stop_coordinates, destination_coordinates)
     
-    #S is the set which contains all routes including the departing stop 
+    # S is the set which contains all routes including the departing stop 
     routes_containing_depart = find_routes_set_by_stop(depart_stop)
-    #D is the set which contains all routes including the destination stop 
+    # D is the set which contains all routes including the destination stop 
     routes_containing_destination = find_routes_set_by_stop(destination_stop)
     
-    final_route_set=[]
+    final_route_set = []
     common_routes = routes_containing_depart & routes_containing_depart
-    route=PlanningRoute.new
+    route = PlanningRoute.new
     if ( common_routes != nil)
       common_routes.each do |common_route|
           bus_route=common_route.subroute(depart_stop, destination_stop)
