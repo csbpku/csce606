@@ -75,8 +75,35 @@ class TripPlannerController < ApplicationController
   
   def find_path(route, depart_stop, destination_stop)
     path_points = []
-    all_path_points = Point.where(shape_id:(route.trips[0].shape_id))
-    route.
+    depart_stop_coordinates = [depart_stop.lan, depart_stop.lon]
+    destination_stop_coordinates = [destination_stop.lan, destination_stop.lon]
+    mini_distance_depart = Float::IFINITY
+    mini_depart_point = nil
+    mini_distance_destination = Float::IFINITY
+    mini_destination_point = nil
+    destination_stop_coordinates = [destination_stop.lan,destination_stop.lon]
+    all_path_points = Point.where(shape_id:(route.trips[0].shape_id)).order(:pt_sequence)
+    all_path_points.each do |path_point|
+      path_point_coordinates = [path_point.pt_lan,path_point.pt_lon]
+      distance_depart = Geocoder::Calculations.distance_between(path_point_coordinates, depart_stop_coordinates)
+      distance_destination = Geocoder::Calculations.distance_between(path_point_coordinates, destination_stop_coordinates)
+      if(mini_distance_depart>distance_depart)
+        mini_distance_depart = distance_depart
+        mini_depart_point = path_point
+      end
+      if(mini_distance_destination>distance_destination)
+        mini_distance_destination = distance_destination
+        mini_destination_point = path_point
+      end
+    end
+    minimum_seq_id = [mini_depart_point.pt_sequence,mini_destination_point.pt_sequence].min
+    maximum_seq_id = [mini_depart_point.pt_sequence,mini_destination_point.pt_sequence].max
+    all_path_points.each do |path_point|
+      if(path_point.pt_sequence>=minimum_seq_id and path_point.pt_sequence<=maximum_seq_id)
+        path_points.push([path_point.pt_lan,path_point.pt_lon])
+      end
+    end
+    return path_points
   end
   
   # Depart_address: string for start address
