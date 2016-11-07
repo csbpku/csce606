@@ -1,0 +1,67 @@
+= render :partial => 'banner'
+
+#map
+
+  :javascript
+    var apiKey = 'AIzaSyCpwi0GG64Sjh-nT2AmghycSIa1yDOpxPQ';
+    var map;
+    var snappedCoordinates = [];
+    function initMap() {
+        var tamuCenter = {lat: 30.6187199, lng: -96.3364829};
+    
+        map = new google.maps.Map(document.getElementById('map'), {
+            zoom: 15,
+            center: tamuCenter,
+    	      mapTypeControlOptions: {
+                style: google.maps.MapTypeControlStyle.HORIZONTAL_BAR,
+                position: google.maps.ControlPosition.TOP_RIGHT
+            }
+          });
+       }
+       
+    var qd = {};
+    location.search.substr(1).split("&").forEach(
+            function(item) {var s = item.split("="), k = s[0], v = s[1] && decodeURIComponent(s[1]); (qd[k] = qd[k] || []).push(v)})
+    function display() 
+    {
+        initMap();
+        runSnapToRoad(qd['path%5B%5D']);
+    }
+    
+    function runSnapToRoad(path) {  
+      $.get('https://roads.googleapis.com/v1/snapToRoads', {
+        interpolate: true,
+        key: apiKey,
+        path: path.join('|')
+      }, function(data) {
+        processSnapToRoadResponse(data);
+        drawSnappedPolyline();
+      });
+    }
+    
+    // Store snapped polyline returned by the snap-to-road service.
+    function processSnapToRoadResponse(data) {
+      snappedCoordinates = [];
+      placeIdArray = [];
+      for (var i = 0; i < data.snappedPoints.length; i++) {
+        var latlng = new google.maps.LatLng(
+            data.snappedPoints[i].location.latitude,
+            data.snappedPoints[i].location.longitude);
+        snappedCoordinates.push(latlng);
+        //placeIdArray.push(data.snappedPoints[i].placeId);
+      }
+    }
+    
+    // Draws the snapped polyline (after processing snap-to-road response).
+    function drawSnappedPolyline() {
+      var snappedPolyline = new google.maps.Polyline({
+        path: snappedCoordinates,
+        strokeColor: 'red',
+        strokeWeight: 3
+      });
+    
+      snappedPolyline.setMap(map);
+      //polylines.push(snappedPolyline);
+    }
+  %script{:async => "", :defer => "defer", :src => "https://maps.googleapis.com/maps/api/js?key=AIzaSyBGXhzWszzxqmajf5w0AzEmFi5hbgA8VRY&callback=display"}
+  :cdata

@@ -1,6 +1,9 @@
 Rails.application.routes.draw do
-  get 'trip_planner/index'
-  root 'trip_planner#index'
+  root 'trip_planners#index'
+  get 'trip_planners/index'
+  post 'trip_planners/bus_route_planning'
+  get 'trip_planners/display_route'
+
   resources :routes
   resources :trips
   resources :stops
