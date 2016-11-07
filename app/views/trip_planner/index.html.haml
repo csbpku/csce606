@@ -87,9 +87,6 @@
     .modal-dialog
       / Modal content
       .modal-content
-        .modal-header
-          %button.close{"data-dismiss" => "modal", :type => "button"} ×
-          %h4.modal-title Trip planner
         .modal-body
           %form
             .form-group
@@ -99,6 +96,4 @@
               %label{:for => "to"} To:
               %input#form.form-control{:type => "text"}/
             %button.btn.btn-default{:type => "submit"} Find Directions
-        .modal-footer
-          %button.btn.btn-default{"data-dismiss" => "modal", :type => "button"} Close
   
