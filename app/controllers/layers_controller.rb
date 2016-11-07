@@ -1,11 +1,12 @@
 class LayersController < ApplicationController
-    
-    def select_building
-        @buildings = Buildings.all
-    end
-    
-    def select_car
-        @cars = Cars.all
+    def dropPins
+        
+        @position = Buildings.all
+        @position = @position.as_json()
+        @buildings = {"objtype"=>"Building","points"=> @position}
+        if params["layer"]["building"]
+             render json: @buildings
+        end
     end
     
 end
