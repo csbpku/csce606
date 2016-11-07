@@ -1,0 +1,877 @@
+number,abbr,name,address,numberoffloors,lan,lon
+7,,Maintenance Machine Shed,10720 FM 50,1,30.51953606,-96.41673369
+10,,Implement Barn,,1,30.51999039,-96.4167104
+14,,Implement Storage Shed,10720 FM 50,1,30.51973088,-96.41593222
+39,ARTF,Aquaculture Research Teaching Facility,300 Aquatic Facility Rd,1,30.54506694,-96.43826562
+40,,Farm Service Office Bldg,14250 FM 60 E,1,30.54938833,-96.43676954
+41,,Farm Service Lab & Office,201 Reveille Rd,1,30.54944653,-96.43652995
+42,,Farm Service East Wing,201 Reveille Rd,1,30.54931666,-96.43620662
+43,,Farm Service Maint Shed,201 Reveille Rd,1,30.54899577,-96.43620785
+44,,Farm Service Chemical Storage,201 Reveille Rd,1,30.54844084,-96.4361082
+45,,Farm Service West Wing Shed,201 Reveille Rd,1,30.54899618,-96.43662599
+46,,Farm Service Northwest Shed,201 Reveille Rd,1,30.54921225,-96.43677357
+47,,Aquatic Research Center,350 Aquatic Facility Rd,1,30.54513127,-96.43770377
+48,,MARINE RESEARCH LAB (Demolished 2011),261 Aquatic Rd,1,30.54517605,-96.43962277
+50,,Field Lab Equipment Shed,201 Reveille Rd,1,30.54873325,-96.43583351
+51,,Field Lab Implement Shed,201 Reveille Rd,1,30.54855339,-96.43666445
+52,,Pump House,344 Aquatic Rd,1,30.54497586,-96.43783992
+53,,Hatchery,362 Aquatic Rd,1,30.5450293,-96.43760686
+54,,Sample Processing Laboratory,201 Reveille Rd,1,30.54830125,-96.43625251
+55,,Storage Shed,201 Reveille Rd,1,30.54885824,-96.43699964
+57,,Hatchery Bldg,,1,30.544855,-96.43892848
+60,,Rainwater Restroom,,1,30.53164011,-96.42134393
+62,,Disability Services Bldg,701 West Campus Bl,1,30.60719469,-96.35468228
+63,,Conference Building #2,713 West Campus Bl,1,30.60710734,-96.35444274
+64,,Residence Life Bldg,735 West Campus Bl,1,30.60682839,-96.35414819
+65,,Student Counseling Service Reception Bldg,757 West Campus Bl,1,30.60696457,-96.35494129
+66,,Student Counseling Service Bldg #1,769 West Campus Bl,1,30.60676591,-96.35462504
+67,,Student Counseling Service Bldg #2,781 West Campus Bl,1,30.60659781,-96.35481848
+68,,Student Life Bldg #2,803 West Campus Bl,1,30.60667114,-96.35529162
+69,,Conference Building #1,815 West Campus Bl,1,30.6065215,-96.35511771
+70,,Student Life Bldg #1,837 West Campus Bl,1,30.60628515,-96.35523193
+113,,Farm Superintendent House,10724 FM 50,1,30.51766104,-96.41579263
+114,,Office Metal Building,,1,30.51910772,-96.41585574
+117,,North Gate Post Office Building,,1,30.61825413,-96.3449627
+139,,ESTI Private Sector Office,1595 Nuclear Science Rd,1,30.58110798,-96.35679146
+145,,ESTI Technical Equipment Storage,1595 Nuclear Science Rd,1,30.57711916,-96.34965616
+148,,ESTI Haz Mat Classroom,1951 Emergency Response Dr.,1,30.57778086,-96.34959003
+149,,ESTI Haz Mat Office,1595 Nuclear Science Rd,1,30.57813643,-96.34994072
+165,,Schubot Exotic Bird Health Center,701 Farm Service Rd,1,30.62072882,-96.3582835
+170,,TVMC-Deer Shelter (demolished),670 Turk Rd,1,30.61802687,-96.35886131
+171,,Equine Initiative Barn,3272 F&B Rd,1,30.61466054,-96.37169852
+172,,Equine Initiative Warm Up Arena #1,3260 F&B Rd,1,30.61523276,-96.37134011
+173,,Houston Livestock Show & Rodeo Western Arena,3246 F&B Rd,2,30.61557781,-96.37047406
+174,,Equine Initiative Concessions/Locker Bldg,3250 F&B Rd,1,30.61505497,-96.37047549
+175,,Equine Initiative Equestrian/Locker Bldg,3242 F&B Rd,1,30.61518439,-96.37007503
+176,,Hunt Seat Arena,3234 F&B Rd,2,30.61462872,-96.37006388
+177,EQEB,Equine Initiative Education Bldg,3228 F&B Rd,1,30.61520313,-96.36940568
+178,EQOB,Equine Initiative Outreach Bldg,3230 F&B Rd,1,30.61581862,-96.36967156
+179,,Equine Initiative Warm Up Arena #2,3254 F&B Rd,1,30.61442969,-96.37099275
+180,,Equine Initiative Horse Stall Bldg,3284 F&B Rd,1,30.61449509,-96.37220807
+181,,Equine Initiative Equipment Shed,3288 F&B Rd,1,30.61520108,-96.37247489
+200,,Dr. David E. Schob Military Appreciation Home,906 Ashburn Av,1,30.62992837,-96.32213313
+270,ETB,Emerging Technologies Building,101 Bizzell St,6,30.62259446,-96.33888245
+275,LAAH,Liberal Arts and Arts & Humanities Building,399 Spence St,5,30.61754512,-96.33794078
+276,,TX Forest Service Greenhouse,264 Agronomy Rd,1,30.61643177,-96.35208088
+277,,TX FOREST SERVICE GREENHOUSE,,1,30.61620096,-96.35183767
+278,,TX Forest Service Greenhouse,250 Agronomy Rd,1,30.616113,-96.35175508
+279,,TX Forest Service GH Headhouse,248 Agronomy Rd,1,30.61609048,-96.35191393
+289,,Central Utility Plant Electrical Building,222 Ireland St,1,30.61759306,-96.34203035
+290,WELL,Wells Residence Hall,700 Mosher Ln,4,30.61484829,-96.33490742
+291,RUDD,Rudder Residence Hall,770 Mosher Ln,4,30.61500449,-96.33417252
+292,EPPR,Eppright Residence Hall,695 Spence St,4,30.61442243,-96.33451792
+293,APPE,Appelt Residence Hall,660 Mosher Ln,4,30.61431139,-96.33539318
+294,LECH,Lechner Residence Hall,232 Houston St,4,30.61616816,-96.34388061
+296,MIST,Mitchell Inst for Fundamental Phys & Astronomy,576 University Dr,7,30.62003752,-96.34291762
+297,MPHY,Mitchell Physics Building,578 University Dr,7,30.62025748,-96.34243874
+298,,ESTI Electrical Building,,1,30.58044921,-96.35433793
+299,,ESTI Control Building,,1,30.58053012,-96.3548602
+301,,ESTI Pump Operations Building,1595 Nuclear Science Rd,1,30.58495516,-96.35511498
+302,,ESTI Pump Operations Building,1595 Nuclear Science Rd,1,30.58543601,-96.35579323
+303,,ESTI Pump Operations Building,1595 Nuclear Science Rd,1,30.58479853,-96.35576958
+304,,ESTI Pump Operations Building,1595 Nuclear Science Rd,1,30.58431735,-96.35524654
+307,,ESTI Drill Tower,1595 Nuclear Science Rd,5,30.57896881,-96.35452989
+308,,ESTI Breathing Apparatus Maze,1595 Nuclear Science Rd,1,30.57931158,-96.35479699
+312,,ESTI Rail Tank Car Loading Rack Fires,,,30.58101312,-96.35536107
+314,,ESTI Breathing Apparatus Storage,1595 Nuclear Science Rd,1,30.57896589,-96.35422211
+315,,ESTI Pump Maintence Building,1595 Nuclear Science Rd,1,30.58303557,-96.35558616
+320,,ESTI Sprinkler Systems,1595 Nuclear Science Rd,1,30.58121278,-96.35611256
+322,,ESTI Marine Vessle Project,,,30.57899427,-96.35547325
+323,,ESTI Hay Barn,1595 Nuclear Science Rd,1,30.58082941,-96.35396602
+324,,ESTI Wood Storage,1595 Nuclear Science Rd,1,30.58073988,-96.35371589
+325,CVLB,CVE Lab Building,233 Spence Street,4,30.61999312,-96.3395006
+326,,ESTI Pump Alley Fires,,,30.58200707,-96.35656338
+327,,ESTI Loading Terminal Fires,,,30.58154568,-96.35602204
+328,,ESTI API Storage Tank Fires,,,30.58120576,-96.35560134
+329,,ESTI Tank & Dike Fires,,,30.58086238,-96.35517022
+334,,ESTI Pipe Rack Fires,,,30.58234754,-96.3551366
+335,,ESTI Process Unit Fires,,,30.58176787,-96.35525089
+337,,ESTI Automobile Fires,,,30.57992319,-96.35557767
+338,,ESTI Bobtail/Transport Fires,,,30.57969546,-96.35585573
+339,,ESTI Milti-User Shelter,,,30.58047853,-96.35476873
+342,,ESTI Field Maintenance Office,1595 Nuclear Science Rd,1,30.57871127,-96.35553713
+344,,ESTI Recruit Classroom/Fire Station,1625 Nuclear Science Rd,2,30.58086973,-96.35692082
+345,,ESTI Breathing Apparatus Storage,1595 Nuclear Science Rd,1,30.57910856,-96.35474196
+347,,ESTI Annual School/Extension Offices/Gym,1617 Nuclear Science Rd,2,30.5812684,-96.35705489
+348,,ESTI Pump/Vehicle Maintenance,1627 Methner St.,2,30.5832202,-96.35571919
+350,,Albritton Bell Tower,200 Old Main Dr,6,30.61311045,-96.34466142
+353,HRBB,Bright Building,710 Ross St,9,30.61899799,-96.33879967
+354,,ESTI Hazardous Material Classroom,1955 Emergency Response Dr.,1,30.57758949,-96.34969178
+356,,Parking Booth At PA35,704 Lamar St,1,30.6161811,-96.33628801
+357,,Vending Machine Booth,408 Spence St,1,30.61654627,-96.33822381
+358,DPDC,Davis Football Player Development Center,886 Houston St,1,30.60859523,-96.33852279
+359,ARCB,Architecture Building B,782 Ross St,2,30.61922379,-96.33830183
+361,BFC,Bright Football Complex,878 Houston St,3,30.60888118,-96.33916944
+363,,Shed-VP Student Services,750 Throckmorton St,1,30.61089325,-96.33711802
+367,KYLE,Kyle Field,161 Wellborn Rd,9,30.60989375,-96.3395553
+370,,Hensel Park Picnic Shelter,,1,30.62873321,-96.34601417
+375,CLAC,Williams Alumni Center,505 George Bush Dr,3,30.60843909,-96.33625782
+376,CHAN,Chemistry,646 Ross St,6,30.6184802,-96.33956206
+377,SUP3,Satellite Utility Plant No. 3,477 Joe Routt Bl,1,30.61377954,-96.3390076
+378,SSPG,South Side Parking Garage,750 Bizzell St,4,30.61367741,-96.33362642
+379,UCPG,University Center Parking Garage,660 Throckmorton St,7,30.6120436,-96.33872702
+383,JJKB,Koldus Building,400 Joe Routt Bl,3,30.61166956,-96.33921663
+384,SCCT,Sam Houston Sanders Corps of Cadets Center,475 Short St,1,30.61207865,-96.33748366
+385,CVOB,CE Office Building,199 Spence St,10,30.62017735,-96.33989493
+386,CHEN,Jack E. Brown Chemical Engineering Building,100 Spence St,7,30.62085301,-96.34180455
+387,RICH,Joe C. Richardson Petroleum Engineering Building,245 Spence St,12,30.61948226,-96.33936299
+388,NSPG,Northside Parking Garage,104 Ireland St,5,30.61914783,-96.34344172
+389,,Grounds Maintenance Potting Shed,538 College Av,1,30.62828424,-96.34381148
+391,ENPH,James J. Cain '51 Building,180 Spence St,5,30.61968441,-96.34099605
+392,MEOB,Mechanical Engineering Office Building,202 Spence St,6,30.619642,-96.34037202
+393,LIND,John H. Lindsey Building,646 Lewis St,1,30.61178561,-96.33363196
+394,UNDE,Underwood Residence Hall,644 Mosher Ln,4,30.61410233,-96.33569887
+398,ARCA,Langford Architecture Center Building A,798 Ross St,5,30.61879854,-96.33763182
+400,SPEN,Spence Hall - Dorm 1,605 Military Mall,4,30.61428389,-96.33706762
+401,KIES,Kiest Hall - Dorm 2,606 Military Mall,5,30.61391473,-96.33761194
+402,BRIG,Briggs Hall - Dorm 3,635 Military Mall,4,30.61401167,-96.33654671
+403,FOUN,Fountain Hall - Dorm 4,636 Military Mall,5,30.61341245,-96.33743011
+404,GAIN,Gainer Hall - Dorm 5,665 Military Mall,5,30.61387514,-96.33598491
+405,LACY,Lacy Hall - Dorm 6,664 Military Mall,5,30.61290118,-96.33740344
+406,LEON,Leonard Hall - Dorm 7,695 Military Mall,5,30.61329393,-96.3359735
+407,HARL,Harrell Hall - Dorm 8,696 Military Mall,5,30.61275539,-96.33676875
+408,WHTE,Whitely Hall - Dorm 9,735 Military Mall,5,30.61285385,-96.33576946
+409,WHIT,White Hall - Dorm 10,736 Military Mall,5,30.61248463,-96.33631238
+410,HARR,Harrington Hall - Dorm 11,767 Military Mall,5,30.61272378,-96.33494771
+411,UTAY,Utay Hall - Dorm 12,766 Military Mall,5,30.61176074,-96.33635978
+412,MOSE,Moses Residence Hall,212 University Dr,4,30.61559426,-96.34572682
+415,DAVI,Davis-Gary Residence Hall,210 University Dr,4,30.61553351,-96.3464356
+416,BIZL,Bizzell Hall,471 Houston St,4,30.61397398,-96.34134499
+417,HART,Hart Residence Hall,460 Throckmorton St,4,30.61434752,-96.34068414
+419,LEGE,Legett Residence Hall,422 Ross St,4,30.61618221,-96.34232469
+420,MILN,Milner Hall,425 Ross St,4,30.61687975,-96.3428791
+422,WALT,Walton Residence Hall,166 Houston St,5,30.61679319,-96.34525288
+424,HOTA,Hotard Hall,110 Asbury St,5,30.61822483,-96.34451383
+425,HEND,Henderson Hall,222 Jones St,3,30.6147566,-96.34445712
+426,HUGH,Hughes Residence Hall,265 Jones St,5,30.61551536,-96.34518516
+427,FOWL,Fowler Residence Hall,225 Jones St,5,30.61493203,-96.34538374
+428,KEAT,Keathley Residence Hall,214 University Dr,5,30.61519236,-96.3456296
+430,SCHU,Schuhmacher Residence Hall,308 University Dr,5,30.61715453,-96.34546565
+432,ARCC,Architecture Building C,788 Ross St,4,30.61935536,-96.33799218
+433,MOSH,Mosher Residence Hall,725 Mosher Ln,5,30.61525042,-96.33516939
+434,CYCL,Luedecke Building (Cyclotron),120 Spence St,4,30.62032831,-96.34132465
+435,EDCT,Harrington Education Center Office Tower,540 Ross St,10,30.61655439,-96.34089711
+436,RDMC,Reed-McDonald Building,575 Ross St,5,30.61830208,-96.34097815
+438,HECC,Harrington Education Center Classroom Building,544 Ross St,3,30.61687909,-96.34042241
+440,COMM,Commons,676 Lubbock St,2,30.61531352,-96.33596987
+441,KRUE,Krueger Residence Hall,722 Lubbock St,4,30.61575484,-96.33553987
+442,DUNN,Dunn Residence Hall,636 Lubbock St,4,30.61488434,-96.33681209
+443,OM,Oceanography & Meteorology Building,797 Lamar St,16,30.617721,-96.33665412
+444,PETR,Peterson Building,435 Nagle St,5,30.61597755,-96.33858093
+445,TEAG,Teague Research Center,735 Lamar St,5,30.61729093,-96.33607553
+446,RDER,Rudder Tower,401 Joe Routt Bl,14,30.61325168,-96.33995717
+447,ASTO,Aston Residence Hall,655 Mosher Ln,4,30.61447252,-96.33630716
+448,ADAM,Adams Band Hall,611 Lewis St,3,30.61230878,-96.33465262
+449,BSBW,Biological Sciences Bldg West,424 Nagle St,5,30.61561806,-96.33964536
+450,DCAN,Duncan Dining Hall,777 Military Mall,3,30.6120335,-96.33543564
+454,MSC,Memorial Student Center,275 Joe Routt Bl,4,30.61229558,-96.34142211
+456,MILS,Military Sciences Building,520 Coke St,4,30.61437977,-96.33919567
+457,TAES,TAES Annex Building,730 Lamar St,2,30.61647996,-96.33595223
+458,EABC,Engineering Activities Bldg C,588 Lamar St,1,30.61526531,-96.33784177
+459,EABB,Engineering Activities Bldg B,620 Lamar St,1,30.61544539,-96.33742382
+460,EABA,Engineering Activities Bldg A,646 Lamar St,1,30.61575066,-96.33712668
+461,COKE,Coke Building,415 Houston St,3,30.61461253,-96.34171063
+462,ACAD,Academic Building,377 Houston St,6,30.61577409,-96.34076571
+463,PSYC,Psychology Building,515 Coke St,4,30.61471417,-96.33960787
+464,STCH,State Chemist Building,533 Coke St,3,30.61522151,-96.33927907
+465,BTLR,Butler Hall,525 Lubbock St,4,30.61483756,-96.33893061
+467,BSBE,Biological Sciences Bldg East,424 Nagle St,3,30.6158757,-96.33949268
+468,LIBR,Evans Library,400 Spence St,7,30.61703109,-96.33897591
+469,CCPG,Central Campus Parking Garage,450 Spence St,8,30.61647634,-96.33772076
+470,GLAS,Melbern G. Glasscock Building,398 Spence St,4,30.6173265,-96.33848213
+471,PAV,Pavilion,424 Spence St,2,30.61683048,-96.33801469
+472,AIEN,AI Engineering Building,423 Spence St,6,30.61724886,-96.33719804
+473,ADMN,Jack K. Williams Administration Building,400 Bizzell St,4,30.61869392,-96.33646429
+474,YMCA,YMCA Building,365 Houston St,4,30.61517622,-96.34228063
+476,FRAN,Francis Hall,574 Ross St,3,30.61730809,-96.3397611
+477,ANTH,Anthropology Building,340 Spence St,3,30.61774566,-96.33901058
+478,SCTS,Scoates Hall,333 Spence St,3,30.6186044,-96.33851358
+480,BLTN,Bolton Hall,456 Ross St,4,30.61618936,-96.34166162
+481,HEAT,Heaton Hall,444 Ross St,2,30.61670488,-96.34225926
+482,FERM,Fermier Hall,466 Ross St,4,30.61683935,-96.34172808
+483,THOM,Thompson Hall,510 Ross St,3,30.61723426,-96.34126331
+484,CHEM,Chemistry,580 Ross St,7,30.61791256,-96.33983628
+490,HALB,Halbouty Geosciences Building,611 Ross St,6,30.61911278,-96.34086954
+492,CVE,Civil Engineering Building,727 Ross St,3,30.6197085,-96.33892869
+495,SBSA,Sbisa Dining Hall,233 Houston St,2,30.61715613,-96.34376199
+496,UCO,Utilities & Energy Services Central Office,165 Asbury St,2,30.61843809,-96.34318489
+498,CUP,Central Utility Plant,222 Ireland St,3,30.61812207,-96.34223462
+499,EIC,Engineering Innovation Center,233 Ireland St,1,30.61860122,-96.34143208
+501,CONC,Concrete Materials Laboratory,785 Ross St,2,30.62032372,-96.33900769
+506,NGLE,Nagle Hall,454 Throckmorton St,5,30.61494828,-96.34052377
+507,VMS,Veterinary Medical Sciences Building,400 Raymond Stotzer Pw,4,30.61324026,-96.35214354
+508,VTH,Veterinary Teaching Hospital,404 Raymond Stotzer Pw,1,30.61294265,-96.35333053
+510,,Adriance Lab,211 Adriance Lab Rd,1,30.61033141,-96.35320487
+511,HLB,HEEP Laboratory Building,645 Lamar St,5,30.61620882,-96.33749365
+512,CHPL,All Faiths Chapel,300 Houston St,1,30.6155294,-96.34364129
+513,DRTY,Doherty Building,242 Spence St,4,30.61923656,-96.33993129
+514,MASS,Munnerlyn Astronomy & Space Sciences Engineering,101 Asbury St,2,30.61891135,-96.34412335
+516,CSC,Computing Services Center,731 Lamar St,3,30.61677385,-96.336864
+517,CSA,DPC Annex,733 Lamar St,5,30.61695517,-96.33635296
+518,EEC,Engineering Education Complex/Zachry,125 Spence St,8,30.62135584,-96.34033747
+519,KAMU,Moore Communications Center,900 Houston St,1,30.60851532,-96.33760878
+520,BEUT,Beutel Health Center,311 Houston St,3,30.61564464,-96.34270565
+521,HELD,Heldenfels Hall,466 Nagle St,5,30.6151231,-96.33869059
+524,BLOC,Blocker Building,155 Ireland St,6,30.61953953,-96.34212072
+525,,Volatile Storage Building,210 Spence St,1,30.61932187,-96.34028116
+547,,Break Room at Central Utility Plant,193 Asbury St,1,30.61794601,-96.34296321
+548,CLEM,Clements Residence Hall,211 Jones St,4,30.61444733,-96.34548347
+549,HAAS,Haas Residence Hall,212 Houston St,4,30.6159159,-96.34456765
+550,MCFA,McFadden Residence Hall,301 Jones St,4,30.61565389,-96.34428183
+630,PRVP,Vice President's Residence,750 Throckmorton St,2,30.61110269,-96.33693952
+632,,Compressor House,790 THROCKMORTON ST,1,30.61056881,-96.33735016
+634,PRES,One Circle Drive,800 Throckmorton St,2,30.61016102,-96.33689298
+635,,Grounds Maintenance Storage,788 Throckmorton St,1,30.61061755,-96.33737763
+652,NEEL,Neeley Residence Hall,140 Asbury St,4,30.61797338,-96.34439607
+653,HOBB,Hobby Residence Hall,160 Asbury St,4,30.61773973,-96.34412269
+654,,Generator Shed,835 Bizzell St,1,30.61414523,-96.33143053
+655,,Golf Course Maintenance Shop,835 Bizzell St,1,30.6148538,-96.33111898
+672,GOLF,Golf Course Clubhouse,577 Bizzell St,1,30.61683424,-96.33401604
+677,,Golf Course Halfway House,849 BIZZELL ST,1,30.6182243,-96.32864375
+682,WEB,Wisenbaker Engineering Building,188 Bizzell St,4,30.62089268,-96.3389266
+685,,Grounds Maintenance - Tractor Shed,508 College Av,1,30.62660359,-96.34387528
+687,,ESTI Industrial Classroom,1595 Nuclear Science Rd,1,30.5832191,-96.35636904
+688,,ESTI Industrial Technician Office/Shop,,2,30.57882326,-96.35633788
+689,,ESTI Warehouse Building,,2,30.57857339,-96.35603934
+700,,ESTI 3-Story Project,1595 Nuclear Science Rd,2,30.58051247,-96.35525765
+712,,RADIATION BIOLOGY,,1,30.57926064,-96.36353482
+715,,Chemistry Chemical Storage,610 Ross St,1,30.61813495,-96.33996573
+717,,Storage and Lab-Cyclotron,176 Spence St,1,30.62007758,-96.34092623
+718,,Storage-Cyclotron,154 SPENCE ST,1,30.62028688,-96.34096768
+720,,ESTI Chemical Complex Fires,,,30.58116731,-96.35451859
+721,,ESTI Warehouse Fires,,1,30.58093139,-96.35587249
+724,,ESTI Breathing Apparatus Compressor Building,1595 Nuclear Science Rd,1,30.57925691,-96.35456433
+726,,Grounds Maintenance Greenhouse 4,522 College Av,1,30.62723966,-96.34491837
+728,,Grounds Maintenance Greenhouse 5,520 College Av,1,30.62731141,-96.34483764
+729,,Biology Greenhouse,570 Floriculture Rd,1,30.630252,-96.34282973
+732,,Grounds Maintenance Greenhouse,528 College Av,1,30.62688206,-96.34518589
+733,,Grounds Maintenance Greenhouse,526 College Av,1,30.62698487,-96.34506423
+740,MCNW,McNew Laboratory,185 Spence St,3,30.62042486,-96.33961132
+742,,Grounds Maintenance Storage,510 College Ave,1,30.62692231,-96.3439424
+744,,Wind Tunnel Compressor Building,1787 George Bush Dr W,1,30.59016997,-96.35776633
+747,,Grounds Maintenance Supply Bldg,506 College Av,1,30.62655659,-96.34425782
+754,,Easterwood Shops,1810 George Bush Dr W,1,30.58963371,-96.35780393
+755,,Easterwood General Aviation Terminal,1770 George Bush Dr W,1,30.58997373,-96.35866779
+757,,Waste Water Lift Station,,1,30.59261602,-96.35791514
+759,WIND,Nicks Low Speed Wind Tunnel,1775 George Bush Dr W,2,30.59038775,-96.35786072
+797,,Horticulture Implement Shed - A,275 Adriance Lab Rd,1,30.60996585,-96.35250205
+798,,Horticulture Implement Shed - B,267 Adriance Lab Rd,1,30.61028846,-96.35240591
+799,,Horticulture Shop,261 Adriance Lab Rd,1,30.6102732,-96.35269828
+806,STL,Soil Testing Lab,2610 F&B Rd,1,30.62271936,-96.35976625
+815,ERLB,Entomology Research Lab,122 Agronomy Rd,1,30.61455902,-96.35116718
+816,,Water Distribution Pump Station No. 1,2416 F&B Rd,1,30.62369443,-96.35779316
+817,,Well Field Pump Station,2951 Luza Ln,2,30.65425561,-96.47937349
+824,,Grounds Maintenance Implement Shed,,1,30.62732877,-96.34445248
+828,,Grounds Shop Warehouse,514 College Av,2,30.62698372,-96.3446133
+829,,Grounds Maintenance Office Shop/Stor,512 College Av,2,30.62686808,-96.34447906
+831,,Grounds Maintenance Greenhouse,524 College Av,1,30.62708584,-96.34496972
+861,INSC,CUSE-Chemistry,156 Agronomy Rd,1,30.61493712,-96.3514406
+862,,Butler Building,158 Agronomy Rd,1,30.61521091,-96.35109796
+880,,TVMC-Small Animal Building,141 Agronomy Rd,1,30.61362289,-96.35264584
+943,,TVMC-Barn No 2,537 Turk Rd,1,30.61381059,-96.35697066
+954,AGRL,Agronomy Field Lab,285 Agronomy Rd,1,30.61594053,-96.35352795
+955,,Soil/Crop Cotton Genetic Greenhouse,357 Agronomy Rd,1,30.6163787,-96.35401419
+956,PGBG,Perennial Grass Breeding and Genetics,787 Agronomy Rd,2,30.62173447,-96.35843337
+957,PRCH,Purchasing & Stores,330 Agronomy Rd,1,30.61716366,-96.35260719
+958,FLSV,Fleet Services,388 Agronomy Rd,2,30.61778323,-96.35349019
+959,,Plant Science Greenhouse,367 Agronomy Rd,1,30.61695489,-96.35459471
+960,SCSFGH,SCS Forage Greenhouse,369 Agronomy Rd,1,30.61685575,-96.35450397
+961,,Cotton Greenhouse,367 Agronomy Rd,1,30.61675704,-96.35441299
+962,,Plant Science Grain Sorghum Greenhouse,365 Agronomy Rd,1,30.61667428,-96.35431606
+963,,Hort & Plant Science Greenhouse,361 Agronomy Rd,1,30.61659474,-96.35424189
+964,,Agronomy Greenhouse,359 Agronomy Rd,1,30.61651496,-96.35416823
+965,BEAS,Beasley Laboratory,363 Agronomy Rd,1,30.61687014,-96.35419534
+966,,Purchasing & Stores - General Storage,286 Agronomy Rd,1,30.61777808,-96.35186793
+967,,Purchasing & Stores - Volatile Storage,280 Agronomy Rd,1,30.61735747,-96.35157333
+969,TRSV,Transit Services,444 Agronomy Rd,2,30.61831651,-96.35420405
+970,PPGM,Phys Plant-Grounds Maintenance,470 Agronomy Rd,1,30.61879338,-96.35476299
+971,FOOD,Fred Dollar Food Services Commissary,474 Agronomy Rd,1,30.61969141,-96.35384219
+972,LARR,Laboratory Animal Care Building,233 Agronomy Rd,1,30.61517188,-96.35299812
+973,,CMP-Animal Housing Unit,672 Turk Rd,1,30.61639584,-96.3587602
+974,,CMP-Animal Housing Unit,680 Turk Rd,1,30.61629806,-96.35890824
+975,,CMP-Animal Housing Unit,682 Turk Rd,1,30.61620093,-96.35905765
+976,,CMP-Animal Housing Unit,674 Turk Rd,1,30.6166385,-96.35887075
+977,,CMP-Animal Housing Unit,676 Turk Rd,1,30.61650296,-96.3590011
+978,,CMP-Quarantine Unit,814 Turk Rd,1,30.61498383,-96.361094
+979,TURF,Turfgrass Field Lab,657 Farm Service Rd,1,30.61920269,-96.35786249
+980,,Murray Case Sells Storage Bldg,288 Agronomy Rd,1,30.61797914,-96.35183742
+983,,Trans Center Paint Storage,360 Agronomy Rd,1,30.61787073,-96.35289275
+989,VMCA,TVMC-Caged Animals,601 Turk Rd,1,30.61472771,-96.35804689
+990,CPLX,Cardiovascular Pathology Lab Annex,603 Turk Rd,1,30.61508271,-96.35812916
+991,,VMP Shop,633 Turk Rd,1,30.61523472,-96.35843797
+992,,TVMC-Experimental Animal Building,605 Turk Rd,1,30.61510479,-96.35876158
+995,,Water Distribution Pump Station No. 2,2410 F&B Rd,1,30.62393751,-96.35758008
+996,,Oil Tanks Boiler House,2480 F&B Rd,1,30.62415139,-96.35823216
+997,TICK,Tick Research Facility,611 Turk Rd,1,30.61480043,-96.35892816
+1000,,Farm Service Office,652 Farm Service Rd,2,30.61997643,-96.35688382
+1001,,Farm Service Implement #1,653 Farm Service Rd,1,30.61957017,-96.35735103
+1002,,Farm Service Implement #2,669 Farm Service Rd,1,30.61995524,-96.35772592
+1003,,Farm Service Shop,655 Farm Service Rd,1,30.61968551,-96.35766661
+1005,,Farm Service Storage 2,661 Farm Service Rd,1,30.61901571,-96.35804358
+1008,VMB3,TVMC-Barn No 3,645 Turk Rd,1,30.61553582,-96.35852115
+1010,VIV2,TVMC-Small Animal Research Building,157 Agronomy Rd,1,30.61443538,-96.35240269
+1011,,Horticulture Shop and Garage,265 Adriance Lab Rd,1,30.61043899,-96.35251166
+1020,VIV3,Vivarium III,161 Agronomy Rd,1,30.61429937,-96.35289454
+1026,VMA,Veterinary Medicine Administration,402 Raymond Stotzer Pw,5,30.61298358,-96.35253464
+1027,NFFL,Nursery Floral Field Laboratory,566 Floriculture Rd,2,30.63001521,-96.34296534
+1029,,Agronomy Implement Storage,321 Agronomy Rd,1,30.61575152,-96.35397818
+1030,AESH,AG Engr Res Lab & Shop,377 Olsen Bl,2,30.61373068,-96.34845081
+1034,AEPM,AG Engineering Power & Machinery Building,379 Olsen Bl,2,30.61419592,-96.34905324
+1040,CPL,Cardiovascular Pathology Laboratory,640 Turk Rd,1,30.61612274,-96.35785839
+1041,VMDL,Texas Vet Med Diagnostic Lab,188 Sippel Rd,2,30.614027,-96.35324144
+1042,FSLB,Forest Science Laboratory Building,242 Agronomy Rd,1,30.61597036,-96.35226938
+1043,,Mosquito Research Lab,172 Agronomy Rd,2,30.61557799,-96.35128577
+1044,,TVMC-Poultry Research,1039 Turk Rd,1,30.61266398,-96.36380214
+1045,,USDA Greenhouse 1,707 Agronomy Rd,1,30.62083921,-96.35751985
+1047,,Virus-Vector Research Lab,657 Agronomy Rd,1,30.62029977,-96.35707075
+1049,,USDA Greenhouse 2,685 Agronomy Rd,1,30.62051546,-96.35722341
+1050,,CUSE-Research Labs,166 Agronomy Rd,1,30.61533446,-96.35177575
+1051,CUSE,Center for Urban and Structural Entomology (CUSE),160 Agronomy Rd,2,30.6151647,-96.35160982
+1052,,Weed Science Field Lab,763 Agronomy Rd,1,30.62117983,-96.35788883
+1054,,Forage and Turf Greenhouse,333 Agronomy Rd,1,30.61622136,-96.35408615
+1056,,Soil & Crop Sci Greenhouse,335 Agronomy Rd,1,30.61614814,-96.35419231
+1057,,Soil & Crop Sci Greenhouse,337 Agronomy Rd,1,30.61607444,-96.35429899
+1058,,Soil & Crop Sci Greenhouse,339 Agronomy Rd,1,30.61601767,-96.35442226
+1059,,Soil & Crop Sci Greenhouse,341 Agronomy Rd,1,30.61592603,-96.35451108
+1060,,Greenhouse-Small Grains,374 Turk Rd,1,30.61573757,-96.35422565
+1063,,Greenhouse-Cotton Taxonomy,372 Turk Rd,1,30.61563867,-96.35412839
+1064,,Greenhouse,380 Turk Rd,1,30.61519482,-96.35440049
+1065,,Soil & Crop Sci Dry Processing,373 Turk Rd,2,30.61494249,-96.35401058
+1066,,Cotton Ginning Lab,373 Turk Rd,2,30.61520336,-96.3536402
+1067,,Agronomy Field Crop Laboratory,410 Turk Rd,1,30.61524555,-96.35483705
+1068,,Crop Testing,240 Sippel Rd,1,30.61392893,-96.35463238
+1075,,Ecology & Natural Resources Teaching Pavilion,1852 OBSERVATORY RD,1,30.57365066,-96.3651004
+1077,,SCSC Small Grain Greenhouse,388 Turk Rd,1,30.61558908,-96.35467436
+1078,,Soil & Crop Peanut Greenhouse,392 Turk Rd,1,30.61570281,-96.35479839
+1079,,SCSC-Weed Sci Greenhouse,396 Turk Rd,1,30.61579717,-96.35492388
+1083,,Research Park Maintenance Building,1810 Research Pw,1,30.59895948,-96.36023064
+1084,,West Campus Switching Station,385 Olsen Bl,2,30.61362388,-96.34790061
+1085,VSAH,Veterinary Small Animal Hospital,408 Raymond Stotzer Pw,3,30.61218761,-96.35364202
+1086,,CMP-Housing Unit,684 Turk Rd,1,30.61644422,-96.35916549
+1087,,CMP-Quarantine Unit,802 Turk Rd,1,30.61525012,-96.3608037
+1089,UEOA,Utilities & Energy Services Energy Office,1092 Harvey Mitchell Pw S,1,30.58884733,-96.35339516
+1091,,Easterwood Hangar 1091,1820 George Bush Dr W,2,30.58947402,-96.35790681
+1092,,Easterwood Hangar 1092,1660 George Bush Dr W,1,30.59235029,-96.35921961
+1094,,TVMC-Poultry Disease Research,642 Turk Rd,1,30.61631774,-96.3575688
+1095,,Nuclear Science Cntr,2522 Nuclear Science Rd,5,30.58009159,-96.36374992
+1096,,Gamma Radiation Lab,2272 REACTOR DR,1,30.58116793,-96.36353605
+1098,,N.S.C. Hyperbaric Lab,2530 Nuclear Science Rd,1,30.57966359,-96.36382741
+1129,,Floriculture Greenhouse,568 Floriculture Rd,1,30.63015019,-96.34296172
+1140,,ESTI Extinguisher Refill Building,1595 Nuclear Science Rd,1,30.57796519,-96.35420563
+1141,,ESTI Rescue Classroom,1595 Nuclear Science Rd,1,30.57860395,-96.35430875
+1142,,ESTI Marine Classroom/First Aid,1595 Nuclear Science Rd,2,30.57964728,-96.35518159
+1143,,ESTI Fixed System Classroom,1595 Nuclear Science Rd,1,30.58072786,-96.35558081
+1144,,ESTI Industrial Classroom,1874 Simmons St.,2,30.58273282,-96.35669774
+1146,BCC,Biological Control Facility,150 Agronomy Rd,1,30.61496567,-96.35038877
+1149,,Billy Bryant Barn,274 Harvey Mitchell Pw S,1,30.61113377,-96.37406453
+1150,,Parsons Mounted Cavalry Tack Room,276 Harvey Mitchell Pw S,1,30.6109278,-96.37356962
+1151,EQCT,Equine Center Stable,7806 Turkey Creek Rd,1,30.61419068,-96.37666334
+1152,,Equine Center Restroom,7802 Turkey Creek Rd,1,30.61491752,-96.3765691
+1153,FREE,Freeman Arena,7802 Turkey Creek Rd,1,30.6153339,-96.37619009
+1154,,Electrical Distribution Storage,2655 Dairy Center Rd,1,30.62242245,-96.36135789
+1156,PLNT,Facilities Services,600 Agronomy Rd,2,30.62049901,-96.35518359
+1157,,Warehouse,602 Agronomy Rd,1,30.62104109,-96.3556383
+1160,PRPV,Pearce Animal Pavilion,555 George Bush Dr W,1,30.59955835,-96.34357357
+1161,,Reed House,1 Reed Dr,1,30.59471746,-96.34751833
+1165,,Hazardous Waste Storage Bldg,2655 Dairy Center Rd,1,30.62237933,-96.36172345
+1166,,CUSE-Special Project Lab & Storage,168 Agronomy Rd,1,30.61544459,-96.3516802
+1167,,CUSE-Insect Testing Lab,170 Agronomy Rd,1,30.61552635,-96.35148206
+1168,,CUSE-Shop & Storage,164 Agronomy Rd,1,30.61538028,-96.35137071
+1169,,CUSE-Toxicology Hut,162 Agronomy Rd,1,30.61528795,-96.35143319
+1171,,Radioactive Waste Building,2528 Nuclear Science Rd,1,30.58108177,-96.3629146
+1172,,Flammable Mat Storage,530 Agronomy Rd,1,30.6193513,-96.35499601
+1173,,Soil & Crop Greenhouse,384 Turk Rd,1,30.61557143,-96.35451573
+1176,,Hort/FS Greenhouse,491 HORTICULTURE RD,1,30.60887701,-96.34992846
+1177,,Hort/FS Greenhouse,485 HORTICULTURE RD,1,30.60887671,-96.35008658
+1178,,Hort/FS Greenhouse,481 HORTICULTURE RD,1,30.60888074,-96.35031662
+1179,,Forest Science Greenhouse,475 HORTICULTURE RD,1,30.60887741,-96.35047149
+1180,,Floriculture Farm Storage Bldg,271 Adriance Lab Rd,1,30.61023007,-96.35226616
+1183,,Range Science Field Lab,2540 Nuclear Science Rd,1,30.57949543,-96.36312931
+1184,VAPA,Veterinary Anatomic Pathology,211 Sippel Rd,2,30.61361692,-96.35414144
+1185,,Parsons Cav Caretaker Facility,278 Harvey Mitchell Pw S,1,30.61061901,-96.37329908
+1186,,TVMC-Isolation Laboratory,550 Raymond Stotzer Pw,1,30.61188705,-96.3554218
+1187,LFB,W.P. Luse Foundation Building,730 Raymond Stotzer Pw,1,30.60929986,-96.35674858
+1188,,Forest Science Storage,260 Agronomy Rd,1,30.61616537,-96.3520028
+1190,,Floriculture Research Greenhouse,555 Floriculture Rd,1,30.62938152,-96.34256457
+1191,,Floriculture Growing Facility,561 Floriculture Rd,1,30.62944889,-96.34276519
+1192,VMSB,TVMC-Surgery Building,510 Turk Rd,1,30.61444138,-96.35600073
+1193,,Wildlife & Exotic Animal Ctr,2765 F&B Rd,1,30.62023544,-96.35969171
+1194,VLAH,Veterinary Large Animal Hospital,500 Raymond Stotzer Pw,2,30.61254454,-96.35484967
+1195,,Non Surgical Animal Procedure,544 Turk Rd,1,30.61450196,-96.35635581
+1196,,Animal Housing Unit,688 Turk Rd,1,30.61607546,-96.35927193
+1197,VRB,Veterinary Research Building,588 Raymond Stotzer Pw,4,30.61113469,-96.35485669
+1198,,LARR Support Personnel Bldg,690 Turk Rd,1,30.61617637,-96.35951478
+1200,,Parsons Mounted Cavalry Building (2016),3748 F&B Rd,1,30.6097705,-96.37299903
+1201,FARM,Poultry Science Headquarters,1202 Harvey Mitchell Pw S,1,30.58786922,-96.34972074
+1202,POSC,Poultry Sci Handling & Judging,1202 HARVEY MITCHELL PW STE 1202,1,30.58747922,-96.34993192
+1203,PSNP,Poultry Sci Nutrition & Phys,1202 HARVEY MITCHELL PW S STE 1203,1,30.5874256,-96.35045694
+1204,,Poultry Sci Environmental Res,1202 HARVEY MITCHELL PW S STE 1204,1,30.58711276,-96.3503591
+1205,,Poultry Science Feed Mixing,1202 HARVEY MITCHELL PW S STE 1205,1,30.58713612,-96.35073691
+1206,,Poultry Sci Equipment Storage,1202 HARVEY MITCHELL PW S STE 1206,1,30.58704147,-96.35108217
+1207,,Poultry Sci Repro & Embryology,1202 HARVEY MITCHELL PW STE 1207,1,30.58637068,-96.3515628
+1208,,Poultry Sci Comparative Rearing,1202 HARVEY MITCHELL PW S STE 1208,1,30.58655903,-96.35098807
+1209,,Poultry Sci Integrated Repro,1200 Harvey Mitchell Pw S Ste 1209,1,30.58655055,-96.35193318
+1210,,PS Intensive Mgt & Rearing,1202 HARVEY MITCHELL PW S STE 1210,1,30.58684268,-96.35207319
+1211,,Poultry Science Broiler #1,1202 HARVEY MITCHELL PW S STE 1211,1,30.58677644,-96.35130614
+1212,,Poultry Science Broiler #2,1202 HARVEY MITCHELL PW S STE 1212,1,30.58708963,-96.35145617
+1213,,Poultry Science Caged Layer #1,1202 HARVEY MITCHELL PW STE 1213,1,30.58749312,-96.35122967
+1214,,Poultry Science Caged Layer #2,1202 HARVEY MITCHELL PW STE 1214,1,30.58771287,-96.3506116
+1215,,PS Environmental Biotechnology,1202 HARVEY MITCHELL PW STE 1215,1,30.58813259,-96.35030719
+1216,,PS Gamebird Repro & Management,1202 HARVEY MITCHELL PW STE 1216,1,30.58811083,-96.35143212
+1217,,PS Gamebird Rearing & Flt Pen,1202 HARVEY MITCHELL PW STE 1217,1,30.58845521,-96.35144298
+1218,,Refuse Collection Maintenance,1204 Harvey Mitchell Pw S,1,30.58676593,-96.34955883
+1220,,TVMC-Animal Isolation Bldg #1,995 Turk Rd,1,30.61312917,-96.363628
+1221,,TVMC-Animal Isolation Bldg #2,975 Turk Rd,1,30.61327614,-96.36346567
+1222,,TVMC-Animal Isolation Bldg #3,955 Turk Rd,1,30.61342376,-96.36330372
+1223,,TVMC-Animal Isolation Bldg #4,945 Turk Rd,1,30.61358584,-96.36312831
+1224,,TVMC-Animal Isolation Bldg #5,935 Turk Rd,1,30.61373383,-96.3629664
+1225,,TVMC-Animal Isolation Bldg #6,925 Turk Rd,1,30.61388106,-96.3628039
+1226,,TVMC-Animal Isolation Bldg #7,999 Turk Rd,1,30.61300001,-96.36347059
+1227,,TVMC-Animal Isolation Bldg #8,985 Turk Rd,1,30.61314789,-96.36331006
+1228,,TVMC-Animal Isolation Bldg #9,965 Turk Rd,1,30.61329509,-96.36314735
+1232,VMTF,"Theriogenology Facility, Equine Reproduction",522 Raymond Stotzer Pw,1,30.61328179,-96.35630896
+1234,,Dry Feed Storage Facility,230 Raymond Stotzer Pw,1,30.61403185,-96.35534372
+1236,,Small Horse Barn,,1,30.61065093,-96.37382908
+1237,EAA,Equine Athletic Riding Arena,523 Turk Rd,1,30.61269553,-96.35679798
+1238,OBSR,Robotic Observatory,2790 Nuclear Science Rd,1,30.5725542,-96.36688148
+1239,OBSV,Physics Teaching Observatory,2788 Nuclear Science Rd,2,30.57272856,-96.3670437
+1240,,LARR SUPPORT SHOP A,,,30.61629601,-96.35976007
+1241,,LARR SUPPORT SHOP B,,,30.61623329,-96.35973109
+1242,,Utilities Water Operations Building F&B Storage,2484 F&B Rd,1,30.62373222,-96.35854197
+1243,,Plumbing Fabrication Shop,2760 F & B RD,1,30.6214174,-96.36200312
+1244,,Utilities Inventory Warehouse Building 1,2750 F&B Rd,1,30.62173301,-96.36168778
+1245,,Cable Wire Storage,2754 F & B RD,1,30.62205858,-96.36165632
+1246,,Generator Storage Building,2744 F & B RD,1,30.62196063,-96.3614073
+1247,,Hazardous Waste Office & Support Bldg,2659 Dairy Center Rd,1,30.62252844,-96.36182929
+1248,VWSH,Transportation Car/Bus Wash Building,438 AGRONOMY RD,1,30.6181914,-96.35337791
+1249,,Telecommunications Optical Remote Building,476 AGRONOMY RD,1,30.6192823,-96.35366409
+1259,,Airport-Aircraft Hanger J,1838 GEORGE BUSH DR W,1,30.589208,-96.35761941
+1260,,Airport Hangar,1850 George Bush Dr W,1,30.58899915,-96.35736229
+1262,,McKenzie Terminal Building,1 McKenzie Terminal Bl,2,30.5935579,-96.36656902
+1264,,TAC Realty Hanger,2600 Nuclear Science Rd,2,30.58241519,-96.36210236
+1265,,Former Parking Toll Booth-Easterwood,1814 George Bush Dr. W,1,30.58949403,-96.3576957
+1268,,"Nat'l Aerothermochemistry Lab, Bldg 1",1737 George Bush Dr W,1,30.59064019,-96.35806611
+1269,,Low Speed Wind Tunnel Shop,1729 GEORGE BUSH DR W,1,30.59076479,-96.35770297
+1271,,"Nat'l Aerothermochemistry Lab, Bldg 2",1753 Geroge Bush Dr W,1,30.5907287,-96.35793523
+1272,,EASTERWOOD AIRPORT CONTROL TOWER,,1,30.59026909,-96.35884289
+1273,,Easterwood Airport Electrical Vault,,,30.59042329,-96.35880584
+1274,KSWT,Klebanoff-Saric Wind Tunnel (Unsteady Wind Tunnel),1721 George Bush Dr W,1,30.59101109,-96.35794831
+1277,,Easterwood Rescue and Fire Facility,1550 George Bush Dr W,1,30.59175323,-96.35845128
+1279,,McKenzie Telecom Hub,,,30.58366545,-96.35692818
+1280,,ESTI Bathroom (Parker's Privy),,1,30.58481621,-96.35551165
+1283,,ESTI Industrial Bunker Gear Drying Building,1850 Simmons St.,1,30.58309326,-96.35622149
+1284,,ESTI Breathing Apparatus Repair Building,,1,30.57919588,-96.35446582
+1285,,ESTI Multi-Use Shelter,1943 Emergency Response Dr.,,30.57764477,-96.34926577
+1286,,ESTI Warehouse Shelter,,,30.57696195,-96.35007762
+1287,,ESTI EMS Shop/Storage Building,,2,30.57846418,-96.35584804
+1295,,Turbo Machine Storage Facility,1493 George Bush Dr W,1,30.59019849,-96.35572789
+1296,,Easterwood Maintenance Support Facility,1809 George Bush Dr W,1,30.58966313,-96.35731603
+1297,,"Land, Air, Space Robotics",1188 Nuclear Science Rd,1,30.58951043,-96.35679331
+1298,,Turbo Lab Support Building,1485 George Bush Dr W,1,30.59057683,-96.35603383
+1299,,Turbomachinery Laboratory,1485 George Bush Dr W,2,30.59072333,-96.35567642
+1307,,Nuclear Science Center Laboratory,2524 Nuclear Science Rd,2,30.58021212,-96.36459864
+1322,,ESTI Apartment Complex Fires,,,30.58070886,-96.35533752
+1323,,ESTI Commercial/Retail Complex Fires,,,30.58055634,-96.35550836
+1324,,ESTI Commercial/Retail Complex Fires,,,30.58028205,-96.35527972
+1325,,ESTI Pump Seal Fires,,,30.57954917,-96.35603725
+1326,,ESTI LPG Fires,,,30.57941972,-96.35617749
+1327,,ESTI Hose Evolutions,1801 Essentials St.,,30.579446,-96.35237712
+1328,,ESTI Hose Loads,1813 Essentials St.,,30.57936496,-96.35205475
+1329,,ESTI Salvage & Overhaul,1825 Essentials St.,,30.57924351,-96.35161945
+1330,,ESTI Interior Shoring Shelter,,,30.57651274,-96.35116657
+1331,,ESTI Breaching/Breaking Tunnel System,,,30.57627278,-96.35129435
+1332,,ESTI Exterior Shoring Shelter,,,30.57647319,-96.35076247
+1333,,ESTI Lifting/Moving Shelter,,,30.57616001,-96.35080556
+1334,,ESTI Crane Operations Shelter,,,30.57643034,-96.35033025
+1335,,ESTI Marine Engine Room Fires,,,30.57894484,-96.35517581
+1336,,ESTI Rescue Vessles,,,30.57882362,-96.35429655
+1337,,ESTI Drill Towners (Steel/Brick) Shelter,,,30.57871185,-96.35450676
+1338,,ESTI Marine Ship Superstructure Fires,,,30.57908766,-96.35532224
+1345,,ESTI H. D. Smith Operations Complex,1595 Nuclear Science Rd.,2,30.58251342,-96.35698859
+1347,,ESTI Bathroom (SCBA Area),,1,30.57908418,-96.35430239
+1349,,ESTI Rescue/Disaster City Canine Support,,1,30.57486292,-96.34987201
+1350,,ESTI Bathroom (Hazardous Materials Area),,1,30.57684985,-96.34961116
+1351,,ESTI Bathroom (Marine Area),,1,30.57985681,-96.35517657
+1352,,ESTI Bathroom (Industrial Area),,1,30.58286033,-96.35669259
+1353,,ESTI Industrial Classrooms A&B,1605 Methner St.,1,30.58337949,-96.35589696
+1354,,ESTI Industrial Office,1858 Simmons St.,1,30.58314244,-96.35651765
+1355,,ESTI Industrial Classrooms A&B,,1,30.58308321,-96.35636192
+1356,,ESTI Industrial Office,1866 Simmons St.,1,30.58299955,-96.35667245
+1357,,ESTI Industrial Classrooms A&B,,1,30.58286759,-96.35659234
+1358,,ESTI Business Office,1927 Emergency Response Dr.,1,30.57812578,-96.34884621
+1359,,ESTI Hazardous Materials Classrm/Mrkting Office,1923 Emergency Response Dr.,1,30.57822104,-96.34906882
+1360,,ESTI Marine/EHS Office,,1,30.57972648,-96.35535381
+1361,,ESTI Rescue Classroom A&B,1761 Emergency Response Dr.,1,30.57852019,-96.35386876
+1362,,ESTI Marines Ship Deck Fires Shelter,,,30.57924631,-96.35530015
+1363,,ESTI Field Maintenance Shop,,1,30.57831065,-96.355618
+1364,,EMS Classroom/EMS Storage,1919 Emergency Response Dr.,1,30.57831647,-96.34929263
+1365,,ESTI EMS Classroom,1911 Emergency Response Dr.,1,30.57850669,-96.34973958
+1366,,ESTI Industrial Classrooms A&B,1583 Methner St.,1,30.58345323,-96.3559817
+1367,,ESTI EMS Office,1915 Emergency Response Dr.,1,30.57841162,-96.34951556
+1368,,ESTI Vendor Store,1561 Methner St,1,30.58352712,-96.35607164
+1370,,Emergency Operations TRNG Center,,2,30.57887257,-96.35148597
+1375,,ESTI TUNNELING SYSTEM,,,30.57538557,-96.35035794
+1376,,ESTI SINGLE FAMILY BUILDING COLLAPSE,,,30.57522673,-96.35072765
+1377,,ESTI OFFICE COMPLEX BUILDING COLLAPSE,,,30.57552861,-96.35097325
+1379,,ESTI MULTI-PURPOSE BUILDING COLLAPSE,,,30.57491236,-96.35096331
+1380,,ESTI Industrial Complex Bldg Collapse,,,30.57520992,-96.35187385
+1381,,ESTI Passanger Train (7 Cars),,,30.57558502,-96.34990786
+1382,,Rescue/Disaster City Warehouse,,1,30.5760098,-96.35007146
+1383,,ESTI Strip Mall Collapse,,,30.57518111,-96.35133284
+1384,,ESTI Interior Shoring Project,,,30.57643126,-96.3509858
+1385,,ESTI WMD Restroom,,1,30.57792122,-96.34858976
+1386,,ESTI Curriculum Office,,1,30.57777478,-96.34884296
+1387,,ESTI Leadership/Certification/Evaluation Office,1939 Emergency Response Dr.,1,30.57774191,-96.34907068
+1388,,TEEX Emergency Services Lab,,1,30.57882416,-96.35032332
+1391,,Pat Barrett Bunker Gear Drying Facility,1648 Dohrn St,1,30.58086175,-96.35567116
+1392,,TEEX-ESTI (FTS) Rescue Training Facility,2024 B St,2,30.57440617,-96.35067207
+1402,BUZB,Buzbee Leadership Learning Center,682 Military Mall,5,30.6125165,-96.33709187
+1403,ASH1,"H. Grady Ash, Jr. '58 Leadership Learning Center",693 Military Mall,4,30.61352615,-96.33560399
+1404,PLNK,Plank Leadership Learning Center,622 Military Mall,4,30.61361798,-96.33736555
+1405,ASH2,"Ash, II Leadership Learning Center",621 Military Mall,4,30.61402744,-96.33678924
+1412,,Civilian Lounge - A2,212 University Dr,1,30.61585002,-96.34541292
+1415,CVLNA3,Civilian Lounge - A3,210 University Dr,1,30.61524583,-96.34616568
+1416,HLBL,Hullabaloo Residence Hall,306 University Dr,4,30.61614754,-96.34628104
+1427,,Civilian Lounge - A1,225 Jones St,1,30.61521981,-96.34489827
+1430,,Civilian Lounge - C1,308 University Dr,1,30.61705655,-96.34537356
+1440,,Golf Cart Storage Building,837 Bizzell St,1,30.61518724,-96.33167947
+1450,,Laundry @ The Gardens,302 Ball St,1,30.62624696,-96.34223659
+1451,,The Gardens J,302 Ball St,3,30.62692502,-96.34247658
+1452,,The Gardens K,302 Ball St,3,30.62669491,-96.34220142
+1453,,The Gardens L,302 Ball St,3,30.62646675,-96.34192524
+1454,,The Gardens F,302 Ball St,3,30.62647651,-96.34288001
+1455,,The Gardens G,302 Ball St,3,30.6260998,-96.34242676
+1456,,The Gardens H,302 Ball St,3,30.62563585,-96.34186928
+1457,,The Gardens M,1100 Hensel Dr,3,30.62771098,-96.34195831
+1458,,The Gardens N,1100 Hensel Dr,3,30.62797637,-96.34166502
+1459,,The Gardens P,1100 Hensel Dr,3,30.62745602,-96.34147797
+1460,,The Gardens Q,1100 Hensel Dr,3,30.62732066,-96.34107749
+1461,,Activity Building,1100 Hensel Dr,1,30.62706788,-96.34138477
+1490,,Cabin At Challenge Course,3630 N Traditions Dr,1,30.61471066,-96.37992831
+1491,,Shed At Challenge Course,3634 N Traditions Dr,1,30.61471005,-96.37987518
+1492,,Classroom At Challenge Course,3626 N Traditions Dr,1,30.61507741,-96.37968062
+1493,,Agronomy Road - T8 PCR,,,30.6167928,-96.35188312
+1496,,12.47 KV Switching Station,178 Agronomy Rd,1,30.61604632,-96.35053393
+1497,UBO,Utilities & Energy Services Business Office,176 Agronomy Rd,1,30.61580374,-96.35106416
+1498,SUP1,Satellite Utility Plant No. 1,350 John Kimbrough Bl,1,30.60821863,-96.34712364
+1499,SUP2,Satellite Utility Plant No. 2,401 Turk Rd,1,30.61470984,-96.35364429
+1501,KLCT,Kleberg Center,474 Olsen Bl,6,30.61052819,-96.34735188
+1502,HPCT,HEEP Center,370 Olsen Bl,7,30.61138833,-96.34805796
+1503,CMAT,Cater-Mattil Hall,373 Olsen Bl,2,30.61323118,-96.34817691
+1504,REYN,Reynolds Medical Sciences Building,206 Olsen Bl,4,30.6112016,-96.3519733
+1505,MSTC,Rosenthal Meat Science & Technology Center,488 Olsen Bl,1,30.60983676,-96.3482958
+1506,HFSB,Horticulture/Forest Science Building,495 Horticulture Rd,6,30.60923402,-96.35030196
+1507,BICH,Biochemistry/Biophysics Building,300 Olsen Bl,5,30.61072524,-96.34921526
+1508,HOBG,Price Hobgood Ag. Engineering Research Lab,375 Olsen Bl,1,30.61348902,-96.34915235
+1509,MEDL,Medical Sciences Library,202 Olsen Bl,3,30.61200821,-96.35163804
+1510,WCBA,Wehner Building,210 Olsen Bl,5,30.61091174,-96.35039291
+1511,WCLF,West Campus Library Facility,214 Olsen Bl,3,30.61157093,-96.35016411
+1512,SCIG,Southern Crop Improvement Greenhouse,502 Olsen Bl,1,30.60737715,-96.34995681
+1513,SCIC,Borlaug Center for Southern Crop Improvement,498 Olsen Bl,2,30.60809435,-96.3494899
+1514,,Parking Toll Booth At PA72,200 Olsen Bl,1,30.61239889,-96.3504477
+1516,,Horticulture Field Laboratory,499 HORTICULTURE RD,1,30.60839831,-96.35068346
+1517,,Horticulture Cabin,,1,30.52420262,-96.42541808
+1518,SPHA,School of Public Health - Admin Bldg,212 Adriance Lab Rd,3,30.60948844,-96.35437442
+1519,SPHB,School of Public Health - Lab Bldg,210 Adriance Lab Rd,2,30.60994335,-96.35444242
+1520,SPHC,School of Public Health - Classroom Bldg,214 Adriance Lab Rd,1,30.6099709,-96.35388369
+1525,NMR,Nuclear Magnetic Resonance Facility,272 Olsen Bl,3,30.61022745,-96.34982657
+1530,ILSB,Interdisciplinary Life Sciences Building,301 Old Main Dr,4,30.61429492,-96.34364887
+1535,AGLS,Agriculture and Life Sciences Building,600 John Kimbrough Bl,5,30.60549438,-96.35096296
+1536,AGSV,AgriLife Services Building,578 John Kimbrough Bl,5,30.60606307,-96.35113825
+1537,,Agriculture Public Building,534 John Kimbrough Bl,,30.60643253,-96.35060149
+1538,AGCT,The AgriLife Center,556 John Kimbrough Bl,2,30.60606949,-96.35010652
+1540,PEAP,Physical Education Activity Program Building,632 Penberthy Rd,2,30.60446323,-96.34939929
+1541,PEBC,Physical Education Boot Camp and Archery Annex,762 Penberthy Bl,1,30.60172263,-96.35123665
+1542,HCRB,Human Clinical Research Building,675 John Kimbrough Bl,,30.60444704,-96.3509911
+1544,,Cain Parking Garage,500 Gene Stallings Bl,5,30.61151774,-96.34342369
+1547,,McFerrin Athletic Center-Indoor Football,177 Wellborn Rd,1,30.60730881,-96.3398049
+1548,ITRK,McFerrin Athletic Center-Indoor Track,171 Wellborn Rd,2,30.60786129,-96.34034107
+1549,,Olsen Field Batting Cage Facility,949 Olsen Bl,1,30.60588365,-96.34227858
+1550,OLSN,Olsen Field at Bluebell Park,955 Olsen Bl,3,30.60524526,-96.34151861
+1552,,Olsen (E.D.) Grove Picnic Area,959 Olsen Bl,1,30.60430905,-96.34037508
+1554,REED,Reed Arena,730 Olsen Bl,5,30.6058487,-96.34620897
+1555,,Track & Field Support Center,922 Olsen Bl,1,30.60445398,-96.3431611
+1556,PISC,Penberthy Intramural Sports Center,858 Penberthy Bl,1,30.60200811,-96.34677434
+1557,,Track & Field CTR Ticket Booth,920 Olsen Bl,1,30.60447332,-96.34292731
+1558,,Cox-McFerrin Center for Aggie Basketball,736 Olsen Bl,3,30.60531492,-96.34579851
+1559,WCG,West Campus Parking Garage,201 John Kimbrough Bl,8,30.60845137,-96.34441781
+1560,SREC,Student Recreation Center,797 Olsen Bl,4,30.60710964,-96.34267846
+1561,,George P. Mitchell '40 Outdoor Tennis Center,750 Penberthy Bl,2,30.60287554,-96.34886859
+1562,,Wireless Telecommunications Facility,934 Olsen Bl,1,30.60433771,-96.34282167
+1563,,H&K Equipment Storage Building  (adj to Mt. Ag),,,30.60143876,-96.34934665
+1565,,Johnson Track & Field,950 Olsen Bl,1,30.60403497,-96.34266013
+1566,,Julia And Mark Ellis '79 Soccer Building,940 Olsen Bl,1,30.60407642,-96.34330321
+1567,,Softball Building,910 Olsen Bl,1,30.60427554,-96.34359408
+1568,,Varsity Soccer Press Box,369 TOM CHANDLER DR,3,30.60426757,-96.34396039
+1569,,Mitchell Tennis Center Ticket Booth,754 Penberthy Bl,1,30.60319089,-96.34798673
+1570,WCTC,Omar Smith Instructional Tennis Center,746 Penberthy Bl,1,30.60208501,-96.34955422
+1571,,West Campus Office Pavilion,942 Olsen Bl,1,30.60389101,-96.34354652
+1572,,Soccer/Intramural Restroom,946 Olsen Bl,1,30.60334931,-96.34441095
+1578,,Penberthy RecSports Pavilion,1000 Penberthy Bl,1,30.59994533,-96.34729181
+1579,,Small Upland Fowl Res Lab (Mothballed in 2014),1075 GEORGE BUSH DR W,1,30.59340093,-96.35022991
+1581,,Penberthy RecSports Maintenance Bldg,901 PENBERTHY BL,1,30.600161,-96.34993222
+1582,PDCWC,Player Development Center-West Campus,447 Tom Chandler Dr,1,30.60367985,-96.34552683
+1589,,White Creek Apartments Activity Center,225 Discovery Dr,1,30.60763207,-96.35619548
+1590,,White Creek Apartments #1,225 Discovery Dr,5,30.60748147,-96.35688005
+1591,,White Creek Apartments #2,225 Discovery Dr,5,30.60812051,-96.35613979
+1592,,White Creek Apartments #3,225 Discovery Dr,5,30.60708502,-96.35560652
+1597,,IODP Hazmat Containment,1002 Discovery Dr,1,30.60303026,-96.3547068
+1598,,1313 Research Parkway (Lynntech Building),1313 Research Pw,1,30.60478034,-96.35798887
+1599,2RPK,2 Research Park,1700 Research Pw,2,30.60044034,-96.35893592
+1600,GGB,Gilchrist Building (T.T.I.),2929 Research Pw,3,30.60147811,-96.35341434
+1601,IODP,International Ocean Discovery Building,1000 Discovery Dr,2,30.60330525,-96.35439962
+1602,ONRP,1111 Research Parkway Bldg,1111 Research Pw,2,30.60558268,-96.35908655
+1603,DLH,Donald L. Houston Building,200 Discovery Dr,1,30.60655892,-96.3576438
+1604,OTRC,Offshore Technology Research Center,1200 Mariner Dr,2,30.60261928,-96.35575375
+1605,CEN,Centeq Building,1500 Research Pw,2,30.60231847,-96.3593278
+1606,BPLM,George Bush Presidential Library & Museum,1000 George Bush Dr W,3,30.5965994,-96.35309909
+1607,ALLN,Allen Building,1004 George Bush Dr W,3,30.59760796,-96.35272468
+1608,BPCC,Annenberg Presidential Conference Center,1002 George Bush Dr W,2,30.59737587,-96.35362374
+1609,TTIHQ,TTI State Headquarters & Research Building,2935 Research Pw,4,30.60210989,-96.35363245
+1610,CEL,Reta and Bill Haynes '46 Coastal Engineering Lab,600 Discovery Dr,1,30.60478003,-96.35548399
+1611,GERB,Giesecke Engineering Research Building,1617 Research Pw,3,30.60212766,-96.35708034
+1620,EBRF,Electron Beam Food Research Facility,400 Discovery Dr,1,30.60567021,-96.35647375
+1698,,Research Park Switching Station,1212 MARINER DR,1,30.60212485,-96.3550146
+1699,,GTE Optical Remote Module (ODM) Facility @ Researc,,1,30.60264391,-96.35445983
+1700,,Schmidt House,3869 F&B Rd,1,30.6079786,-96.37384461
+1701,,Texas A&M Polo Club Stables,3913 F & B RD,1,30.60755768,-96.37329963
+1702,,Equestrian Bldg@BrazosCo ExpoCtr (Vacated in 2014),,1,30.61886149,-96.4152628
+1720,TGLC,Traditions Golf Learning Center,3880 S Traditions Dr,2,30.6015746,-96.38590993
+1750,,Reproductive Sciences Bldg. A,4011 SH 47,1,30.63247392,-96.43944457
+1751,,Reproductive Sciences Bldg. B,4011 SH 47,1,30.6326737,-96.4399096
+1752,,Reproductive Sciences Bldg. C,4011 SH 47,1,30.63331645,-96.43916622
+1753,,Reproductive Sciences Bldg. D,4011 SH 47,1,30.63237961,-96.44010817
+1754,,Reproductive Sciences Bldg. E,4011 SH 47,1,30.6329533,-96.43941104
+1755,,Reproductive Sciences Bldg. F,4011 SH 47,1,30.6321409,-96.43930694
+1756,,Reproductive Sciences Bldg. G,4011 SH 47,1,30.63199068,-96.43931142
+1757,,Reproductive Sciences Bldg. H,4011 SH 47,1,30.63233251,-96.43896695
+1758,,Reproductive Sciences Bldg. I,4011 SH 47,1,30.63220498,-96.43914498
+1759,,Reproductive Sciences Bldg. J,4011 SH 47,1,30.63202532,-96.43875253
+1800,GSC,General Services Complex,750 Agronomy Rd,3,30.62217957,-96.35741423
+1804,ENTO,Rollins Urban and Structural Entomology Facility,2656 F&B Rd,1,30.62194174,-96.35993761
+1805,,Scotts Turf Lab 1 (Admin Bldg),3100 F&B RD,1,30.61921216,-96.36501552
+1806,,Scotts Turf Lab 2 (Shop Bldg),3106 F&B RD,1,30.61943637,-96.36549999
+1809,,TVMDL Building,483 Agronomy Rd.,2,30.61889362,-96.35659739
+1810,,Office of the State Chemist Building,445 Agronomy Rd,1,30.617508,-96.35545267
+1811,VMR,Vet Med Research Bldg Addition,588 Raymond Stotzer Pw,3,30.6115834,-96.35469275
+1812,VENI,Veterinary Medicine Building 1 (VENI),660 Raymond Stotzer Pw,3,30.61155415,-96.35701339
+1813,VIDI,Veterinary Medicine Building 2 (VIDI),668 Raymond Stotzer Pw,4,30.61182264,-96.35797837
+1814,VICI,Veterinary Medicine Building 3 (VICI),664 Raymond Stotzer Pw,4,30.61236285,-96.35732716
+1900,TIGM,Texas A&M Institute For Genomic Medicine,670 Raymond Stotzer Pw,2,30.61055467,-96.35715115
+1904,TIPS A,Texas A&M Institute for Preclinical Studies A,800 Raymond Stotzer Pw,2,30.60921805,-96.35753439
+1905,TIPS B,Texas A&M Institute for Preclinical Studies B,806 Raymond Stotzer Pw,1,30.60930728,-96.35860264
+1906,TIPS C,Texas A&M Institute for Preclinical Studies C,812 Raymond Stotzer Pw,1,30.61001486,-96.35828565
+1910,NCTM,National Center for Therapeutics Manufacturing,100 Discovery Dr,2,30.60790513,-96.36153112
+1911,MSRB,Multi-Species Research Building,1000 MSRB Dr.,2,30.6093115,-96.36215139
+2901,,EASTMARK BUILDING,7670 Eastmark Dr,2,30.61734207,-96.29911843
+2902,,707 Texas Ave Bldg A [lease terminated 2016],707 Texas Av,2,30.62674335,-96.33239556
+2912,MTRO,3833 Texas Ave (Metro Center),3833 S Texas Av,1,30.6361451,-96.34362482
+2913,,3400 S Texas (Family Health Center),3400 S Texas Av,1,30.63950131,-96.3494991
+2917,,702 E University Bldg E,702 University Dr E,1,30.63203664,-96.32653672
+2918,,"Executive Office Plaza, Bryan Tx",3608 W 29th St,2,30.65023279,-96.33532792
+2922,,TEES State Headquarters Bldg,1470 William D Fitch Pw,1,30.56121537,-96.25286839
+2926,,All Seasons Storage,3201 Earl Rudder Fy S,1,30.59705389,-96.28891818
+2929,,USAR Gateway Facility,101 Gateway Blvd,1,30.55316813,-96.24911919
+2938,,400 Harvey Mitchell Pw (Valley Park Center),"400 Harvey Mitchell Pw, Ste 300",1,30.60564068,-96.36892939
+2941,,402 Harvey Mitchell (Valley Park II),402 Harvey Mitchell Pw,1,30.60522168,-96.36804683
+2942,,Telecommunications Services Center (expired 2013),7610 Eastmark Dr,2,30.61821283,-96.29821842
+2943,,"2901 E 29th St,Ste118(CarterCrkCtr)-DOES NOT EXIST",,1,30.65657164,-96.3433304
+2944,,Science Park Bldg (Suite 700) INACTIVE,2501 Earl Rudder Fw S,1,30.6159322,-96.28991676
+2946,,Science Park Bldg (Suite 701),2501 Earl Rudder Fw S,1,30.61633697,-96.28943096
+2947,,Parker Lumber Office,419 N Main St,1,30.67722228,-96.3724339
+2948,,HortTREC Pesticide Locker,3199 CR 269 East,1,30.52224402,-96.43122312
+2949,,HortTREC Greenhouse North,3199 CR 269 East,1,30.52256942,-96.43012375
+2950,,HortTREC Office-Warehouse,3199 CR 269 East,1,30.52260039,-96.43068788
+3050,GERG,GERG Main Office Building,833 Graham Rd,1,30.57099675,-96.29465853
+3051,,GERG East Lab & Office Building,833 Graham Rd,2,30.57153222,-96.29425894
+3053,,GERG Portable Building,833 Graham Rd,1,30.57139481,-96.29422882
+3054,,GERG Warehouse,833 Graham Rd,1,30.57134491,-96.29462587
+3055,,GERG Solvent Shed,833 Graham Rd,1,30.57110381,-96.29427709
+3056,,GERG Gas Shed,833 Graham Rd,1,30.57109355,-96.29438945
+3098,,Business Management Services Record Storage,,1,30.61801162,-96.3215008
+3099,BMSB,Business Management Services Building,1501 South Texas Av,2,30.61791825,-96.32175489
+3100,HGLR,Hagler Center,401 George Bush Dr,3,30.60720327,-96.33743294
+3170,,Horticulture Garden Volunteer Office,540 Floriculture Rd,1,30.63000252,-96.34231082
+3171,HORTOF,Horticulture Office,530 Floriculture Rd,1,30.62995896,-96.34215903
+3172,HORTCL,Horticulture Classroom,520 Floriculture Rd,1,30.62993321,-96.34204373
+3190,,Becky Gates Children's Center Multipurpose Bldg,1121 Hensel Dr,1,30.62821798,-96.34302505
+3195,,Hensel Park Telecom Building #2,594 Floriculture Rd,1,30.6295089,-96.34324468
+3196,,Hensel Park Telecom Building,570 Floriculture Rd,1,30.62979857,-96.34317006
+3197,,University Apts Community Maintenance Bldg,225 Calvin Moore Av,2,30.62610273,-96.34122554
+3198,UACC,University Apartments Community Center,250 Calvin Moore Av,1,30.62671857,-96.34019488
+3199,,Becky Gates Children's Center,1125 Hensel Dr,1,30.62832249,-96.34270837
+3200,,Moore-Connally Building,301 Tarrow St,7,30.63679188,-96.32771721
+3201,,State HGTRS Thermal Plant,305 TARROW ST,1,30.63711914,-96.32712167
+3205,AMSB,Texas A&M System Agency Office Building,200 Technology Way,2,30.55179344,-96.24358227
+3400,USB,University Services Building,3380 University Dr E,1,30.64642432,-96.29623478
+3410,4HHQ,AgriLife Extension 4-H State Headquarters,4180 SH 6 S,2,30.56922408,-96.27146646
+4001,,White (G.R.) Conference Center,7707 Raymond Stotzer Pw,1,30.56175251,-96.41028707
+4002,,Beef Cattle Center Headquarters,7771 Raymond Stotzer Pw,1,30.56036923,-96.41273612
+4003,,Beef Cattle Center Feed Mill,7771 RAYMOND STOTZER PW STE 4003,1,30.5595273,-96.4131142
+4004,,Beef Cattle Center Equip Storage,7771 RAYMOND STOTZER PW STE 4004,1,30.55983331,-96.41323941
+4010,,Nutrition/Physiology Center,7763 Raymond Stotzer Pw,1,30.55885117,-96.41166873
+4011,,Equipment Storage/Diet Prep,7767 RAYMOND STOTZER PW STE 4011,1,30.55887054,-96.41212769
+4012,,Sheep Feeding,,1,30.55871365,-96.41247177
+4013,,Cattle Feeding,,1,30.55836535,-96.41227809
+4014,,Cattle Processing,,1,30.55858676,-96.41180154
+4015,,Interdisciplinary Barn,,1,30.5582267,-96.41293272
+4016,,Farrowing/Nursery,7767 Raymond Stotzer Pw,1,30.55900134,-96.41264804
+4017,,Compost Shed,,1,30.55755312,-96.41267411
+4020,,Sheep & Goat Center,7729 Raymond Stotzer Pw,1,30.56011614,-96.4094669
+4021,,Livestock Housing,7733 RAYMOND STOTZER PW,1,30.55998448,-96.40888923
+4022,,Isolation Barn,7731 RAYMOND STOTZER PW,1,30.56031032,-96.40893083
+4025,,Thomsen Animal Euthenics Center,7735 Raymond Stotzer Pw,1,30.5592049,-96.40879955
+4026,,SHEEP FEEDING BARN-BURLESON CO.,10720 FM 50,1,30.51876906,-96.4176818
+4027,,BEEF RESEARCH UNIT-BURLESON CO.,10720 FM 50,1,30.52086253,-96.41489915
+4030,,HortTREC Greenhouse Complex,3199 CR 269E,1,30.52203826,-96.43023448
+4031,,HortTREC Complex Headhouse,3199 CR 269E,1,30.52225614,-96.43046539
+4032,,HortTREC Winteringhouse West,3199 CR 269E,1,30.52236838,-96.43005083
+4033,,HortTREC Winteringhouse East,3199 CR 269E,1,30.52220743,-96.4298605
+4034,,HortTREC Headhouse North,3199 CR 269E,1,30.52272574,-96.43004868
+4050,WWTP,Wastewater Treatment Plant,9685 Whites Creek Rd,1,30.56436319,-96.36980808
+4051,TPPP,WWTP Primary Pump Building,,1,30.56488939,-96.37034005
+4052,TPSP,WWTP Secondary Pump Building,,1,30.56570168,-96.37090123
+4053,TPDB,WWTP Disinfection Building,,1,30.56549246,-96.37134397
+4054,TPBB,WWTP Digester Boiler Building,,1,30.56500651,-96.36970999
+4055,TPES,WWTP Equipment Storage Building,,1,30.56413865,-96.37011678
+4430,,AG Comm Print Ctr & Storage Bldg,1322 Avenue D,3,30.64189074,-96.47028256
+4431,,Extension Center Office Building,1320 Avenue D,3,30.64242041,-96.47075146
+4542,,TVMC-Wildlife & Exotic Animals,2771 F&B Rd,1,30.62005813,-96.36052243
+4634,FSSB,Variety Testing and Sorghum Breeding,405 Turk Rd,3,30.61411339,-96.35440705
+5200,,Metal Building,3646 FINEFEATHER RD,1,30.62818114,-96.36303822
+5446,,Ground Water Storage Tank,1281 Avenue B,,30.64307609,-96.47200044
+5447,,Water and Valve Hut,1258 Avenue C,,30.64332942,-96.47214111
+5499,,STORAGE SHELTER,1220 Ave A,1,30.64510258,-96.474907
+6030,ELTC,TEEX Hangar/Classrooms,1777 Flight Line Rd,1,30.63370615,-96.47492494
+6047,,Chemical Supplies Storage,1035 7th St,1,30.63572026,-96.47498823
+6060,,Volatile Storage,1030 4th St,1,30.64128328,-96.47498388
+6069,,Research Support Bldg,1548 Avenue A,2,30.63860005,-96.47489937
+6071,,ITSI Storage,1490 Avenue A,1,30.63949997,-96.47493125
+6095,,TTI Research Storage,1234 Avenue A,1,30.64414357,-96.47421244
+6242,,Aquaculture Lab (Mothballed),1058 Avenue C,1,30.63687715,-96.4720776
+6502,,Energy Systems Lab,1212 Avenue A,1,30.64472123,-96.47464153
+6775,,SAE Bldg.,1404 2nd St,1,30.64529606,-96.46998869
+6880,,Swimming Pool No.2,,,30.63581875,-96.46549254
+6881,,Bath House,1695 7th St,1,30.63581688,-96.46575874
+6882,,Rest Rooms,1761 7th St,1,30.6342462,-96.46523548
+6884,,Honey Bee/Apiary Services Building,1759 7th St,1,30.63436037,-96.46580916
+7002,,Storage Building,1362 5th St,1,30.63821252,-96.47085983
+7003,,Office Building,1322 5th St,1,30.6385037,-96.4712307
+7004,,PreFabWood Frame Office Bldg. - Riverside Campus,1555 Avenue D,1,30.63996272,-96.47343731
+7006,,Chapel & Assembly Hall,1555 Avenue D,2,30.6385026,-96.4696528
+7007,RNCH,Automated Fabrication and Design Lab,1490 Avenue D,1,30.63928154,-96.47068341
+7030,,TTI Sediment & Erosion Control Lab,1854 Flight Line Rd,1,30.63083746,-96.47909704
+7040,,none,,,30.63324133,-96.4748959
+7041,,U.S.D.A. Hangar No.2,1887 Flight Line Rd,,30.63264055,-96.47490437
+7042,,U.S.D.A. Hangar No.1,1891 Flight Line Rd,,30.63247462,-96.47490451
+7043,,U.S.D.A. Hangar No.3,1869 Flight Line Rd,,30.63298343,-96.47507769
+7044,,U.S.D.A. Hangar No.4,1865 Flight Line Rd,,30.63298414,-96.4752701
+7045,,U.S.D.A. Hangar,1881 Flight Line Rd,1,30.63304147,-96.47484904
+7046,,Aerospace Hangar,1645 Flight Line Rd,1,30.63708384,-96.47511139
+7056,,Electrical and Computer Engineering Solar,1055 7th St,1,30.63606425,-96.47479581
+7057,,TEES Records Archive,1067 7th St,1,30.63606052,-96.47459145
+7061,,TTI Sediment & Erosion Control Support Lab,1025 6th St,1,30.63831282,-96.47509876
+7063,,Conservation Research Lab,1525 Flight Line Rd,1,30.63877011,-96.47517978
+7064,,Conservation Projects,1050 5th St,1,30.63878342,-96.47484419
+7065,,CRL Storage,1035 6th St,1,30.63860912,-96.4750583
+7066,,TEEX - LAW Driving Track Pavilion,1600 Flight Line Rd,1,30.63797851,-96.48721658
+7067,,TEEX - LAW Driving Track Restroom,,1,30.63811412,-96.48737466
+7077,,CONTROL TOWER,1633 Flight Line Rd,2,30.63744824,-96.47524191
+7079,,Turbo Lab Storage,1070 4th St,1,30.64092643,-96.47479232
+7080,,Biology Storage,1060 4th St,1,30.64092297,-96.47458735
+7090,,TTI Proving Ground Research Hangar,1252 Avenue A,2,30.64369275,-96.47502042
+7091,,TTI Office Building,1254 Avenue A,1,30.64381584,-96.47540907
+7092,,TTI Proving Ground Research Support,1250 Avenue A,4,30.64376754,-96.47440041
+7093,,TTI Machining Facility,1288 Avenue A,1,30.64315899,-96.47440133
+7095,,TTI Research Storage Building,1371 Flight Line Rd,1,30.64234308,-96.47480374
+7096,,TTI Environmental & Emissions Research Facility,1375 Flight Line Rd,1,30.64182099,-96.47519552
+7098,,Warehouse,1361 Flight Line Rd,1,30.64214923,-96.47525361
+7175,,none,,,30.63492701,-96.47244752
+7176,,Publications Pro. Center,1761 Avenue B,1,30.63477565,-96.47191836
+7177,,Nautical Archeology Storage,1757 Avenue B,1,30.63492724,-96.47191833
+7178,,TEEX Storage,1747 Avenue B,1,30.63477607,-96.47244771
+7180,,Processing Lab,1366 7th St,1,30.63522325,-96.47108929
+7181,,Solvent Extraction Building,1372 7th St,1,30.63480598,-96.47091063
+7182,,Extraction Building,1376 7th St,1,30.63481365,-96.47109888
+7183,,Refinery,1384 7th St,1,30.6346542,-96.47091242
+7184,,Fats & Oils Processing Building,1370 7th St,1,30.63424886,-96.47092055
+7240,,TEEX Copy Center,1262 6th St,1,30.63761494,-96.4719293
+7439,,Telecommunications Optical Remote Bldg-Riverside,1220 Second St,1,30.64368593,-96.47249383
+7441,,Riverside Water Distribution Pump Station,1250 Avenue C,1,30.64356594,-96.47180994
+7500,,TTI Research Pendulum Test Facility,1231 Flight Line Rd,1,30.64461652,-96.47516513
+7535,,AM VI Office and Shops,1202 Warehouse Rd,1,30.64438609,-96.47291215
+7751,,TEEX - LAW Office Bldg,1500 4th St,1,30.64077641,-96.46877552
+7752,,TEEX - LAW Gym,1451 Avenue D,1,30.64036073,-96.46930367
+7800,,TEES Smoke Detector Research,1675 Bryan Rd,1,30.63619244,-96.46749958
+7801,,TEEX - LAW Prop House #1,1651 Bryan Rd,1,30.63660344,-96.46749916
+7802,,TEEX - LAW Prop House #2,1627 Bryan Rd,1,30.63705391,-96.46749236
+7899,,TEEX ELECTRICAL POWER TRAINING STORAGE,1151 7th St,1,30.63582707,-96.47336835
+7900,,TEEX ITSI Offices,1365 Stirling Dr,1,30.63305678,-96.47096421
+7901,,TEEX - ITSI,1245 Stirling Dr,1,30.6331655,-96.47248161
+7903,,TEEX Covered Training Area,,1,30.63263777,-96.47238955
+7904,,ESTI Haz Mat Classroom,1945 Emergency Response Dr.,1,30.57742973,-96.34922742
+7905,,ESTI Haz Mat Warehouse,,1,30.57711046,-96.34913576
+7906,,TEEX ITSI Shop,1249 Stirling Dr,1,30.63338874,-96.47226797
+7907,,ESTI Haz Mat Technician Shop,1251 Stirling Dr,1,30.57715814,-96.34941017
+7908,,TEEX EUPWTI Building,1250 Project Dr,1,30.63368433,-96.47235776
+7909,,TEEX EUPWTI Building,1829 Mayer Av,1,30.63349767,-96.47168621
+7910,,ESTI Haz Mat Storage,,1,30.57863906,-96.35050663
+7911,,TEEX EUPWTI Parking,1808 Avenue B,1,30.63399966,-96.47297081
+8000,,TEEX ITSI Garage & Offices,1450 7th St,1,30.6349539,-96.46963916
+8002,,ANSC  ANIMAL SHELTERS,,1,30.62870747,-96.4893317
+8004,,TEEX ITSI Offices - Water Lab,1455 4th St,1,30.64181259,-96.46972461
+8007,,Administrative Bldg,1550 Bryan Rd,1,30.63850188,-96.46871888
+8031,,IODP/Oceanography Bldg,1727 Flight Line Rd,1,30.63468313,-96.4749553
+8032,,Ocean Drilling Test Facility,1725 Flight Line Rd,1,30.63508421,-96.47476349
+8081,,TEEX - ITSI Tech Bldg,1484 Avenue A,1,30.63941839,-96.47436587
+8083,,Telecommunications Building,1472 Avenue A,1,30.63976678,-96.47474668
+8175,,TEEX Warehouse,1769 Avenue C,1,30.6346322,-96.47218358
+8236,,Instructional Materials Serv,1686 Avenue C,1,30.63595522,-96.47218038
+8474,,STORAGE BLDG,1265 Avenue C,1,30.64342644,-96.47120415
+8475,,STORAGE BLDG,1255 Avenue C,1,30.64356351,-96.47120393
+8483,,Archaeological Projects Building,1351 3rd St,1,30.64312327,-96.47090237
+8488,,Nautical Archaeology,1282 Avenue D,1,30.64326027,-96.47047323
+8508,,Warehouse,1306 Warehouse Loop Rd,1,30.64755813,-96.47059557
+8510,,TTI Pavements Research Facility,1210 Warehouse Loop Rd,1,30.64510341,-96.4735974
+8511,,Warehouse,1260 Warehouse Loop Rd,1,30.64553389,-96.47297066
+8512,,Warehouse,1280 Warehouse Rd,1,30.64596443,-96.47234422
+8513,,Warehouse,3000 Warehouse Loop Rd,1,30.64639595,-96.47171659
+8516,,Warehouse,1203 Warehouse Rd,1,30.64464508,-96.47370546
+8517,,Warehouse,1253 Warehouse Rd,1,30.64497398,-96.47319982
+8518,,Warehouse,1283 Warehouse Rd,1,30.64536282,-96.47262893
+8519,,Warehouse,1303 Warehouse Rd,1,30.64579398,-96.47200014
+8520,JLF,Joint Library Facility with UT,1090 Bryan Rd,1,30.64747668,-96.46823302
+8521,,Warehouse,1343 Warehouse Rd,1,30.64621162,-96.47136608
+8522,,Warehouse,1445 Warehouse Rd,1,30.64678323,-96.47053415
+8523,,Warehouse,1501 Warehouse Rd,2,30.64718387,-96.46995141
+8524,,Warehouse,1563 Warehouse Rd,1,30.64758406,-96.46936942
+8525,,Food Protein R&D Center,1696 Bryan Rd,2,30.63604229,-96.46834526
+8529,,Warehouse,1292 Warehouse Rd,1,30.64497918,-96.47216484
+8530,,Warehouse,1255 2nd St,1,30.64431215,-96.47226606
+8531,,Wash Rack,1261 Avenue A,1,30.64347982,-96.47386301
+8532,,Fire Station,1211 2nd St,1,30.64371828,-96.47320305
+8541,,Paint Booth,1228 2nd St,1,30.64422822,-96.47274759
+8561,,Truck Maintenance Shop,1377 2nd St,1,30.64534904,-96.47080738
+8577,,Flammable Materials Storage at CUP,222 Ireland St,1,30.6176057,-96.34183645
+8600,,TEEX - LAW UXO Demo Range Pavilion,,1,30.63520606,-96.4815758
+8601,,TEEX - LAW UXO Search Grid Pavilion,,1,30.62710661,-96.47559618
+8684,,New Rifle Range Pavilion,,1,30.63037174,-96.47575037
+8685,,TEEX - LAW Firing Range Classroom,,1,30.63245168,-96.47437717
+8687,,TEEX - LAW Shoot House,,1,30.63055356,-96.47366807
+8691,,SEWAGE PLANT,1970 Avenue A,1,30.62903184,-96.4713589
+8800,,Bonfire Memorial Restroom,249 Polo Rd,1,30.62100233,-96.33555223
+8900,W5AC,W5AC Amateur Radio Club Building,582 Floriculture Rd,1,30.62975872,-96.34345942
+8901,,GSC Portable Building,648 Agronomy Rd,1,30.62077157,-96.35615223
+8906,,Transportation Services Barricade Storage,180 Agronomy Rd,1,30.61596808,-96.35021138
+9101,,Substation (West Campus),174 Agronomy Rd,1,30.61652492,-96.3505338
+9351,,Water Tower,191 Asbury St,1,30.61785658,-96.34309929
+9750,,by USDA-Exotic Animal Holding Pens,2785 F&B Rd,,30.61961325,-96.36021969
+9787,,ESTI PROCESS UNIT FIRES (NEW),,,30.58258117,-96.35541695
+9791,,Billy Pickard Pedestrian Passageway,101 John Kimbrough Bl,,30.609773,-96.34338207
+9793,,Track Bleacher Storage,,,30.60384178,-96.34276189
+9794,,Wellborn Road Grade Separation,,,30.61237095,-96.34576407
+9795,,Wellborn Road Grade Separation Pumps,,,30.61259099,-96.34647796
+HSC1,HPEB,HEALTH PROFESSIONS EDUCATION BUILDING (HSC 001000),8447 State Highway 47,3,30.5987416,-96.39413036
+HSC2,MREB,MEDICAL RESEARCH EDUCATION BUILDING (HSC 001001),8447 State Highway 47,4,30.59793211,-96.39397168
+HSC3,CB1,CLINICAL BUILDING 1 (HSC 002000),8441 State Highway 47,4,30.59883628,-96.39573863
+HSC4,HSCUP,CUP - CENTRAL UTILITY PLANT (HSC 001002),,1,30.59778941,-96.39361541

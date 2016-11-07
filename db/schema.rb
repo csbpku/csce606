@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161026013347) do
+ActiveRecord::Schema.define(version: 20161105231842) do
 
   create_table "bikes", force: :cascade do |t|
     t.integer "totalcapacity"
@@ -49,6 +49,10 @@ ActiveRecord::Schema.define(version: 20161026013347) do
   end
 
   create_table "cars", force: :cascade do |t|
+    t.string "lotname"
+    t.string "lottype"
+    t.float  "lat"
+    t.float  "lon"
   end
 
   create_table "points", force: :cascade do |t|
