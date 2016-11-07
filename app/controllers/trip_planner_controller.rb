@@ -50,16 +50,20 @@ class TripPlannerController < ApplicationController
   
   def find_routes_set_by_stop(stop)
     # Return a set which contains all routes including input stop
+    routes_set = Array.new
     bus_routes = Route.all
     bus_routes.each do |curr_route|
-      curr_route_stops = curr_route.trips.stops
+      curr_route_stops = curr_route.stops
+      if(curr_route_stops.include?(stop))
+        routes_set.push(curr_route)
+      end
     end
-    return nil
+    return routes_set
   end
   
   def find_best_route(candidate_route_set)
     #return the route with shortest walking distance
-    return nil
+    return candidate_route_set[0]
   end
   
   def bus_route_planning (depart_location, destination_location)
