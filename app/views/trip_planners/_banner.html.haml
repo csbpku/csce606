@@ -55,28 +55,27 @@
           %button.close{"data-dismiss" => "modal", :type => "button"} ×
           %h4.modal-title Layers
         .modal-body
-          %form
+          %form{:id=>"searchForm"}
             .form-group
               %label.custom-control.custom-checkbox
-                %input.custom-control-input{:name => "layer", :type => "checkbox", :value => "bicycle"}/
+                %input.custom-control-input{:name => "layer[bicycle]", :type => "checkbox", :value => "1"}/
                 %span.custom-control-indicator
                 %span.custom-control-description Bicycle Racks
             .form-group
               %label.custom-control.custom-checkbox
-                %input.custom-control-input{:name => "layer", :type => "checkbox", :value => "building"}/
+                %input.custom-control-input{:name => "layer[building]", :type => "checkbox", :value => "1"}/
                 %span.custom-control-indicator
                 %span.custom-control-description Academic Buildings
             .form-group
               %label.custom-control.custom-checkbox
-                %input.custom-control-input{:name => "layer", :type => "checkbox", :value => "parking"}/
+                %input.custom-control-input{:name => "layer[parking]", :type => "checkbox", :value => "1"}/
                 %span.custom-control-indicator
                 %span.custom-control-description Parking Lots
             .form-group
               %label.custom-control.custom-checkbox
-                %input.custom-control-input{:name => "layer", :type => "checkbox", :value => "bus"}/
+                %input.custom-control-input{:name => "layer[bus]", :type => "checkbox", :value => "1"}/
                 %span.custom-control-indicator
                 %span.custom-control-description Bus Routes
             %button.btn.btn-default{:type => "submit"} Show Layers
         .modal-footer
           %button.btn.btn-default{"data-dismiss" => "modal", :type => "button"} Close
-  

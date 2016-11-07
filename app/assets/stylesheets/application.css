@@ -53,3 +53,14 @@
 .navbar-default .navbar-nav > li > a {
     color: white;
 }
+#floating-panel {
+        position: absolute;
+        top: 50px;
+        left: 0%;
+        z-index: 5;
+        background-color: white;
+        padding: 5px;
+        border: 1px solid #999;
+        line-height: 30px;
+        padding-left: 10px;
+}
