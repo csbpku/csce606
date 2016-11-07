@@ -31,7 +31,7 @@ function createMarker(latlng){
 function displayMarkers(data)
 {
    for (var i = 0; i < data.points.length; i++){
-      var latlng = new google.maps.LatLng(data.points[i].lat, data.points[i].lon);
+      var latlng = new google.maps.LatLng(data.points[i].lan, data.points[i].lon);
 
       createMarker(latlng);
    }
