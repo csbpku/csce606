@@ -24,7 +24,8 @@ function createMarker(latlng){
    var marker = new google.maps.Marker({
       map: map,
       position: latlng,
-      title: 'Hello World!'
+      title: 'Hello World!',
+      icon: 'https://maps.google.com/mapfiles/kml/shapes/library_maps.png'
    });
 }
 
