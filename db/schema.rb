@@ -12,6 +12,9 @@
 
 ActiveRecord::Schema.define(version: 20161108032029) do
 
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
   create_table "bikes", force: :cascade do |t|
     t.integer "totalcapacity"
     t.string  "type"
@@ -33,7 +36,7 @@ ActiveRecord::Schema.define(version: 20161108032029) do
     t.date    "date"
     t.integer "exception_type"
     t.integer "calendar_id"
-    t.index ["calendar_id"], name: "index_calendar_dates_on_calendar_id"
+    t.index ["calendar_id"], name: "index_calendar_dates_on_calendar_id", using: :btree
   end
 
   create_table "calendars", force: :cascade do |t|
@@ -81,8 +84,8 @@ ActiveRecord::Schema.define(version: 20161108032029) do
     t.float   "shape_dist_traveled"
     t.integer "stop_id"
     t.integer "trip_id"
-    t.index ["stop_id"], name: "index_stop_times_on_stop_id"
-    t.index ["trip_id"], name: "index_stop_times_on_trip_id"
+    t.index ["stop_id"], name: "index_stop_times_on_stop_id", using: :btree
+    t.index ["trip_id"], name: "index_stop_times_on_trip_id", using: :btree
   end
 
   create_table "stops", force: :cascade do |t|
@@ -101,8 +104,8 @@ ActiveRecord::Schema.define(version: 20161108032029) do
     t.integer "route_id"
     t.integer "calendar_id"
     t.integer "shape_id"
-    t.index ["calendar_id"], name: "index_trips_on_calendar_id"
-    t.index ["route_id"], name: "index_trips_on_route_id"
+    t.index ["calendar_id"], name: "index_trips_on_calendar_id", using: :btree
+    t.index ["route_id"], name: "index_trips_on_route_id", using: :btree
   end
 
   create_table "walks", force: :cascade do |t|
