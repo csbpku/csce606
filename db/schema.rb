@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161108032029) do
+ActiveRecord::Schema.define(version: 20161108060452) do
 
   create_table "bikes", force: :cascade do |t|
     t.integer "totalcapacity"
