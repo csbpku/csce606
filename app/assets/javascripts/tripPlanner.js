@@ -14,7 +14,7 @@ var icons = {
     icon: 'assets/markers/schools.png'
   },
   Parking: {
-    icon: 'assets/markers/automotive.png'
+    icon: 'assets/markers/transport.png'
   },
   Bikes: {
     icon: 'assets/markers/automotive.png'
@@ -45,7 +45,7 @@ function createMarker(latlng, type){
       map: map,
       position: latlng,
       title: type,
-      icon: {url: icons[type].icon, scaledSize: new google.maps.Size(20,20)}
+      icon: {url: icons[type].icon, scaledSize: new google.maps.Size(20,30)}
    });
 }
 
