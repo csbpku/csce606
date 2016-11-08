@@ -14,10 +14,10 @@ var icons = {
     icon: 'assets/markers/schools.png'
   },
   Parking: {
-    icon: 'assets/markers/transport.png'
+    icon: 'assets/markers/automotive.png'
   },
   Bikes: {
-    icon: 'assets/markers/automotive.png'
+    icon: 'assets/markers/transport.png'
   },
 
 };
