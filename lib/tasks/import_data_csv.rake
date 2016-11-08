@@ -11,4 +11,9 @@ namespace :import_data_csv do
       Cars.create!(row.to_hash)
     end
   end
+ task :create_bike_racks => :environment do
+    CSV.foreach(File.expand_path("Data/BikeRack.csv"), :headers=>true) do |row|
+      Bikes.create!(row.to_hash)
+    end
+  end
 end
