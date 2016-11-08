@@ -3,23 +3,12 @@
 // Please add any javscript/jquery code
 // in this file
 
+
+/*------------------------------Globals----------------------------------------*/
 //global variables
 /*global google*/
 /*global $*/
 var map;
-// This function is first when user loads the page
-function initMapUtil() {
-    var tamuCenter = {lat: 30.6187199, lng: -96.3364829};
-    map = new google.maps.Map(document.getElementById('map'), {
-        zoom: 15,
-        center: tamuCenter,
-      mapTypeControlOptions: {
-            style: google.maps.MapTypeControlStyle.HORIZONTAL_BAR,
-            position: google.maps.ControlPosition.TOP_RIGHT
-        }
-    });
-}
-
 var icons = {
   Building: {
     icon: 'assets/markers/schools.png'
@@ -33,11 +22,24 @@ var icons = {
 
 };
 
+
+/*-----------------------------Functions-----------------------------------------*/
+
+// This function is first when user loads the page
+function initMap() {
+    var tamuCenter = {lat: 30.6187199, lng: -96.3364829};
+    map = new google.maps.Map(document.getElementById('map'), {
+        zoom: 15,
+        center: tamuCenter,
+      mapTypeControlOptions: {
+            style: google.maps.MapTypeControlStyle.HORIZONTAL_BAR,
+            position: google.maps.ControlPosition.TOP_RIGHT
+        }
+    });
+}
+
+
 function createMarker(latlng, type){
- if (map == undefined)
-  {
-    initMapUtil();   
-  }
    var marker = new google.maps.Marker({
       map: map,
       position: latlng,
@@ -48,22 +50,28 @@ function createMarker(latlng, type){
 
 function displayMarkers(data)
 {
-    console.log(data);
-    bikesData = data['bikes']
-    buildingsData = data['buildings']
-    if (bikesData){
-      for (i = 0; i < bikesData.points.length; i++){
-      var latlng = new google.maps.LatLng(bikesData.points[i].lat, bikesData.points[i].lon);
-
-      createMarker(latlng, bikesData.objtype);
-   }}
-   if (buildingsData){
-    for (i = 0; i < buildingsData.points.length; i++){
-      var latlng = new google.maps.LatLng(buildingsData.points[i].lat, buildingsData.points[i].lon);
-
-      createMarker(latlng, buildingsData.objtype);
-   }}
+     var bikesData = data['bikes']
+     var buildingsData = data['buildings']
+    
+     if (bikesData){
+        for (var i = 0; i < bikesData.points.length; i++){
+          var latlng = new google.maps.LatLng(bikesData.points[i].lat, bikesData.points[i].lon);
+    
+          createMarker(latlng, bikesData.objtype);
+       }
+         
+     }
+    
+       if (buildingsData){
+        for (var i = 0; i < buildingsData.points.length; i++){
+          var latlng = new google.maps.LatLng(buildingsData.points[i].lat, buildingsData.points[i].lon);
+    
+          createMarker(latlng, buildingsData.objtype);
+            }
+           
+       }
 }
+
 // Layer populater
 $(document).ready(function() {
 
