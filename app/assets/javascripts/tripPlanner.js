@@ -51,26 +51,14 @@ function createMarker(latlng, type){
 
 function displayMarkers(data)
 {
-     var bikesData = data['bikes']
-     var buildingsData = data['buildings']
+    console.log(data);//for debuging only : temporary
     
-     if (bikesData){
-        for (var i = 0; i < bikesData.points.length; i++){
-          var latlng = new google.maps.LatLng(bikesData.points[i].lat, bikesData.points[i].lon);
-    
-          createMarker(latlng, bikesData.objtype);
-       }
-         
-     }
-    
-       if (buildingsData){
-        for (var i = 0; i < buildingsData.points.length; i++){
-          var latlng = new google.maps.LatLng(buildingsData.points[i].lat, buildingsData.points[i].lon);
-    
-          createMarker(latlng, buildingsData.objtype);
-            }
-           
-       }
+    for(var j = 0;j<data.layer.length;j++){
+        for (var i = 0; i < data.layer[j].points.length; i++){
+            var latlng = new google.maps.LatLng(data.layer[j].points[i].lat, data.layer[j].points[i].lon);
+            createMarker(latlng, data.layer[j].objtype);
+        }
+    }
 }
 
 // Layer populater
