@@ -19,6 +19,13 @@ class LayersController < ApplicationController
             
         end
         
+        if params["layer"]["parking"]
+            @car_pos = Cars.all
+            @car_pos = @car_pos.as_json()
+            @cars = {"objtype"=>"Parking","points"=> @car_pos}
+            @res["layer"].push(@cars)
+        end
+        
         render json: @res
         
     end
