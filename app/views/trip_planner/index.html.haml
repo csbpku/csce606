@@ -1,0 +1,19 @@
+= render :partial => 'banner'
+
+#map
+
+  :javascript
+    function initMap() {
+            var tamuCenter = {lat: 30.6187199, lng: -96.3364829};
+    
+            var map = new google.maps.Map(document.getElementById('map'), {
+              zoom: 15,
+              center: tamuCenter,
+    		     mapTypeControlOptions: {
+                  style: google.maps.MapTypeControlStyle.HORIZONTAL_BAR,
+                  position: google.maps.ControlPosition.TOP_RIGHT
+              }
+            });
+    	   }
+  %script{:async => "", :defer => "defer", :src => "https://maps.googleapis.com/maps/api/js?key=AIzaSyBGXhzWszzxqmajf5w0AzEmFi5hbgA8VRY&callback=initMap"}
+    :cdata

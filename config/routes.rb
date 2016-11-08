@@ -1,8 +1,8 @@
 Rails.application.routes.draw do
-  root 'trip_planners#index'
-  get 'trip_planners/index'
-  post 'trip_planners/bus_route_planning'
-  get 'trip_planners/display_route'
+  root 'trip_planner#index'
+  get 'trip_planner/index'
+  post 'trip_planner/trip_planning'
+  get 'trip_planner/display_route'
   
   get 'as' => 'mapsearch#search'
   get 'dropPins'=>'layers#dropPins'
