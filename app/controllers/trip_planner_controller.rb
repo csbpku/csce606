@@ -3,7 +3,10 @@ require 'set'
 require 'google_maps_service'
 
 class TripPlannerController < ApplicationController
-
+  
+  @@gmaps = GoogleMapsService::Client.new()
+  @@gmaps.key = "AIzaSyAOoWZdZFz8nFtVjBlWRysnSoSoSguqCII"
+  
   def index
     
   end
@@ -46,9 +49,7 @@ class TripPlannerController < ApplicationController
   
   def walking_route(depart_coordinates, destination_coordinates)
     # Return a walking route object
-    gmaps = GoogleMapsService::Client.new()
-    gmaps.key = "AIzaSyAOoWZdZFz8nFtVjBlWRysnSoSoSguqCII"
-    route = gmaps.directions(depart_coordinates, depart_coordinates, mode: 'walking', alternatives: false)
+    route = @@gmaps.directions(depart_coordinates, destination_coordinates, mode: 'walking', alternatives: false)
     unless route.empty?
       return route[0]
     end
@@ -61,10 +62,10 @@ class TripPlannerController < ApplicationController
     all_steps = route[:legs][0][:steps]
     all_steps.each do |curr_step|
       curr_coordinates = [curr_step[:start_location][:lat], curr_step[:start_location][:lng]]
-      path_points.push(curr_coordinates)
+      path_points << curr_coordinates
     end
     last_coordinates = [route[:legs][0][:end_location][:lat], route[:legs][0][:end_location][:lng]]
-    path_points.push(last_coordinates)
+    path_points << last_coordinates
     return path_points
   end
   
