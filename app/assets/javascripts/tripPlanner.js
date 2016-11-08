@@ -39,6 +39,7 @@ function initMap() {
 }
 
 
+// Creates markers on the map
 function createMarker(latlng, type){
    var marker = new google.maps.Marker({
       map: map,
