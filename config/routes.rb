@@ -4,7 +4,6 @@ Rails.application.routes.draw do
   post 'trip_planner/trip_planning'
   get 'trip_planner/display_route'
   
-  get 'as' => 'mapsearch#search'
   get 'dropPins'=>'layers#dropPins'
 
   resources :routes
