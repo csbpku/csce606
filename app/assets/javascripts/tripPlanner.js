@@ -22,7 +22,7 @@ function initMap() {
 
         var icons = {
           Building: {
-            icon: 'https://maps.google.com/mapfiles/kml/shapes/library_maps.png'
+            icon: 'assets/markers/schools.png'
           },
         };
 
@@ -37,6 +37,7 @@ function createMarker(latlng, type){
 
 function displayMarkers(data)
 {
+    console.log(data);
    for (var i = 0; i < data.points.length; i++){
       var latlng = new google.maps.LatLng(data.points[i].lan, data.points[i].lon);
 
