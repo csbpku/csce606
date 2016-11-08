@@ -1,8 +1,12 @@
 Rails.application.routes.draw do
-  get 'trip_planner/index'
-  get 'dropPins'=>'layers#dropPins'
   root 'trip_planner#index'
+  get 'trip_planner/index'
+  post 'trip_planner/trip_planning'
+  get 'trip_planner/display_route'
+  
   get 'as' => 'mapsearch#search'
+  get 'dropPins'=>'layers#dropPins'
+
   resources :routes
   resources :trips
   resources :stops
@@ -10,7 +14,9 @@ Rails.application.routes.draw do
   resources :calendar_dates
   resources :calendars
   resources :points
+  
   resources :cars
   resources :buildings
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
+

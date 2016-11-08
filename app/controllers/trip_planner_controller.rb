@@ -8,15 +8,17 @@ class TripPlannerController < ApplicationController
   @@gmaps.key = "AIzaSyAOoWZdZFz8nFtVjBlWRysnSoSoSguqCII"
   
   def index
+    
   end
   
-  def trip_planning()#POST METHOD AND PLAN TRIP FOR THE USER
-    @path_raw = bus_route_planning(params[:trip_planning][:from], params[:trip_planning][:to])
+  def trip_planning
+    # convert from array to array of strings
+    @path_raw = bus_route_planning(params[:trip_planner][:from], params[:trip_planner][:to])
     @path = []
     @path_raw.each do |curr_point|
       @path << (curr_point[0].to_s + "," + curr_point[1].to_s)
     end
-    redirect_to trip_planners_display_route_path(path: @path)
+    redirect_to trip_planner_display_route_path(path: @path)
   end
   
   def address_to_coordinates (address)

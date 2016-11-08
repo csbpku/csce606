@@ -20,23 +20,28 @@ function initMap() {
     });
 }
 
-        var icons = {
-          Building: {
-            icon: 'https://maps.google.com/mapfiles/kml/shapes/library_maps.png'
-          },
-        };
+var icons = {
+  Building: {
+    icon: 'assets/markers/schools.png'
+  },
+  Parking: {
+    icon: 'assets/markers/automotive.png'
+  },
+
+};
 
 function createMarker(latlng, type){
    var marker = new google.maps.Marker({
       map: map,
       position: latlng,
-      title: 'Hello World!',
-      icon: icons[type].icon
+      title: type,
+      icon: {url: icons[type].icon, scaledSize: new google.maps.Size(20,20)}
    });
 }
 
 function displayMarkers(data)
 {
+    console.log(data);
    for (var i = 0; i < data.points.length; i++){
       var latlng = new google.maps.LatLng(data.points[i].lan, data.points[i].lon);
 
