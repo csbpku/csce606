@@ -10,12 +10,13 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161108032029) do
+ActiveRecord::Schema.define(version: 20161108161935) do
 
   create_table "bikes", force: :cascade do |t|
-    t.integer "totalcapacity"
-    t.string  "type"
-    t.float   "lan"
+    t.string  "typeofrack"
+    t.integer "typeQuantity"
+    t.integer "total_Capacity"
+    t.float   "lat"
     t.float   "lon"
   end
 
