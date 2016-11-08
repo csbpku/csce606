@@ -24,6 +24,10 @@ function initMap() {
           Building: {
             icon: 'assets/markers/schools.png'
           },
+          Parking: {
+            icon: 'https://maps.google.com/mapfiles/kml/shapes/library_maps.png'
+          },
+        
         };
 
 function createMarker(latlng, type){
