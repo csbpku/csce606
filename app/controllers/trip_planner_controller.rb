@@ -3,6 +3,7 @@ require 'set'
 require 'google_maps_service'
 
 class TripPlannerController < ApplicationController
+
   def index
     
   end

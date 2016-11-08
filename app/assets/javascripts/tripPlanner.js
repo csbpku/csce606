@@ -20,20 +20,32 @@ function initMap() {
     });
 }
 
-function createMarker(latlng){
+var icons = {
+  Building: {
+    icon: 'assets/markers/schools.png'
+  },
+  Parking: {
+    icon: 'assets/markers/automotive.png'
+  },
+
+};
+
+function createMarker(latlng, type){
    var marker = new google.maps.Marker({
       map: map,
       position: latlng,
-      title: 'Hello World!'
+      title: type,
+      icon: {url: icons[type].icon, scaledSize: new google.maps.Size(20,20)}
    });
 }
 
 function displayMarkers(data)
 {
+    console.log(data);
    for (var i = 0; i < data.points.length; i++){
-      var latlng = new google.maps.LatLng(data.points[i].lat, data.points[i].lon);
+      var latlng = new google.maps.LatLng(data.points[i].lan, data.points[i].lon);
 
-      createMarker(latlng);
+      createMarker(latlng, data.objtype);
    }
 }
 // Layer populater
