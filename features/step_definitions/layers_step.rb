@@ -29,11 +29,11 @@ And(/^I click on "Show Layers" with Parking$/) do
 end
 
 Then(/^I expect JSON building response$/) do
-  data = JSON.parse(last_response.body)
+  data = JSON(last_response.body)
   expect(data["layer"][0]["objtype"]).to eq("Building")
 end
 
 Then(/^I expect JSON parking response$/) do
-  data = JSON.parse(last_response.body)
+  data = JSON(last_response.body)
   expect(data["layer"][0]["objtype"]).to eq("Parking")
 end
