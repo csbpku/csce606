@@ -11,13 +11,13 @@
 var map;
 var icons = {
   Building: {
-    icon: 'https://maps.google.com/mapfiles/kml/shapes/library_maps.png'
+    icon: 'https://maps.google.com/mapfiles/kml/paddle/orange-stars.png'
   },
   Parking: {
-    icon: 'https://maps.google.com/mapfiles/kml/shapes/parking_lot_maps.png'
+    icon: 'https://maps.google.com/mapfiles/kml/paddle/blu-diamond.png'
   },
   Bikes: {
-    icon: 'https://maps.google.com/mapfiles/kml/shapes/info-i_maps.png'
+    icon: 'https://maps.google.com/mapfiles/kml/paddle/B.png'
   },
 
 };
