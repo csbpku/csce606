@@ -15,5 +15,6 @@ RSpec.describe TripPlannerController, :type => :controller  do
   
   describe "Find the walking path from one palce to another" do
     it "Finds the walking path" do
-      
+    end
+  end
 end
