@@ -15,6 +15,13 @@ RSpec.describe TripPlannerController, :type => :controller  do
   
   describe "Find the walking path from one palce to another" do
     it "Finds the walking path" do
+      expect(controller.walking_route([30.619748, -96.33873], [30.6177768, -96.338907])).not_to be_empty
+    end
+  end
+  
+  describe "Find routes that all have the same stop" do
+    it "Finds the correct routes" do
+      expect(controller.find_routes_set_by_stop(Stop.find(1))[0].id).to eq(10)
     end
   end
 end
