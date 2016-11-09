@@ -13,6 +13,7 @@ group :development, :test do
   gem 'database_cleaner'
   gem 'poltergeist'
   gem 'phantomjs', :require => 'phantomjs/poltergeist'
+  gem 'sqlite3'
 end
 group :production do
   gem 'pg'
