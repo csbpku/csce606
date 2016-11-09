@@ -11,13 +11,13 @@
 var map;
 var icons = {
   Building: {
-    icon: 'assets/markers/schools.png'
+    icon: 'https://maps.google.com/mapfiles/kml/shapes/library_maps.png'
   },
   Parking: {
-    icon: 'assets/markers/automotive.png'
+    icon: 'https://maps.google.com/mapfiles/kml/shapes/parking_lot_maps.png'
   },
   Bikes: {
-    icon: 'assets/markers/transport.png'
+    icon: 'https://maps.google.com/mapfiles/kml/shapes/info-i_maps.png'
   },
 
 };
@@ -45,7 +45,7 @@ function createMarker(latlng, type){
       map: map,
       position: latlng,
       title: type,
-      icon: {url: icons[type].icon, scaledSize: new google.maps.Size(20,30)}
+      icon: {url: icons[type].icon, scaledSize: new google.maps.Size(20,20)}
    });
 }
 
