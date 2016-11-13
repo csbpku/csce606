@@ -25,6 +25,17 @@ var icons = {
 
 /*-----------------------------Functions-----------------------------------------*/
 
+function popupcontent(type, point) {
+  switch (type){
+    case 'Building':
+      return '<div><strong>' + point.name + '</strong><br>' +
+             'Address: ' + point.address + '<br>'
+    case 'Parking':
+      return '<div><strong>' + point.lotname + '</strong><br>' +
+             'Type: ' + point.lottype + '<br>'
+  }
+}
+
 // This function is first when user loads the page
 function initMap() {
     var tamuCenter = {lat: 30.6187199, lng: -96.3364829};
@@ -47,11 +58,9 @@ function createMarker(latlng, type, point){
       title: type,
       icon: {url: icons[type].icon, scaledSize: new google.maps.Size(20,20)}
    });
-    var infowindow = new google.maps.InfoWindow({
-          content: '<div><strong>' + point.name + '</strong><br>' +
-             'Address: ' + point.address + '<br>'
+     var infowindow = new google.maps.InfoWindow({
+          content: popupcontent(type, point)
     });
-    
     marker.addListener('click', function() {
         infowindow.open(map, marker);
     });
