@@ -31,12 +31,12 @@ function popupcontent(type, point) {
     case 'Building':
       return '<div><strong>' + point.name + '</strong><br>' +
              'Address: ' + point.address + '<br>' +
-              'lat:'+ point.lat + ',lan: '+ + point.lon + '<br>' + '</div>';
+              point.lat + ', '+ + point.lon + '<br>' + '</div>';
 
     case 'Parking':
       return '<div><strong>' + point.lotname + '</strong><br>' +
              'Type: ' + point.lottype + '<br>' + 
-             'lat:' + point.lat + ',lan: '+ + point.lon + '<br>' + '</div>';
+             point.lat + ', '+ + point.lon + '<br>' + '</div>';
     case 'Bikes':
       /*
         Write your bike rails code here
