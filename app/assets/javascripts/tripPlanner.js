@@ -47,6 +47,13 @@ function createMarker(latlng, type){
       title: type,
       icon: {url: icons[type].icon, scaledSize: new google.maps.Size(20,20)}
    });
+    var infowindow = new google.maps.InfoWindow({
+          content: type
+    });
+    
+    marker.addListener('click', function() {
+        infowindow.open(map, marker);
+    });
 }
 
 function displayMarkers(data)
