@@ -40,7 +40,7 @@ function initMap() {
 
 
 // Creates markers on the map
-function createMarker(latlng, type){
+function createMarker(latlng, type, point){
    var marker = new google.maps.Marker({
       map: map,
       position: latlng,
@@ -48,7 +48,8 @@ function createMarker(latlng, type){
       icon: {url: icons[type].icon, scaledSize: new google.maps.Size(20,20)}
    });
     var infowindow = new google.maps.InfoWindow({
-          content: type
+          content: '<div><strong>' + point.name + '</strong><br>' +
+             'Address: ' + point.address + '<br>'
     });
     
     marker.addListener('click', function() {
@@ -63,7 +64,7 @@ function displayMarkers(data)
     for(var j = 0;j<data.layer.length;j++){
         for (var i = 0; i < data.layer[j].points.length; i++){
             var latlng = new google.maps.LatLng(data.layer[j].points[i].lat, data.layer[j].points[i].lon);
-            createMarker(latlng, data.layer[j].objtype);
+            createMarker(latlng, data.layer[j].objtype, data.layer[j].points[i]);
         }
     }
 }
