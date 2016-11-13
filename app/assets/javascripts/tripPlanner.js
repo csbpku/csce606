@@ -27,13 +27,16 @@ var icons = {
 /*-----------------------------Functions-----------------------------------------*/
 
 function popupcontent(type, point) {
-  switch (type){
+ switch (type){
     case 'Building':
       return '<div><strong>' + point.name + '</strong><br>' +
-             'Address: ' + point.address + '<br>';
+             'Address: ' + point.address + '<br>' +
+              'lat:'+ point.lat + ',lan: '+ + point.lon + '<br>' + '</div>';
+
     case 'Parking':
       return '<div><strong>' + point.lotname + '</strong><br>' +
-             'Type: ' + point.lottype + '<br>';
+             'Type: ' + point.lottype + '<br>' + 
+             'lat:' + point.lat + ',lan: '+ + point.lon + '<br>' + '</div>';
   }
 }
 
