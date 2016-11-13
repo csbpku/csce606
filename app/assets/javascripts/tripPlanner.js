@@ -19,8 +19,9 @@ var icons = {
   Bikes: {
     icon: 'https://maps.google.com/mapfiles/kml/paddle/B.png'
   },
-
+ 
 };
+
 
 
 /*-----------------------------Functions-----------------------------------------*/
@@ -29,10 +30,10 @@ function popupcontent(type, point) {
   switch (type){
     case 'Building':
       return '<div><strong>' + point.name + '</strong><br>' +
-             'Address: ' + point.address + '<br>'
+             'Address: ' + point.address + '<br>';
     case 'Parking':
       return '<div><strong>' + point.lotname + '</strong><br>' +
-             'Type: ' + point.lottype + '<br>'
+             'Type: ' + point.lottype + '<br>';
   }
 }
 
@@ -49,21 +50,27 @@ function initMap() {
     });
 }
 
+// This function is to create pop up
+function createpopup(marker,contentString) {
+    var infowindow = new google.maps.InfoWindow({
+          content: contentString
+    });
+    
+    marker.addListener('click', function() {
+        infowindow.open(map, marker);
+    });
+}
 
 // Creates markers on the map
 function createMarker(latlng, type, point){
-   var marker = new google.maps.Marker({
+    var marker = new google.maps.Marker({
       map: map,
       position: latlng,
       title: type,
       icon: {url: icons[type].icon, scaledSize: new google.maps.Size(20,20)}
-   });
-     var infowindow = new google.maps.InfoWindow({
-          content: popupcontent(type, point)
     });
-    marker.addListener('click', function() {
-        infowindow.open(map, marker);
-    });
+    var contentString = popupcontent(type, point);
+    createpopup(marker,contentString);
 }
 
 function displayMarkers(data)
@@ -73,7 +80,7 @@ function displayMarkers(data)
     for(var j = 0;j<data.layer.length;j++){
         for (var i = 0; i < data.layer[j].points.length; i++){
             var latlng = new google.maps.LatLng(data.layer[j].points[i].lat, data.layer[j].points[i].lon);
-            createMarker(latlng, data.layer[j].objtype, data.layer[j].points[i]);
+            createMarker(latlng, data.layer[j].objtype,data.layer[j].points[i]);
         }
     }
 }
