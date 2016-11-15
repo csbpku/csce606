@@ -97,6 +97,8 @@ $(document).ready(function() {
     
     $('#pathFinderForm').submit(function(event) {
         console.log("i AM HERE");
+        $('#path_finder').modal('hide');
+        
         // stop the form from submitting the normal way and refreshing the page
         event.preventDefault();
     });
