@@ -33,8 +33,8 @@ $(document).ready(function() {
         var directionsDisplay = new google.maps.DirectionsRenderer;
         directionsDisplay.setMap(map);
         directionsService.route({
-          origin: "Harvey R. Bright Building, College Station, TX 77840, USA",
-          destination: "200 S College St #1530, Charlotte, NC 28202, USA",
+          origin: new google.maps.LatLng(30.51953606, -96.41673369),
+          destination: new google.maps.LatLng(30.51999039,-96.4167104),
           travelMode: 'DRIVING'
         }, function(response, status) {
           if (status === 'OK') {
