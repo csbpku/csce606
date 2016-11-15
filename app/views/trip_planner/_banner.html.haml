@@ -89,9 +89,9 @@
           %button.close{"data-dismiss" => "modal", :type => "button"} ×
           %h4.modal-title Trip planner
         .modal-body
-          %form{:id=>"searchForm"}
-          %input#from.form-control{:type => "text", :id=>"path_finder",:name => "path"}/
-          %br
-          %button.btn.btn-default{:type => "submit"} Find Directions
+          %form{:id=>"pathFinderForm"}
+            .form-group
+              %input#from.form-control{:type => "text", :id=>"path_finder",:name => "path"}/
+            %button.btn.btn-default{:type => "submit"} Find Directions
         .modal-footer
           %button.btn.btn-default{"data-dismiss" => "modal", :type => "button"} Close

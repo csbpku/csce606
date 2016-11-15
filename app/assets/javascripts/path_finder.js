@@ -94,20 +94,9 @@ function displayMarkers(data)
 
 // Layer populater
 $(document).ready(function() {
-  
-      // process the form
-    $('#searchForm').submit(function(event) {
-
-        
-        // process the form
-        $.ajax({
-            type        : 'GET', // define the type of HTTP verb we want to use (POST for our form)
-            url         : '/dropPins', // the url where we want to POST
-            data        : $('#searchForm').serializeArray(), // our data object
-            dataType    : 'json', // what type of data do we expect back from the server
-            encode      : true,
-            success     : function(data){ displayMarkers(data)}
-        })
+    
+    $('#pathFinderForm').submit(function(event) {
+        console.log("i AM HERE");
         // stop the form from submitting the normal way and refreshing the page
         event.preventDefault();
     });
