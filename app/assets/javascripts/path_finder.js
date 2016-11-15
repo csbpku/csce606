@@ -24,12 +24,8 @@ function initMap() {
     });
 }
 
-// Layer populater
-$(document).ready(function() {
-    
-    $('#pathFinderForm').submit(function(event) {
-        $('#path_finder').modal('hide');
-         var directionsService = new google.maps.DirectionsService;
+function drawRoute(){
+    var directionsService = new google.maps.DirectionsService;
         var directionsDisplay = new google.maps.DirectionsRenderer;
         directionsDisplay.setMap(map);
         directionsService.route({
@@ -44,6 +40,13 @@ $(document).ready(function() {
           }
         });
         
+}
+// Layer populater
+$(document).ready(function() {
+    
+    $('#pathFinderForm').submit(function(event) {
+        $('#path_finder').modal('hide');
+        drawRoute();
         // stop the form from submitting the normal way and refreshing the page
         event.preventDefault();
     });
