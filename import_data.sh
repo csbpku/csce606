@@ -1,0 +1,3 @@
+rake import_data_csv:create_buildings_position
+rake import_data_csv:create_cars_parking
+rake import_data_csv:create_bike_racks
