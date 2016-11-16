@@ -8,16 +8,20 @@
 //global variables
 /*global google*/
 /*global $*/
+/*global MarkerClusterer*/
+
 var map;
+var markers = [];
+var markerCluster;
 var icons = {
   Building: {
-    icon: 'https://maps.google.com/mapfiles/kml/paddle/orange-stars.png'
+    icon:   "<%= asset_path('markers/industries.png') %>"
   },
   Parking: {
-    icon: 'https://maps.google.com/mapfiles/kml/paddle/blu-diamond.png'
+    icon:  "<%= asset_path('markers/automotive.png') %>"
   },
   Bikes: {
-    icon: 'https://maps.google.com/mapfiles/kml/paddle/B.png'
+    icon: "<%= asset_path('markers/default.png') %>"
   },
  
 };
@@ -77,6 +81,9 @@ function createMarker(latlng, type, point){
       title: type,
       icon: {url: icons[type].icon, scaledSize: new google.maps.Size(20,20)}
     });
+    
+    // Add the markers to list
+    markers.push(marker);
     var contentString = popupcontent(type, point);
     createpopup(marker,contentString);
 }
@@ -91,6 +98,7 @@ function displayMarkers(data)
             createMarker(latlng, data.layer[j].objtype,data.layer[j].points[i]);
         }
     }
+   markerCluster = new MarkerClusterer(map, markers, {imagePath: 'https://raw.githubusercontent.com/googlemaps/js-marker-clusterer/gh-pages/images/m'});
 }
 
 // Layer populater
