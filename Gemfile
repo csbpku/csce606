@@ -33,6 +33,8 @@ gem 'coffee-rails', '~> 4.2'
 gem 'haml'
 # Use haml rails
 gem 'haml-rails'
+# Use session store
+gem 'activerecord-session_store', github: 'rails/activerecord-session_store'
 
 # Use gmaps rails
 gem 'gmaps4rails'

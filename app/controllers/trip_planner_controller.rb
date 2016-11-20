@@ -18,7 +18,12 @@ class TripPlannerController < ApplicationController
     @path_raw.each do |curr_point|
       @path << (curr_point[0].to_s + "," + curr_point[1].to_s)
     end
-    redirect_to trip_planner_display_route_path(path: @path)
+    session[:path] = @path;
+    redirect_to trip_planner_display_route_path
+  end
+  
+  def display_route
+    render json: {:path => session[:path]} if request.xhr?
   end
   
   def address_to_coordinates (address)

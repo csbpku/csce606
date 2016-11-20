@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161108161935) do
+ActiveRecord::Schema.define(version: 20161115194428) do
 
   create_table "bikes", force: :cascade do |t|
     t.string  "typeofrack"
@@ -71,6 +71,15 @@ ActiveRecord::Schema.define(version: 20161108161935) do
     t.integer "route_type"
     t.string  "color"
     t.string  "text_color"
+  end
+
+  create_table "sessions", force: :cascade do |t|
+    t.string   "session_id", null: false
+    t.text     "data"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.index ["session_id"], name: "index_sessions_on_session_id", unique: true
+    t.index ["updated_at"], name: "index_sessions_on_updated_at"
   end
 
   create_table "stop_times", force: :cascade do |t|

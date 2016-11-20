@@ -25,7 +25,11 @@
     function display() 
     {
         initMap();
-        runSnapToRoad(qd['path%5B%5D']);
+        $.ajax({url: 'display_route',
+               dataType: 'json',
+               timeout: 5000,
+               success: function(data) {runSnapToRoad(data.path);}
+               });
     }
     
     function runSnapToRoad(path) {  

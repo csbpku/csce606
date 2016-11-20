@@ -2,6 +2,7 @@ Rails.application.routes.draw do
   root 'trip_planner#index'
   get 'trip_planner/index'
   post 'trip_planner/trip_planning'
+  get 'trip_planner/trip_planning'
   get 'trip_planner/display_route'
   
   get 'dropPins'=>'layers#dropPins'
