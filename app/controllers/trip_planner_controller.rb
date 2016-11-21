@@ -69,17 +69,60 @@ class TripPlannerController < ApplicationController
     return path_points
   end
   
-  def find_routes_set_by_stop(stop)
-    # Return a set which contains all routes including input stop
-    routes_set = Array.new 
-    bus_routes = Route.all
-    bus_routes.each do |curr_route|
-      curr_route_stops = curr_route.trips[0].stops.distinct
-      if(curr_route_stops.include?(stop))
-        routes_set.push(curr_route)
+  def available?(trip, time)
+    curr_calendar = Calendar.find(trip.calendar_id)
+    week_day = time.strftime('%A').downcase
+    # Currently all elements in calendar are zero, so we use zero as "true"
+    truth_condition = 0
+    general_availability = (curr_calendar.send(week_day) == truth_condition)
+    curr_date = Date.new(time.year, time.month, time.day)
+    within_service_period = curr_calendar.start_date <= curr_date and curr_calendar.end_date >= curr_date
+    gameday_schedule = CalendarDates.where(date:(curr_date))
+    
+    is_gameday = False
+    if not gameday_schedule.empty?
+      if (gameday_schedule[0].calendar_id == trip.calendar_id)
+        is_gameday = True
       end
     end
-    return routes_set
+
+    return (is_gameday or (general_availability and within_service_period))
+  end
+      
+  
+  def find_routes_set_by_stop(stop, time)
+    # Return a set which contains all routes including input stop
+    # routes_set = Array.new 
+    # bus_routes = Route.all
+    # bus_routes.each do |curr_route|
+    #   curr_route_stops = curr_route.trips[0].stops.distinct
+    #   if(curr_route_stops.include?(stop))
+    #     routes_set.push(curr_route)
+    #   end
+    # end
+    # return routes_set
+      routes_set = Array.new
+      bus_routes = Route.all
+
+      bus_routes.each do |curr_route|
+        route_available = False
+        has_stop = False
+        curr_route_trips = curr_route.trips
+        
+        curr_route_trips.each do |a_trip|
+          if available?(a_trip, time)
+            route_available = True
+            break
+          end
+        end
+          
+        curr_route_stops = curr_route.trips[0].stops.distinct
+        has_stop = (curr_route_stops.include?(stop))
+        if has_stop and route_available
+          routes_set.push(curr_route)
+        end
+      end
+      
   end
   
   def euclidean_distance(vector1, vector2)
