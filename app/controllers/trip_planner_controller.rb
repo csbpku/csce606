@@ -14,19 +14,19 @@ class TripPlannerController < ApplicationController
   
   def trip_planning
     # convert from array to array of strings
-    @path_raw = bus_route_planning(params[:trip_planner][:from], params[:trip_planner][:to])
-    @path = []
-    @path_raw.each do |curr_point|
-      @path << (curr_point[0].to_s + "," + curr_point[1].to_s)
-    end
-    # session[:path] = @path;
+    @path = bus_route_planning(params[:trip_planner][:from], params[:trip_planner][:to])
+    #@path = []
+    #@path_raw.each do |curr_point|
+      #@path << (curr_point[0].to_s + "," + curr_point[1].to_s)
+    #end
+    session[:path] = @path;
     redirect_to trip_planner_display_route_path
   end
 
   def display_route
-    path1 = {:transportation_type => "walk", :nav_points => [{:lat => 30.6139, :lng => -96.3397},{:lat => 30.6111668414573, :lng => -96.3236662044326}]}.to_json
-    path2 = {:transportation_type => "bus", :bus_route_name => "26", :nav_points => [{:lat => 30.6111668414573, :lng => -96.3236662044326},{:lat => 30.6091645723083, :lng => -96.3209303510744},{:lat => 30.6118387348556, :lng =>  -96.3184291910189}]}.to_json
-    render json: [path1, path2]  if request.xhr?
+    #path1 = {:transportation_type => "walk", :nav_points => [{:lat => 30.6139, :lng => -96.3397},{:lat => 30.6111668414573, :lng => -96.3236662044326}]}.to_json
+    #path2 = {:transportation_type => "bus", :bus_route_name => "26", :nav_points => [{:lat => 30.6111668414573, :lng => -96.3236662044326},{:lat => 30.6091645723083, :lng => -96.3209303510744},{:lat => 30.6118387348556, :lng =>  -96.3184291910189}]}.to_json
+    render json: session[:path]  if request.xhr?
   end
   
   def address_to_coordinates (address)

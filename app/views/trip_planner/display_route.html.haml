@@ -41,7 +41,7 @@
       var i;
       for(i = 0; i < data.length; i++) 
       { 
-        path = JSON.parse(data[i]);
+        path = data[i];
         switch(path.transportation_type) {
           case "walk":
             runGNavigation(path.nav_points);
@@ -76,7 +76,8 @@
         polylineOptions : {
           strokeColor:'green',
           strokeOpacity: 0.7,
-        }
+        },
+        //suppressMarkers: true
       });
       
       directionsService.route(startToEnd, function(response, status) {
