@@ -23,6 +23,7 @@ class TripPlannerController < ApplicationController
   
   def address_to_coordinates (address)
     # Call geocode and return coordinates
+    # the coordinates returned is [lan_value, lon_value]
     geocoder_results = Geocoder.search(address)
     unless geocoder_results.empty?
       coordinates = geocoder_results[0].coordinates
@@ -158,11 +159,22 @@ class TripPlannerController < ApplicationController
     
     # This array defines the shape of the routing results, it contains multiple coordinates
     final_path_points = []
-    final_path_points += path_from_google_route(depart_walking_route)
+   # final_path_points += path_from_google_route(depart_walking_route)
+    hash_depart={:lat =>depart_coordinates[0],:lng =>depart_coordinates[1]}
+    hash_first_stop={:lat =>depart_stop_coordinates[0],:lng =>depart_stop_coordinates[1]}
+    walking_path={:transportation_type =>"walk", :nav_points => [hash_depart,hash_first_stop]}
+    final_path_points+=walking_path
     
     common_routes = routes_containing_depart.to_set & routes_containing_destination.to_set
     if (not common_routes.empty?) # On the same route
-      final_path_points += find_path(common_routes.to_a()[0], depart_stop, destination_stop)
+      #final_path_points += find_path(common_routes.to_a()[0], depart_stop, destination_stop)
+      path_coordinates= find_path(common_routes.to_a()[0], depart_stop, destination_stop)
+      hash_bus_stop_point=[]
+      path_coordinates.each do |coordinate|
+        hash_bus_stop_point << {:lat => coordinate[0], :lng => coordinate[1]}
+      end
+      hash_bus_path={:transportation_type => "bus", :bus_route_name => common_routes.to_a[0].short_name, :nav_points =>hash_bus_stop_point}
+      final_path_points+=hash_bus_path
     else # On different route
       #min_walking_distance = Float::INFINITY
       #min_walking_route = nil
@@ -228,15 +240,44 @@ class TripPlannerController < ApplicationController
           end
         end
       end
-      path_of_bus_route_1 = find_path(mini_route1, depart_stop, mini_stop1)
-      path_of_bus_route_2 = find_path(mini_route2, mini_stop2, destination_stop)
-      final_path_points += path_of_bus_route_1
-      transfer_walking_route = walking_route([mini_stop1.lan, mini_stop1.lon], [mini_stop2.lan, mini_stop2.lon])
-      final_path_points += path_from_google_route(transfer_walking_route)
-      final_path_points += path_of_bus_route_2
+      # path_of_bus_route_1 = find_path(mini_route1, depart_stop, mini_stop1)
+      # path_of_bus_route_2 = find_path(mini_route2, mini_stop2, destination_stop)
+      # final_path_points += path_of_bus_route_1
+      # transfer_walking_route = walking_route([mini_stop1.lan, mini_stop1.lon], [mini_stop2.lan, mini_stop2.lon])
+      # final_path_points += path_from_google_route(transfer_walking_route)
+      # final_path_points += path_of_bus_route_2
+      
+      bus_route_1_coordinates = find_path(mini_route1, depart_stop, mini_stop1)
+      hash_bus_route1_stop_point=[]
+      bus_route_1_coordinates.each do |coordinate|
+        hash_bus_route1_stop_point << {:lat => coordinate[0], :lng => coordinate[1]}
+      end
+      hash_bus_route1_path={:transportation_type => "bus", :bus_route_name => mini_route1.short_name, :nav_points =>hash_bus_route1_stop_point}
+      final_path_points+=hash_bus_route1_path
+      
+      
+      hash_middle_walking_mini_stop1={:lat =>mini_stop1.lan,:lng =>mini_stop1.lon}
+      hash_middle_walking_mini_stop2={:lat =>mini_stop2.lan,:lng =>mini_stop2.lon}
+      middle_walking_path={:transportation_type =>"walk", :nav_points => [hash_middle_walking_mini_stop1,hash_middle_walking_mini_stop2]}
+      final_path_points+=middle_walking_path
+      
+      bus_route_2_coordinates = find_path(mini_route2, mini_stop2, destination_stop)
+      hash_bus_route2_stop_point=[]
+      bus_route_2_coordinates.each do |coordinate|
+        hash_bus_route2_stop_point << {:lat => coordinate[0], :lng => coordinate[1]}
+      end
+      hash_bus_route2_path={:transportation_type => "bus", :bus_route_name => mini_route2.short_name, :nav_points =>hash_bus_route2_stop_point}
+      final_path_points+=hash_bus_route2_path
+      
     end #end of on the same or different route
     # From last bus stop to the destination
-    final_path_points += path_from_google_route(destination_walking_route)
+#    final_path_points += path_from_google_route(destination_walking_route)
+
+   #add last walking path
+    hash_last_stop={:lat =>destination_stop_coordinates[0],:lng =>destination_stop_coordinates[1]}
+    hash_destination={:lat =>destination_coordinates[0],:lng =>destination_coordinates[1]}
+    walking_path={:transportation_type =>"walk", :nav_points => [hash_last_stop,hash_destination]}
+    final_path_points+=walking_path
     return final_path_points
   end
 end
