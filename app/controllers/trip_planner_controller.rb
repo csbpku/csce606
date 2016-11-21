@@ -78,12 +78,12 @@ class TripPlannerController < ApplicationController
     general_availability = (curr_calendar.send(week_day) == truth_condition)
     curr_date = Date.new(time.year, time.month, time.day)
     within_service_period = curr_calendar.start_date <= curr_date and curr_calendar.end_date >= curr_date
-    gameday_schedule = CalendarDates.where(date:(curr_date))
+    gameday_schedule = Calendar_date.where(date:(curr_date))
     
-    is_gameday = False
+    is_gameday = false
     if not gameday_schedule.empty?
       if (gameday_schedule[0].calendar_id == trip.calendar_id)
-        is_gameday = True
+        is_gameday = true
       end
     end
     return (is_gameday or (general_availability and within_service_period))
@@ -105,24 +105,25 @@ class TripPlannerController < ApplicationController
       bus_routes = Route.all
 
       bus_routes.each do |curr_route|
-        route_available = False
-        has_stop = False
+        route_available = false
+        has_stop = false
         curr_route_trips = curr_route.trips
         
         curr_route_trips.each do |a_trip|
           if available?(a_trip, time)
-            route_available = True
+            route_available = true
             break
           end
         end
           
         curr_route_stops = curr_route.trips[0].stops.distinct
         has_stop = (curr_route_stops.include?(stop))
-        if has_stop and route_available
+        # puts "route_available\n", route_available, "\n", "has_stop\n", has_stop
+        if (has_stop and route_available)
           routes_set.push(curr_route)
         end
       end
-      
+      return routes_set
   end
   
   def euclidean_distance(vector1, vector2)
@@ -198,14 +199,13 @@ class TripPlannerController < ApplicationController
     routes_containing_depart = find_routes_set_by_stop(depart_stop,time)
     # This set contains all routes including the destination stop 
     routes_containing_destination = find_routes_set_by_stop(destination_stop,time)
-    
     # This array defines the shape of the routing results, it contains multiple coordinates
     final_path_points = []
    # final_path_points += path_from_google_route(depart_walking_route)
     hash_depart={:lat =>depart_coordinates[0],:lng =>depart_coordinates[1]}
     hash_first_stop={:lat =>depart_stop_coordinates[0],:lng =>depart_stop_coordinates[1]}
     walking_path={:transportation_type =>"walk", :nav_points => [hash_depart,hash_first_stop]}
-    final_path_points+=walking_path
+    final_path_points << walking_path
     
     common_routes = routes_containing_depart.to_set & routes_containing_destination.to_set
     if (not common_routes.empty?) # On the same route
@@ -216,7 +216,7 @@ class TripPlannerController < ApplicationController
         hash_bus_stop_point << {:lat => coordinate[0], :lng => coordinate[1]}
       end
       hash_bus_path={:transportation_type => "bus", :bus_route_name => common_routes.to_a[0].short_name, :nav_points =>hash_bus_stop_point}
-      final_path_points+=hash_bus_path
+      final_path_points << hash_bus_path
     else # On different route
       #min_walking_distance = Float::INFINITY
       #min_walking_route = nil
@@ -290,18 +290,20 @@ class TripPlannerController < ApplicationController
       # final_path_points += path_of_bus_route_2
       
       bus_route_1_coordinates = find_path(mini_route1, depart_stop, mini_stop1)
+      puts mini_route1
+      puts mini_stop2
       hash_bus_route1_stop_point=[]
       bus_route_1_coordinates.each do |coordinate|
         hash_bus_route1_stop_point << {:lat => coordinate[0], :lng => coordinate[1]}
       end
       hash_bus_route1_path={:transportation_type => "bus", :bus_route_name => mini_route1.short_name, :nav_points =>hash_bus_route1_stop_point}
-      final_path_points+=hash_bus_route1_path
+      final_path_points << hash_bus_route1_path
       
       
       hash_middle_walking_mini_stop1={:lat =>mini_stop1.lan,:lng =>mini_stop1.lon}
       hash_middle_walking_mini_stop2={:lat =>mini_stop2.lan,:lng =>mini_stop2.lon}
       middle_walking_path={:transportation_type =>"walk", :nav_points => [hash_middle_walking_mini_stop1,hash_middle_walking_mini_stop2]}
-      final_path_points+=middle_walking_path
+      final_path_points << middle_walking_path
       
       bus_route_2_coordinates = find_path(mini_route2, mini_stop2, destination_stop)
       hash_bus_route2_stop_point=[]
@@ -309,7 +311,7 @@ class TripPlannerController < ApplicationController
         hash_bus_route2_stop_point << {:lat => coordinate[0], :lng => coordinate[1]}
       end
       hash_bus_route2_path={:transportation_type => "bus", :bus_route_name => mini_route2.short_name, :nav_points =>hash_bus_route2_stop_point}
-      final_path_points+=hash_bus_route2_path
+      final_path_points << hash_bus_route2_path
       
     end #end of on the same or different route
     # From last bus stop to the destination
@@ -319,7 +321,7 @@ class TripPlannerController < ApplicationController
     hash_last_stop={:lat =>destination_stop_coordinates[0],:lng =>destination_stop_coordinates[1]}
     hash_destination={:lat =>destination_coordinates[0],:lng =>destination_coordinates[1]}
     walking_path={:transportation_type =>"walk", :nav_points => [hash_last_stop,hash_destination]}
-    final_path_points+=walking_path
+    final_path_points << walking_path
     return final_path_points
   end
 end
