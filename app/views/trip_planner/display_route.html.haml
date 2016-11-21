@@ -19,142 +19,76 @@
           });
        }
        
-    var qd = {};
-    location.search.substr(1).split("&").forEach(
-            function(item) {var s = item.split("="), k = s[0], v = s[1] && decodeURIComponent(s[1]); (qd[k] = qd[k] || []).push(v)})
+    //var qd = {};
+    //location.search.substr(1).split("&").forEach(
+            //function(item) {var s = item.split("="), k = s[0], v = s[1] && decodeURIComponent(s[1]); (qd[k] = qd[k] || []).push(v)})
     function display() 
     {
         initMap();
         $.ajax({url: 'display_route',
                dataType: 'json',
                timeout: 5000,
-               success: function(data) {runSnapToRoad(data.path);}
+               success: function(data) { draw_route(data); }
                });
-
         // the new front end function:
         // runGNavigation(qd['path%5B%5D']);
         // runSnapToRoad(qd['path%5B%5D']);
 
     }
-    function runGNavigation(path) {
-      //initialize startlocation and firstBusStop here
-      startLocation= {lat: 30.618414,  lng: -96.332592};
-      firstBusStop= {lat:30.6139, lng: -96.3397};
-      startToBusIns= {
-        origin:  startLocation,
-        destination: firstBusStop,
-        travelMode: 'WALKING'
-      };
-      //initialize endLocation and lastBusStop here
-
-      endLocation= {lat: 30.606927, lng: -96.342873};
-      lastBusStop= {lat: 30.6112727887197, lng: -96.3234556510124};
-      busToEndIns= {
-        origin:  lastBusStop,
-        destination: endLocation,
-        travelMode: 'WALKING'
-      };
-
-      var directionsService = new google.maps.DirectionsService;
-      var directionStartToBus = new google.maps.DirectionsRenderer({
-        map: map,
-        polylineOptions : {
-          strokeColor:'red',
-          strokeOpacity: 0.7,
+    
+    function draw_route(data) 
+    {
+      var i;
+      for(i = 0; i < data.length; i++) 
+      { 
+        path = JSON.parse(data[i]);
+        switch(path.transportation_type) {
+          case "walk":
+            runGNavigation(path.nav_points);
+            break;
+          case "bus":
+            runSnapToRoad(path.nav_points.map(toString))
+            add_markers(path.nav_points, path.bus_route_name);
         }
-      });
-      var directionBusToEnd = new google.maps.DirectionsRenderer({
+      }
+    }
+    
+    function toString(latlon) 
+    { 
+      result = "" + latlon.lat + ", " + latlon.lng;
+      return result;
+    }
+    
+    function runGNavigation(data)
+    {
+      start = data[0];
+      end = data[1];
+      
+      startToEnd = {
+        origin:  start,
+        destination: end,
+        travelMode: 'WALKING'
+      };
+      
+      var directionsService = new google.maps.DirectionsService;
+      var directionStartToEnd = new google.maps.DirectionsRenderer({
         map: map,
         polylineOptions : {
           strokeColor:'green',
           strokeOpacity: 0.7,
         }
-
       });
-      var directionsDisplay = new google.maps.DirectionsRenderer({map: map});
-      var stepDisplay = new google.maps.InfoWindow;
-      //latlong for each stop 
-      var route27 = [
-        {lat:30.6139, lng: -96.3397},
-        {lat: 30.6111668414573, lng: -96.3236662044326},
-        {lat: 30.6091645723083, lng: -96.3209303510744},
-        {lat: 30.6118387348556, lng: -96.3184291910189},
-        {lat: 30.6161611149407, lng: -96.312077719693},
-        {lat: 30.6177892159098, lng: -96.3101076370542},
-        {lat: 30.6183712553007, lng: -96.3080342893621},
-        {lat: 30.6207114828057, lng: -96.3045219364477},
-          //max waypoint reached (8) need business api key for 23
-          // {lat: 30.6184262405888, lng: -96.3081737642392},
-          // {lat: 30.6178442011979, lng: -96.3102028554799},
-          // {lat: 30.6156783172892, lng: -96.3126879222803},
-          // {lat: 30.6119071311895, lng: -96.3185109983987},
-        {lat: 30.6108181542646, lng: -96.320265163199},
-        {lat: 30.6112727887197, lng: -96.3234556510124},
-      ]
-
-      //key to drawing the route. Can set stopover to be false and set static marker as bus stop
-      var waypts=[]
-      for (var i=1; i<route27.length-1; i++){
-        waypts.push({
-            location: route27[i],
-            stopover:true,
-          });
-      }
-
-        
-      directionsService.route(startToBusIns, function(response, status) {
+      
+      directionsService.route(startToEnd, function(response, status) {
         if (status === 'OK') {
-          directionStartToBus.setDirections(response);
+          directionStartToEnd.setDirections(response);
           var route = response.routes[0];
-            
         } else {
           window.alert('Directions request failed due to ' + status);
         }
       });
-
-      directionsService.route(busToEndIns, function(response, status) {
-        if (status === 'OK') {
-          directionBusToEnd.setDirections(response);
-          var route = response.routes[0];
-            
-        } else {
-          window.alert('Directions request failed due to ' + status);
-        }
-      });
-
-      directionsService.route({
-        origin: route27[0],
-        destination: route27[route27.length-1],
-        waypoints: waypts,
-        optimizeWaypoints: false,
-        travelMode: 'DRIVING'
-      }, function(response, status) {
-        if (status === 'OK') {
-          directionsDisplay.setDirections(response);
-          var route = response.routes[0];
-            
-        } else {
-          window.alert('Directions request failed due to ' + status);
-        }
-      });
-      
-      //marker, need to have ~14 of them for each route
-      // var infowindow = new google.maps.InfoWindow({
-      //   content: "Trigon"
-      // });
-
-      // var marker = new google.maps.Marker({
-      //   position: route27[0],
-      //   map: map,
-      //   title: 'Trigon'
-      // });
-
-      // marker.addListener('click', function() {
-      //   infowindow.open(map, marker);
-      // });
-      
-      
     }
+
     function runSnapToRoad(path) {  
       $.get('https://roads.googleapis.com/v1/snapToRoads', {
         interpolate: true,
@@ -189,6 +123,21 @@
     
       snappedPolyline.setMap(map);
       //polylines.push(snappedPolyline);
+    }
+    
+    function add_markers(points, route_name) {       
+        var infowindow = new google.maps.InfoWindow({
+            content: "Bus route:" + route_name
+         });
+        var marker = new google.maps.Marker({
+            position: points[1],
+            map: map,
+            title: route_name
+        });
+        
+        marker.addListener('click', function() {
+            infowindow.open(map, marker);
+        });
     }
   %script{:async => "", :defer => "defer", :src => "https://maps.googleapis.com/maps/api/js?key=AIzaSyBGXhzWszzxqmajf5w0AzEmFi5hbgA8VRY&callback=display"}
   :cdata
