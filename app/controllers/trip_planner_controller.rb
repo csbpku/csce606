@@ -69,7 +69,7 @@ class TripPlannerController < ApplicationController
     return path_points
   end
   
-  def find_routes_set_by_stop(stop)
+  def find_routes_set_by_stop(stop, time)
     # Return a set which contains all routes including input stop
     routes_set = Array.new 
     bus_routes = Route.all
@@ -93,6 +93,7 @@ class TripPlannerController < ApplicationController
   
   # Find the bus path between depart and destination stop given a certain bus route
   def find_path(route, depart_stop, destination_stop)
+   
     depart_stop_coordinates = [depart_stop.lan, depart_stop.lon]
     destination_stop_coordinates = [destination_stop.lan, destination_stop.lon]
     mini_distance_depart = Float::INFINITY
@@ -139,6 +140,7 @@ class TripPlannerController < ApplicationController
   # Destination_address: string for destination address
   # Return the path containing all coordinate points, representing the best path
   def bus_route_planning (depart_address, destination_address)
+    time = Time.now.getlocal('-06:00')
     depart_coordinates = address_to_coordinates(depart_address)
     destination_coordinates = address_to_coordinates(destination_address)
     depart_stop = find_nearest_stop(depart_coordinates)
@@ -150,9 +152,9 @@ class TripPlannerController < ApplicationController
     destination_walking_route = walking_route(destination_stop_coordinates, destination_coordinates)
     
     # This set contains all routes including the departing stop 
-    routes_containing_depart = find_routes_set_by_stop(depart_stop)
+    routes_containing_depart = find_routes_set_by_stop(depart_stop,time)
     # This set contains all routes including the destination stop 
-    routes_containing_destination = find_routes_set_by_stop(destination_stop)
+    routes_containing_destination = find_routes_set_by_stop(destination_stop,time)
     
     # This array defines the shape of the routing results, it contains multiple coordinates
     final_path_points = []
