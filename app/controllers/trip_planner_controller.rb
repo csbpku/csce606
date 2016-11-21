@@ -5,8 +5,8 @@ require 'google_maps_service'
 class TripPlannerController < ApplicationController
   
   @@gmaps = GoogleMapsService::Client.new()
-  @@gmaps.key = "AIzaSyAOoWZdZFz8nFtVjBlWRysnSoSoSguqCII"
-  
+  # @@gmaps.key = "AIzaSyAOoWZdZFz8nFtVjBlWRysnSoSoSguqCII"
+  @@gmaps.key = "AIzaSyBGXhzWszzxqmajf5w0AzEmFi5hbgA8VRY"
   def index
     
   end
@@ -74,12 +74,21 @@ class TripPlannerController < ApplicationController
     routes_set = Array.new 
     bus_routes = Route.all
     bus_routes.each do |curr_route|
-      curr_route_stops = curr_route.stops
+      curr_route_stops = curr_route.trips[0].stops.distinct
       if(curr_route_stops.include?(stop))
         routes_set.push(curr_route)
       end
     end
     return routes_set
+  end
+  
+  def euclidean_distance(vector1, vector2)
+    sum = 0
+    vector1.zip(vector2).each do |v1, v2|
+      component = (v1 - v2)**2
+      sum += component
+    end
+    Math.sqrt(sum)
   end
   
   # Find the bus path between depart and destination stop given a certain bus route
@@ -149,42 +158,78 @@ class TripPlannerController < ApplicationController
     final_path_points = []
     final_path_points += path_from_google_route(depart_walking_route)
     
-    common_routes = routes_containing_depart.to_set & routes_containing_depart.to_set
+    common_routes = routes_containing_depart.to_set & routes_containing_destination.to_set
     if (not common_routes.empty?) # On the same route
       final_path_points += find_path(common_routes.to_a()[0], depart_stop, destination_stop)
     else # On different route
+      #min_walking_distance = Float::INFINITY
+      #min_walking_route = nil
+      #path_of_bus_route_1 = nil
+      #path_of_bus_route_2 = nil
+      #transfer_walking_route = nil
+      # Iterate all the routes in two different set
+      # routes_containing_depart.each do |route_1|
+      #   routes_containing_destination.each do |route_2|
+      #     # Iterate all the stops in both routes
+      #     route_1.stops.each do |stop_1|
+      #       route_2.stops.each do |stop_2|
+      #         if(stop_1.id != stop_2.id) # Not the same stop
+      #           # transfer_walking_route = walking_route([stop_1.lan, stop_1.lon], [stop_2.lan, stop_2.lon])
+      #           # transfer_walking_route_distance = transfer_walking_route[:legs][0][:distance][:value]
+      #           transfer_walking_route_distance = euclidean_distance([stop_1.lan, stop_1.lon], [stop_2.lan, stop_2.lon])
+      #         else
+      #           transfer_walking_route = nil
+      #           transfer_walking_route_distance = 0
+      #         end
+      #         # Find the shortest transfer walking route
+      #         if(transfer_walking_route_distance < min_walking_distance)
+      #           min_walking_distance = transfer_walking_route_distance
+      #           min_walking_route = transfer_walking_route
+      #           path_of_bus_route_1 = find_path(route_1, depart_stop, stop_1)
+      #           path_of_bus_route_2 = find_path(route_2, stop_2, destination_stop)
+      #         end
+      #       end
+      #     end
+      #     # End iterate all stops
+      #   end
+      # end
+      # End iterate all routes
+      #final_path_points += path_of_bus_route_1
+      #final_path_points += path_from_google_route(transfer_walking_route)
+      #final_path_points += path_of_bus_route_2
+      ##########################NEW VERSION########################
       min_walking_distance = Float::INFINITY
-      min_walking_route = nil
-      path_of_bus_route_1 = nil
-      path_of_bus_route_2 = nil
-      transfer_walking_route = nil
+      mini_stop1 = nil
+      mini_stop2 = nil
+      mini_route1 = nil
+      mini_route2 = nil
       # Iterate all the routes in two different set
       routes_containing_depart.each do |route_1|
         routes_containing_destination.each do |route_2|
           # Iterate all the stops in both routes
-          route_1.stops.each do |stop_1|
-            route_2.stops.each do |stop_2|
-              if(stop1.id != stop2.id) # Not the same stop
-                transfer_walking_route = walking_route(stop1, stop2)
-                transfer_walking_route_distance = transfer_walking_route[:legs][0][:distance][:value]
+          route_1.stops.distinct.each do |stop_1|
+            route_2.stops.distinct.each do |stop_2|
+              if(stop_1.id != stop_2.id) # Not the same stop
+                transfer_walking_route_distance = euclidean_distance([stop_1.lan, stop_1.lon], [stop_2.lan, stop_2.lon])
               else
-                transfer_walking_route = nil
                 transfer_walking_route_distance = 0
               end
               # Find the shortest transfer walking route
               if(transfer_walking_route_distance < min_walking_distance)
                 min_walking_distance = transfer_walking_route_distance
-                min_walking_route = transfer_walking_route
-                path_of_bus_route_1 = find_path(route_1, depart_stop, stop1)
-                path_of_bus_route_2 = find_path(route_2, stop2, destination_stop)
+                mini_route1 = route_1
+                mini_route2 = route_2
+                mini_stop1 = stop_1
+                mini_stop2 = stop_2
               end
             end
           end
-          # End iterate all stops
         end
       end
-      # End iterate all routes
+      path_of_bus_route_1 = find_path(mini_route1, depart_stop, mini_stop1)
+      path_of_bus_route_2 = find_path(mini_route2, mini_stop2, destination_stop)
       final_path_points += path_of_bus_route_1
+      transfer_walking_route = walking_route([mini_stop1.lan, mini_stop1.lon], [mini_stop2.lan, mini_stop2.lon])
       final_path_points += path_from_google_route(transfer_walking_route)
       final_path_points += path_of_bus_route_2
     end #end of on the same or different route
