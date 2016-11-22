@@ -38,9 +38,10 @@ function popupcontent(type, point) {
              'Type: ' + point.lottype + '<br>' + 
              point.lat + ', '+ + point.lon + '<br>' + '</div>';
     case 'Bikes':
-      /*
-        Write your bike rails code here
-      */
+      return '<div><strong>' + point.typeofrack + '</strong><br>' +
+             'Current Filled: ' + point.typeQuantity + '<br>' +
+             'Total Capacity: ' + point.total_Capacity + '<br>' +
+             point.lat + ', '+ + point.lon + '<br>' + '</div>';
   }
 }
 
