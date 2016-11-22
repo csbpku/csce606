@@ -26,7 +26,7 @@ ActiveRecord::Schema.define(version: 20161115194428) do
     t.string  "name"
     t.string  "address"
     t.integer "numberoffloors"
-    t.float   "lat"
+    t.float   "lan"
     t.float   "lon"
   end
 
