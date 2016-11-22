@@ -24,29 +24,52 @@ function initMap() {
     });
 }
 
-function drawRoute(){
+function geocodeAddress(geocoder, resultsMap, address, callback) {
+  geocoder.geocode({'address': address}, function(results, status) {
+    
+    if (status === 'OK') {
+      if (results[0]) {
+          callback(results[0].geometry.location);
+        } else {
+          alert("No results found");
+        }
+    } else {
+      alert('Geocode was not successful for the following reason: ' + status);
+    }
+  });
+}
+
+function drawRoute(from, to){
     var directionsService = new google.maps.DirectionsService;
         var directionsDisplay = new google.maps.DirectionsRenderer;
         directionsDisplay.setMap(map);
-        directionsService.route({
-          origin: new google.maps.LatLng(30.51953606, -96.41673369),
-          destination: new google.maps.LatLng(30.51999039,-96.4167104),
-          travelMode: 'DRIVING'
-        }, function(response, status) {
-          if (status === 'OK') {
-            directionsDisplay.setDirections(response);
-          } else {
-            window.alert('Directions request failed due to ' + status);
-          }
+        var geocoder = new google.maps.Geocoder();
+        geocodeAddress(geocoder,map,from,function(fromaddr){
+          alert(fromaddr);
+          SourceCordinates = fromaddr
+          geocodeAddress(geocoder,map,to,function(toaddr){
+            alert(toaddr);
+            destinationCordinates = toaddr
+            directionsService.route({
+              origin: new google.maps.LatLng(SourceCordinates.lat(), SourceCordinates.lng()),
+              destination: new google.maps.LatLng(destinationCordinates.lat(), destinationCordinates.lng()),
+              travelMode: 'DRIVING'
+              }, function(response, status) {
+                                              if (status === 'OK') {
+                                                directionsDisplay.setDirections(response);
+                                              } else {
+                                                window.alert('Directions request failed due to ' + status);
+                                              }
+            });
+            });
         });
-        
 }
 // Layer populater
 $(document).ready(function() {
     
     $('#pathFinderForm').submit(function(event) {
         $('#path_finder').modal('hide');
-        drawRoute();
+        drawRoute("Evans Library","Texas A&M University");
         // stop the form from submitting the normal way and refreshing the page
         event.preventDefault();
     });
