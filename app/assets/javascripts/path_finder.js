@@ -6,8 +6,6 @@
 
 /*------------------------------Globals----------------------------------------*/
 //global variables
-/*global google*/
-/*global $*/
 var map;
 /*-----------------------------Functions-----------------------------------------*/
 // This function is first when user loads the page
