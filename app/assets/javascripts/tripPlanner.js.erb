@@ -60,6 +60,10 @@ function initMap() {
             position: google.maps.ControlPosition.TOP_RIGHT
         }
     });
+    	var input1 = document.getElementById('trip_planner_from');
+		var autocomplete1 = new google.maps.places.Autocomplete(input1);
+		var input2 = document.getElementById('trip_planner_to');
+		var autocomplete2 = new google.maps.places.Autocomplete(input2);
 }
 
 // This function is to create pop up
@@ -101,6 +105,7 @@ function displayMarkers(data)
    markerCluster = new MarkerClusterer(map, markers, {imagePath: 'https://raw.githubusercontent.com/googlemaps/js-marker-clusterer/gh-pages/images/m'});
 }
 
+/*-----------------------------------AJAX--------------------------------*/
 // Layer populater
 $(document).ready(function() {
   
@@ -116,8 +121,12 @@ $(document).ready(function() {
             dataType    : 'json', // what type of data do we expect back from the server
             encode      : true,
             success     : function(data){ displayMarkers(data)}
-        })
+        });
         // stop the form from submitting the normal way and refreshing the page
         event.preventDefault();
     });
+});
+
+$("#dir").on('shown.bs.modal',function(){
+    $(document).off('focusin.bs.modal');
 });

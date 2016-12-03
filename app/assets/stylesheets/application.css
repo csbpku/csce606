@@ -33,7 +33,14 @@
     bottom: 0;
     left: 0;
 }
-
+.pac-container {
+    z-index: 1051 !important;
+}
+.modeless{
+    top:50px;
+    bottom:auto;
+    right:auto;
+}
 /* Menu bar styles*/
 .navbar-brand {
   margin: 0px;

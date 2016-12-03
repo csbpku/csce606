@@ -33,57 +33,53 @@
               Login
       / /.nav-collapse
     / /.container-fluid
-  #dir.modal.fade{:role => "dialog"}
-    .modal-dialog
-      / Modal content
-      .modal-content
-        .modal-header
-          %button.close{"data-dismiss" => "modal", :type => "button"} ×
-          %h4.modal-title Trip planner
-        .modal-body
-          = form_tag trip_planner_trip_planning_path, :method => :post do
+  #dir.modal.fade.modeless{:role => "dialog", "data-backdrop" => "false"}
+    .modal-content
+      .modal-header
+        %button.close{"data-dismiss" => "modal", :type => "button"} ×
+        %h4.modal-title Trip planner
+      .modal-body
+        = form_tag trip_planner_trip_planning_path, :method => :post do
+          
+          = label :trip_planner, :from, "From:"
+          = text_field :trip_planner, :from, class:'form-control', :required => true
             
-            = label :trip_planner, :from, "From:"
-            = text_field :trip_planner, :from, class:'form-control', :required => true
-              
-            = label :trip_planner, :to, "To:"
-            = text_field :trip_planner, :to, class:'form-control', :required => true
-            %br
-            = submit_tag 'Find Directions', class: 'btn btn-default'
-        .modal-footer
-          %button.btn.btn-default{"data-dismiss" => "modal", :type => "button"} Close
-  #layer.modal.fade{:role => "dialog"}
-    .modal-dialog
-      / Modal content
-      .modal-content
-        .modal-header
-          %button.close{"data-dismiss" => "modal", :type => "button"} ×
-          %h4.modal-title Layers
-        .modal-body
-          %form{:id=>"searchForm"}
-            .form-group
-              %label.custom-control.custom-checkbox
-                %input.custom-control-input{:id=>"bike", :name => "layer[bicycle]", :type => "checkbox", :value => "1"}/
-                %span.custom-control-indicator
-                %span.custom-control-description Bicycle Racks
-            .form-group
-              %label.custom-control.custom-checkbox
-                %input.custom-control-input{:id=>"building", :name => "layer[building]", :type => "checkbox", :value => "1"}/
-                %span.custom-control-indicator
-                %span.custom-control-description Academic Buildings
-            .form-group
-              %label.custom-control.custom-checkbox
-                %input.custom-control-input{:id=>"parking",:name => "layer[parking]", :type => "checkbox", :value => "1"}/
-                %span.custom-control-indicator
-                %span.custom-control-description Parking Lots
-            .form-group
-              %label.custom-control.custom-checkbox
-                %input.custom-control-input{:id=>"bus",:name => "layer[bus]", :type => "checkbox", :value => "1"}/
-                %span.custom-control-indicator
-                %span.custom-control-description Bus Routes
-            %button.btn.btn-default{:type => "submit"} Show Layers
-        .modal-footer
-          %button.btn.btn-default{"data-dismiss" => "modal", :type => "button"} Close
+          = label :trip_planner, :to, "To:"
+          = text_field :trip_planner, :to, class:'form-control', :required => true
+          %br
+          = submit_tag 'Find Directions', class: 'btn btn-default'
+      .modal-footer
+        %button.btn.btn-default{"data-dismiss" => "modal", :type => "button"} Close
+  #layer.modal.fade.modeless{:role => "dialog", "data-backdrop" => "false"}
+    .modal-content
+      .modal-header
+        %button.close{"data-dismiss" => "modal", :type => "button"} ×
+        %h4.modal-title Layers
+      .modal-body
+        %form{:id=>"searchForm"}
+          .form-group
+            %label.custom-control.custom-checkbox
+              %input.custom-control-input{:id=>"bike", :name => "layer[bicycle]", :type => "checkbox", :value => "1"}/
+              %span.custom-control-indicator
+              %span.custom-control-description Bicycle Racks
+          .form-group
+            %label.custom-control.custom-checkbox
+              %input.custom-control-input{:id=>"building", :name => "layer[building]", :type => "checkbox", :value => "1"}/
+              %span.custom-control-indicator
+              %span.custom-control-description Academic Buildings
+          .form-group
+            %label.custom-control.custom-checkbox
+              %input.custom-control-input{:id=>"parking",:name => "layer[parking]", :type => "checkbox", :value => "1"}/
+              %span.custom-control-indicator
+              %span.custom-control-description Parking Lots
+          .form-group
+            %label.custom-control.custom-checkbox
+              %input.custom-control-input{:id=>"bus",:name => "layer[bus]", :type => "checkbox", :value => "1"}/
+              %span.custom-control-indicator
+              %span.custom-control-description Bus Routes
+          %button.btn.btn-default{:type => "submit"} Show Layers
+      .modal-footer
+        %button.btn.btn-default{"data-dismiss" => "modal", :type => "button"} Close
   #path_finder.modal.fade{:role => "dialog"}
     .modal-dialog
       / Modal content
