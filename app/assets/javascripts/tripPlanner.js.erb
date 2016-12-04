@@ -12,7 +12,8 @@
 
 var map;
 var markerGroup = {'Bikes':[], 'Parking':[], 'Building':[]};
-var markerCluster;
+var displayState = {'Bikes':false, 'Parking':false, 'Building':false};
+var markerCluster = null;
 var icons = {
   Building: {
     icon:   "<%= asset_path('markers/industries.png') %>"
@@ -94,19 +95,32 @@ function createMarker(latlng, type, point){
 
 function displayMarkers(data)
 {
-    var markers = [];
-
     for(var j = 0;j<data.layer.length;j++){
         for (var i = 0; i < data.layer[j].points.length; i++){
             var latlng = new google.maps.LatLng(data.layer[j].points[i].lat, data.layer[j].points[i].lon);
             createMarker(latlng, data.layer[j].objtype,data.layer[j].points[i]);
         }
     }
+    addTocluster();
+}
 
+function addTocluster()
+{
+    var markers = [];
     var keys = Object.keys(markerGroup);
-    for (var k in keys)
-        markers = markers.concat(markerGroup[keys[k]]);
-   //markerCluster = new MarkerClusterer(map, markers, {imagePath: 'https://raw.githubusercontent.com/googlemaps/js-marker-clusterer/gh-pages/images/m'});
+    for (var k = 0; k< keys.length; k++)
+    {
+        if(displayState[keys[k]])
+        {
+            markers = markers.concat(markerGroup[keys[k]]);
+            console.log(markerGroup[keys[k]]);
+            console.log(markers);
+        }
+        
+    }
+    if (markerCluster!=null)
+        markerCluster.clearMarkers();
+    markerCluster = new MarkerClusterer(map, markers, {imagePath: 'https://raw.githubusercontent.com/googlemaps/js-marker-clusterer/gh-pages/images/m'});
 }
 
 function toggleMarkers(element)
@@ -114,6 +128,7 @@ function toggleMarkers(element)
     // check if checkbox is checked and datasize=0 do ajax call
     if($(element).is(":checked") && (markerGroup[element.id].length == 0) )
     {
+        displayState[element.id] = true;
         requestData(element);
     }
     
@@ -124,17 +139,19 @@ function toggleMarkers(element)
         {
             markerGroup[element.id][k].setVisible(true);
         }
+        displayState[element.id] = true;
+        addTocluster();
     }
+
     else if (!($(element).is(":checked")) && (markerGroup[element.id].length != 0))
     {
         for (var k=0; k< markerGroup[element.id].length; k++)
         {
             markerGroup[element.id][k].setVisible(false);
         }
+        displayState[element.id] = false;
+        addTocluster();
     }
-    // if uncked data.size!=0 just hide
-    console.log($(element).is(":checked"));
-    console.log($(element).serializeArray());
 }
 /*-----------------------------------AJAX--------------------------------*/
 // Layer populater
@@ -149,11 +166,3 @@ function requestData(element)
             success     : function(data){ displayMarkers(data)}
         });
 }
-
-$("#dir").on('shown.bs.modal',function(){
-    $(document).off('focusin.bs.modal');
-});
-
-$("#layer").on('shown.bs.modal',function(){
-    $(document).off('focusin.bs.modal');
-});
