@@ -12,6 +12,9 @@
 
 ActiveRecord::Schema.define(version: 20161115194428) do
 
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
   create_table "bikes", force: :cascade do |t|
     t.string  "typeofrack"
     t.integer "typeQuantity"
@@ -34,7 +37,7 @@ ActiveRecord::Schema.define(version: 20161115194428) do
     t.date    "date"
     t.integer "exception_type"
     t.integer "calendar_id"
-    t.index ["calendar_id"], name: "index_calendar_dates_on_calendar_id"
+    t.index ["calendar_id"], name: "index_calendar_dates_on_calendar_id", using: :btree
   end
 
   create_table "calendars", force: :cascade do |t|
@@ -78,8 +81,8 @@ ActiveRecord::Schema.define(version: 20161115194428) do
     t.text     "data"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.index ["session_id"], name: "index_sessions_on_session_id", unique: true
-    t.index ["updated_at"], name: "index_sessions_on_updated_at"
+    t.index ["session_id"], name: "index_sessions_on_session_id", unique: true, using: :btree
+    t.index ["updated_at"], name: "index_sessions_on_updated_at", using: :btree
   end
 
   create_table "stop_times", force: :cascade do |t|
@@ -91,8 +94,8 @@ ActiveRecord::Schema.define(version: 20161115194428) do
     t.float   "shape_dist_traveled"
     t.integer "stop_id"
     t.integer "trip_id"
-    t.index ["stop_id"], name: "index_stop_times_on_stop_id"
-    t.index ["trip_id"], name: "index_stop_times_on_trip_id"
+    t.index ["stop_id"], name: "index_stop_times_on_stop_id", using: :btree
+    t.index ["trip_id"], name: "index_stop_times_on_trip_id", using: :btree
   end
 
   create_table "stops", force: :cascade do |t|
@@ -111,8 +114,8 @@ ActiveRecord::Schema.define(version: 20161115194428) do
     t.integer "route_id"
     t.integer "calendar_id"
     t.integer "shape_id"
-    t.index ["calendar_id"], name: "index_trips_on_calendar_id"
-    t.index ["route_id"], name: "index_trips_on_route_id"
+    t.index ["calendar_id"], name: "index_trips_on_calendar_id", using: :btree
+    t.index ["route_id"], name: "index_trips_on_route_id", using: :btree
   end
 
   create_table "walks", force: :cascade do |t|
