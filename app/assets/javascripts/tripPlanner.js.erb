@@ -153,7 +153,7 @@ function toggleMarkers(element)
         addTocluster();
     }
 }
-/*-----------------------------------AJAX--------------------------------*/
+/*-----------------------------------Jquery/AJAX--------------------------------*/
 // Layer populater
 function requestData(element)
 {
@@ -166,3 +166,15 @@ function requestData(element)
             success     : function(data){ displayMarkers(data)}
         });
 }
+
+// Toggle modals
+$(function(){
+    $("#layer").on('show.bs.modal',function(e){
+         $("#dir").modal('hide');
+    });
+    
+    $("#dir").on('show.bs.modal',function(e){
+         $("#layer").modal('hide');
+    });
+
+});
