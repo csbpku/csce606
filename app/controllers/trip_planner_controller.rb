@@ -40,14 +40,52 @@ class TripPlannerController < ApplicationController
     return nil
   end
   
-  def find_nearest_stop (raw_coordinates)
-    # Return a nearest station
-    stops = Stop.all
+  def find_available_stops(time)
+    available_stops = Array.new
+    bus_routes = Route.all
+
+    bus_routes.each do |curr_route|
+      #route_available = false
+      curr_route_trips = curr_route.trips.select("calendar_id").distinct
+      curr_route_trips_full = curr_route.trips
+      curr_route_trips.each do |a_trip|
+        if available?(a_trip, time)
+          curr_route_trips_full.select{|m| m.calendar_id == a_trip.calendar_id}
+          #route_available = true
+          available_stops += curr_route_trips_full[0].stops
+          break
+        end
+      end
+        
+      
+      # if route_available
+        
+      # end
+    end
+    return available_stops.uniq
+  end
+  
+  # def stop_available?(stop, time)
+  #   trips = stop.trips.distinct
+  #   trips.each do |each_trip|
+  #     if available?(each_trip, time)
+  #       return true
+  #     end
+  #   end
+  #   return false
+  # end
+  
+  def find_nearest_stop (raw_coordinates, time)
+    # Return a nearest statio
+    
+    stops = find_available_stops(time)
+    #stops = Stop.all
     min_distance = Float::INFINITY
     nearest_stop = nil
     stops.each do |curr_stop|
       curr_stop_coordinates = [curr_stop.lan, curr_stop.lon]
       distance = Geocoder::Calculations.distance_between(curr_stop_coordinates, raw_coordinates)
+      #if distance < min_distance and stop_available?(curr_stop, time)
       if distance < min_distance
         min_distance = distance
         nearest_stop = curr_stop
@@ -196,8 +234,8 @@ class TripPlannerController < ApplicationController
     time = Time.now.getlocal('-06:00')
     depart_coordinates = address_to_coordinates(depart_address)
     destination_coordinates = address_to_coordinates(destination_address)
-    depart_stop = find_nearest_stop(depart_coordinates)
-    destination_stop = find_nearest_stop(destination_coordinates)
+    depart_stop = find_nearest_stop(depart_coordinates, time)
+    destination_stop = find_nearest_stop(destination_coordinates, time)
     
     depart_stop_coordinates = [depart_stop.lan, depart_stop.lon]
     #depart_walking_route = walking_route(depart_coordinates, depart_stop_coordinates)
