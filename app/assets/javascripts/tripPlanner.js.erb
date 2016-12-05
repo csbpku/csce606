@@ -104,6 +104,7 @@ function displayMarkers(data)
     addTocluster();
 }
 
+// This function adds the markers to clusters based on zoom level
 function addTocluster()
 {
     var markers = [];
@@ -123,16 +124,17 @@ function addTocluster()
     markerCluster = new MarkerClusterer(map, markers, {imagePath: 'https://raw.githubusercontent.com/googlemaps/js-marker-clusterer/gh-pages/images/m'});
 }
 
+// This function is used to toggle the display of markers on the map 
 function toggleMarkers(element)
 {
-    // check if checkbox is checked and datasize=0 do ajax call
+    // Check if the box is checked and datasize==0 then do ajax call
     if($(element).is(":checked") && (markerGroup[element.id].length == 0) )
     {
         displayState[element.id] = true;
         requestData(element);
     }
     
-    // if chekked and data.size!=0 just show
+    // If the box is checked and data.size!=0 just show the stored data points
     else if($(element).is(":checked") && (markerGroup[element.id].length != 0) )
     {
         for (var k=0; k< markerGroup[element.id].length; k++)
@@ -143,6 +145,7 @@ function toggleMarkers(element)
         addTocluster();
     }
 
+    // Remove the marker from display if the box is unchecked
     else if (!($(element).is(":checked")) && (markerGroup[element.id].length != 0))
     {
         for (var k=0; k< markerGroup[element.id].length; k++)
@@ -153,6 +156,7 @@ function toggleMarkers(element)
         addTocluster();
     }
 }
+
 /*-----------------------------------Jquery/AJAX--------------------------------*/
 // Layer populater
 function requestData(element)
