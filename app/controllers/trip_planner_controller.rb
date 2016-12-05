@@ -346,8 +346,12 @@ class TripPlannerController < ApplicationController
       bus_route_1_coordinates.each do |coordinate|
         hash_bus_route1_stop_point << {:lat => coordinate[0], :lng => coordinate[1]}
       end
-      hash_bus_route1_path={:transportation_type => "bus", :bus_route_name => mini_route1.short_name, :nav_points =>hash_bus_route1_stop_point}
-      final_path_points << hash_bus_route1_path
+      # snap to road requires less than 100 points
+      hash_bus_route1_stop_point.each_slice(99) do |slice|
+        hash_bus_route1_path={:transportation_type => "bus", :bus_route_name => mini_route1.short_name, :nav_points => slice}
+      # hash_bus_route1_path={:transportation_type => "bus", :bus_route_name => mini_route1.short_name, :nav_points =>hash_bus_route1_stop_point}
+        final_path_points << hash_bus_route1_path
+      end
       
       
       hash_middle_walking_mini_stop1={:lat =>mini_stop1.lan,:lng =>mini_stop1.lon}
@@ -360,8 +364,12 @@ class TripPlannerController < ApplicationController
       bus_route_2_coordinates.each do |coordinate|
         hash_bus_route2_stop_point << {:lat => coordinate[0], :lng => coordinate[1]}
       end
-      hash_bus_route2_path={:transportation_type => "bus", :bus_route_name => mini_route2.short_name, :nav_points =>hash_bus_route2_stop_point}
-      final_path_points << hash_bus_route2_path
+      # snap to road requires less than 100 points
+      hash_bus_route2_stop_point.each_slice(99) do |slice|
+        hash_bus_route2_path={:transportation_type => "bus", :bus_route_name => mini_route2.short_name, :nav_points => slice}
+      # hash_bus_route2_path={:transportation_type => "bus", :bus_route_name => mini_route2.short_name, :nav_points =>hash_bus_route2_stop_point}
+        final_path_points << hash_bus_route2_path
+      end
       
     end #end of on the same or different route
     # From last bus stop to the destination
