@@ -22,15 +22,19 @@
               Layers
           %li
             %a{"data-toggle" => "modal", :href => "#path_finder"} Path Finder
-        %ul.nav.navbar-nav.navbar-right
-          %li
-            %a{:href => root_path}
-              %span.glyphicon.glyphicon-user
-              Sign Up
-          %li
-            %a{:href => root_path}
-              %span.glyphicon.glyphicon-log-in
-              Login
+        - if current_user
+          %ul.nav.navbar-nav.navbar-right
+            %li
+              %img{:src => current_user.image_url}/
+            %li
+              %a{:href => logout_path}
+                Log out
+        - else
+          %ul.nav.navbar-nav.navbar-right
+            %li
+              %a{:href => "/auth/twitter"}
+                %span.glyphicon.glyphicon-log-in
+                Login
       / /.nav-collapse
     / /.container-fluid
   #dir.modal.fade.modeless{:role => "dialog", "data-backdrop" => "false"}
