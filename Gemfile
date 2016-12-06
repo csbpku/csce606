@@ -75,3 +75,4 @@ gem 'simplecov', :require => false, :group => :test
 gem 'geocoder'
 gem 'google_maps_service'
 gem 'omniauth-twitter'
+gem "omniauth-google-oauth2"
