@@ -1,103 +1,85 @@
 %body
   / Navigation
-  .container-fullwidth
-    %nav.navbar.navbar-default
-      .container-fluid
-        .navbar-header
-          %button.navbar-toggle.collapsed{"data-target" => "#navbar1", "data-toggle" => "collapse", :type => "button"}
-            %span.sr-only Toggle navigation
-            %span.icon-bar
-            %span.icon-bar
-            %span.icon-bar
-          %a.navbar-brand{:href => root_path}
-            %img{:src => "http://brandguide.tamu.edu/downloads/logos/TAM-PrimaryMarkA.png"}/
-        #navbar1.navbar-collapse.collapse
-          %ul.nav.navbar-nav
-            %li
-              %a{"data-toggle" => "modal", :href => "#dir"} Direction
-            %li
-              %a{"data-toggle" => "modal", :href => "#layer"} Layer
-            %li
-              %a{"data-toggle" => "modal", :href => "#path_finder"} Path Finder
+  %nav.navbar.navbar-default.navbar-fixed-top
+    .container-fluid
+      .navbar-header
+        %button.navbar-toggle.collapsed{"data-target" => "#navbar1", "data-toggle" => "collapse", :type => "button"}
+          %span.sr-only Toggle navigation
+          %span.icon-bar
+          %span.icon-bar
+          %span.icon-bar
+        %a.navbar-brand{:href => "http://www.tamu.edu"}
+          %img{:src => "http://brandguide.tamu.edu/images/tam-primarymark.png", :width=>"228", :height=>"45"}/
+      #navbar1.navbar-collapse.collapse
+        %ul.nav.navbar-nav
+          %li
+            %a{"data-toggle" => "modal", :href => "#dir"} 
+              %span.glyphicon.glyphicon-move
+              Directions
+          %li
+            %a{"data-toggle" => "modal", :href => "#layer"} 
+              %span.glyphicon.glyphicon-menu-hamburger
+              Layers
+        - if current_user
           %ul.nav.navbar-nav.navbar-right
             %li
-              %a{:href => root_path}
-                %span.glyphicon.glyphicon-user
-                Sign Up
+              %img{:src => current_user.image_url}/
             %li
-              %a{:href => root_path}
+              %a{:href => logout_path}
+                Log out
+        - else
+          %ul.nav.navbar-nav.navbar-right
+            %li
+              %a{:href => "/auth/twitter"}
                 %span.glyphicon.glyphicon-log-in
                 Login
-        / /.nav-collapse
-      / /.container-fluid
-  #dir.modal.fade{:role => "dialog"}
-    .modal-dialog
-      / Modal content
-      .modal-content
-        .modal-header
-          %button.close{"data-dismiss" => "modal", :type => "button"} ×
-          %h4.modal-title Trip planner
-        .modal-body
-          = form_tag trip_planner_trip_planning_path, :method => :post do
-            
-            = label :trip_planner, :from, "From:"
-            = text_field :trip_planner, :from, class:'form-control', :required => true
-              
-            = label :trip_planner, :to, "To:"
-            = text_field :trip_planner, :to, class:'form-control', :required => true
-            %br
-            = submit_tag 'Find Directions', class: 'btn btn-default'
-        .modal-footer
-          %button.btn.btn-default{"data-dismiss" => "modal", :type => "button"} Close
-  #layer.modal.fade{:role => "dialog"}
-    .modal-dialog
-      / Modal content
-      .modal-content
-        .modal-header
-          %button.close{"data-dismiss" => "modal", :type => "button"} ×
-          %h4.modal-title Layers
-        .modal-body
-          %form{:id=>"searchForm"}
-            .form-group
-              %label.custom-control.custom-checkbox
-                %input.custom-control-input{:id=>"bike", :name => "layer[bicycle]", :type => "checkbox", :value => "1"}/
-                %span.custom-control-indicator
-                %span.custom-control-description Bicycle Racks
-            .form-group
-              %label.custom-control.custom-checkbox
-                %input.custom-control-input{:id=>"building", :name => "layer[building]", :type => "checkbox", :value => "1"}/
-                %span.custom-control-indicator
-                %span.custom-control-description Academic Buildings
-            .form-group
-              %label.custom-control.custom-checkbox
-                %input.custom-control-input{:id=>"parking",:name => "layer[parking]", :type => "checkbox", :value => "1"}/
-                %span.custom-control-indicator
-                %span.custom-control-description Parking Lots
-            .form-group
-              %label.custom-control.custom-checkbox
-                %input.custom-control-input{:id=>"bus",:name => "layer[bus]", :type => "checkbox", :value => "1"}/
-                %span.custom-control-indicator
-                %span.custom-control-description Bus Routes
-            %button.btn.btn-default{:type => "submit"} Show Layers
-        .modal-footer
-          %button.btn.btn-default{"data-dismiss" => "modal", :type => "button"} Close
-  #path_finder{:role => "dialog"}
-    .pathFinderDlg
-      / Modal content
-      .pathFinderDlg-content
-        .modal-body
-          %form#pathFinderForm
-            .btn-group{"data-toggle" => "buttons", :style => "margin-bottom:20px"}
-              %button#bike_route.btn.btn-default.btn-styles-cls{:type => "click"}
-                Bike
-              %button#walk_route.btn.btn-default.btn-styles-cls{:type => "click"}
-                Walk
-              %button#car_route.btn.btn-default.btn-styles-cls{:type => "click"}
-                Drive
-              %button#best_route.btn.btn-default.btn-styles-cls{:type => "click"}
-                Best
-              %br/
-            .form-group
-              %input#from_from.form-control{:type => "text", :placeholder => 'Where are you going from'}/
-              %br/
-              %input#from_to.form-control{:type => "text", :placeholder => 'Where are you going to'}/
+      / /.nav-collapse
+    / /.container-fluid
+  #dir.modal.fade.modeless{:role => "dialog", "data-backdrop" => "false"}
+    .modal-content
+      .modal-header
+        %button.close{"data-dismiss" => "modal", :type => "button"} ×
+        %h4.modal-title Trip planner
+      .modal-body
+        %form{:id=>"directionsForm"}
+          %label.radio-inline
+            %input{:name => "optradio",:value => "Bike",:type => "radio", :checked => "checked"}/
+            Bike
+          %label.radio-inline
+            %input{:name => "optradio",:value => "Driving",:type => "radio"}/
+            Driving
+          %label.radio-inline
+            %input{:name => "optradio",:value => "Transit",:type => "radio"}/
+            Transit
+          %label.radio-inline
+            %input{:name => "optradio",:value => "Walking",:type => "radio"}/
+            Walking
+        = form_tag trip_planner_trip_planning_path,:id=> "directionsInputForm",:method => :post do
+          = label :trip_planner, :from, "From:"
+          = text_field :trip_planner, :from, class:'form-control', :required => true
+          = label :trip_planner, :to, "To:"
+          = text_field :trip_planner, :to, class:'form-control', :required => true
+          %br
+          = submit_tag 'Find Directions', class: 'btn btn-default'
+  #layer.modal.fade.modeless{:role => "dialog", "data-backdrop" => "false"}
+    .modal-content
+      .modal-header
+        %button.close{"data-dismiss" => "modal", :type => "button"} ×
+        %h4.modal-title Layers
+      .modal-body
+        %form{:id=>"searchForm"}
+          .form-group
+            %label.custom-control.custom-checkbox
+              %input.custom-control-input{:id=>"Bikes", :name => "layer[bicycle]", :type => "checkbox", :value => "1", :onclick => "toggleMarkers(this);"}/
+              %span.custom-control-indicator
+              %span.custom-control-description Bicycle Racks
+          .form-group
+            %label.custom-control.custom-checkbox
+              %input.custom-control-input{:id=>"Building", :name => "layer[building]", :type => "checkbox", :value => "1", :onclick => "toggleMarkers(this);"}/
+              %span.custom-control-indicator
+              %span.custom-control-description Academic Buildings
+          .form-group
+            %label.custom-control.custom-checkbox
+              %input.custom-control-input{:id=>"Parking",:name => "layer[parking]", :type => "checkbox", :value => "1", :onclick => "toggleMarkers(this);"}/
+              %span.custom-control-indicator
+              %span.custom-control-description Parking Lots

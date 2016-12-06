@@ -1,0 +1,259 @@
+/*tripPlanner.js*/
+// Contains all google api calls
+// Please add any javscript/jquery code
+// in this file
+
+
+/*------------------------------Globals----------------------------------------*/
+//global variables
+/*global google*/
+/*global $*/
+/*global MarkerClusterer*/
+
+var map;
+var markerGroup = {'Bikes':[], 'Parking':[], 'Building':[]};
+var displayState = {'Bikes':false, 'Parking':false, 'Building':false};
+var markerCluster = null;
+var originAddress;
+var destAddress;
+var directionsDisplay;
+var directionsService;
+
+var icons = {
+  Building: {
+    icon:   "<%= asset_path('markers/industries.png') %>"
+  },
+  Parking: {
+    icon:  "<%= asset_path('markers/automotive.png') %>"
+  },
+  Bikes: {
+    icon: "<%= asset_path('markers/default.png') %>"
+  },
+ 
+};
+
+
+
+/*-----------------------------Functions-----------------------------------------*/
+
+function popupcontent(type, point) {
+ switch (type){
+    case 'Building':
+      return '<div><strong>' + point.name + '</strong><br>' +
+             'Address: ' + point.address + '<br>' +
+              point.lat + ', '+ + point.lon + '<br>' + '</div>';
+
+    case 'Parking':
+      return '<div><strong>' + point.lotname + '</strong><br>' +
+             'Type: ' + point.lottype + '<br>' + 
+             point.lat + ', '+ + point.lon + '<br>' + '</div>';
+    case 'Bikes':
+      return '<div><strong>' + point.typeofrack + '</strong><br>' +
+             'Current Filled: ' + point.typeQuantity + '<br>' +
+             'Total Capacity: ' + point.total_Capacity + '<br>' +
+             point.lat + ', '+ + point.lon + '<br>' + '</div>';
+  }
+}
+
+// This function is first when user loads the page
+function initMap() {
+    var tamuCenter = {lat: 30.6187199, lng: -96.3364829};
+    map = new google.maps.Map(document.getElementById('map'), {
+        zoom: 15,
+        center: tamuCenter,
+      mapTypeControlOptions: {
+            style: google.maps.MapTypeControlStyle.HORIZONTAL_BAR,
+            position: google.maps.ControlPosition.TOP_RIGHT
+        }
+    });
+    
+    // Setup places autocomplete
+    	var input1 = document.getElementById('trip_planner_from');
+		originAddress = new google.maps.places.Autocomplete(input1);
+		var input2 = document.getElementById('trip_planner_to');
+		destAddress = new google.maps.places.Autocomplete(input2);
+	
+	// Setup Directions renderer
+	    directionsService = new google.maps.DirectionsService;
+        directionsDisplay = new google.maps.DirectionsRenderer;
+        directionsDisplay.setMap(map);
+}
+
+// This function is to create pop up
+function createpopup(marker,contentString) {
+    var infowindow = new google.maps.InfoWindow({
+          content: contentString
+    });
+    
+    marker.addListener('click', function() {
+        infowindow.open(map, marker);
+    });
+}
+
+// Creates markers on the map
+function createMarker(latlng, type, point){
+    var marker = new google.maps.Marker({
+      map: map,
+      position: latlng,
+      title: type,
+      icon: {url: icons[type].icon, scaledSize: new google.maps.Size(20,25)}
+    });
+    
+    // Add the markers to list
+    markerGroup[type].push(marker);
+    var contentString = popupcontent(type, point);
+    createpopup(marker,contentString);
+}
+
+function displayMarkers(data)
+{
+    for(var j = 0;j<data.layer.length;j++){
+        for (var i = 0; i < data.layer[j].points.length; i++){
+            var latlng = new google.maps.LatLng(data.layer[j].points[i].lat, data.layer[j].points[i].lon);
+            createMarker(latlng, data.layer[j].objtype,data.layer[j].points[i]);
+        }
+    }
+    addTocluster();
+}
+
+// This function adds the markers to clusters based on zoom level
+function addTocluster()
+{
+    var markers = [];
+    var keys = Object.keys(markerGroup);
+    for (var k = 0; k< keys.length; k++)
+    {
+        if(displayState[keys[k]])
+        {
+            markers = markers.concat(markerGroup[keys[k]]);
+            console.log(markerGroup[keys[k]]);
+            console.log(markers);
+        }
+        
+    }
+    if (markerCluster!=null)
+        markerCluster.clearMarkers();
+    markerCluster = new MarkerClusterer(map, markers, {imagePath: 'https://raw.githubusercontent.com/googlemaps/js-marker-clusterer/gh-pages/images/m'});
+}
+
+// This function is used to toggle the display of markers on the map 
+function toggleMarkers(element)
+{
+    // Check if the box is checked and datasize==0 then do ajax call
+    if($(element).is(":checked") && (markerGroup[element.id].length == 0) )
+    {
+        displayState[element.id] = true;
+        requestData(element);
+    }
+    
+    // If the box is checked and data.size!=0 just show the stored data points
+    else if($(element).is(":checked") && (markerGroup[element.id].length != 0) )
+    {
+        for (var k=0; k< markerGroup[element.id].length; k++)
+        {
+            markerGroup[element.id][k].setVisible(true);
+        }
+        displayState[element.id] = true;
+        addTocluster();
+    }
+
+    // Remove the marker from display if the box is unchecked
+    else if (!($(element).is(":checked")) && (markerGroup[element.id].length != 0))
+    {
+        for (var k=0; k< markerGroup[element.id].length; k++)
+        {
+            markerGroup[element.id][k].setVisible(false);
+        }
+        displayState[element.id] = false;
+        addTocluster();
+    }
+}
+
+// Displayes the route on the map
+function route(src_id, dest_id, mode)
+{
+    var travel_mode;
+    if (!src_id || !dest_id) 
+    {
+            return;
+    }
+    switch (mode) {
+        case 'Walking':
+            travel_mode = 'WALKING';
+            directionsDisplay.setOptions({ polylineOptions: {
+                strokeColor: "DarkOrange"
+            }});
+            break;
+        case 'Driving':
+            travel_mode = 'DRIVING';
+            directionsDisplay.setOptions({ polylineOptions: {
+                strokeColor: "DarkBlue"
+            }});
+            break;
+        case 'Bike':
+            travel_mode = 'BICYCLING';
+            directionsDisplay.setOptions({ polylineOptions: {
+                strokeColor: "DarkCyan"
+            }});
+            break;
+        default:
+            return;
+    }
+    directionsService.route({
+        origin: {'placeId': src_id},
+        destination: {'placeId': dest_id},
+        travelMode: travel_mode
+    }, function(response, status) {
+        if (status === 'OK') {
+          directionsDisplay.setDirections(response);
+        } else {
+          window.alert('Directions request failed due to ' + status);
+        }
+    });
+
+}
+/*-----------------------------------Jquery/AJAX--------------------------------*/
+// Layer populater
+function requestData(element)
+{
+        $.ajax({
+            type        : 'GET', // define the type of HTTP verb we want to use (POST for our form)
+            url         : '/dropPins', // the url where we want to POST
+            data        : $(element).serializeArray(), // our data object
+            dataType    : 'json', // what type of data do we expect back from the server
+            encode      : true,
+            success     : function(data){ displayMarkers(data)}
+        });
+}
+
+// Toggle modals
+$(function(){
+    $("#layer").on('show.bs.modal',function(e){
+         $("#dir").modal('hide');
+    });
+    
+    $("#dir").on('show.bs.modal',function(e){
+         $("#layer").modal('hide');
+    });
+
+});
+
+// Process directions form
+$(document).ready(function(){
+    $("#directionsInputForm").click(function(event){
+     
+      // handle non-transit queries
+       if($("input[name=optradio]:checked").val() != "Transit")
+       {
+           if($('#trip_planner_from').val() == '' || $('#trip_planner_to').val() == '')
+                return;
+           var src_id = originAddress.getPlace().place_id;
+           var dest_id = destAddress.getPlace().place_id;
+           var mode = $("input[name=optradio]:checked").val();
+           console.log(src_id);
+           event.preventDefault();
+           route(src_id,dest_id,mode);
+       }
+       // transit queries are handled by the server
+    });   
+});
