@@ -62,3 +62,9 @@
         text-align: left;
         line-height: 30px;
 }
+
+.pac-container:after {
+    background-image: none !important;
+    height: 0px;
+}
+
