@@ -44,7 +44,7 @@ function popupcontent(type, point) {
     case 'Building':
       return '<div><strong>' + point.name + '</strong><br>' +
              + point.address + '<br>' +
-              point.lat + ', '+ + point.lon + '<br>' + '</div>'+'<a href="Javascript:myJsFunc();">Direction</a>';
+              point.lat + ', '+ + point.lon + '<br>' + '</div>'+'<a href="#dir">Direction</a>';
 
     case 'Parking':
       return '<div><strong>' + point.lotname + '</strong><br>' +
@@ -59,7 +59,9 @@ function popupcontent(type, point) {
 }
 
 function myJsFunc() {
-    alert("Directions");
+       var ol =  document.getElementById("leftMenu");
+       var tag = ol.getElementsByTagName("li");
+       tag[0].getElementsByTagName('a')[0].click();
 }
 
 // This function is first when user loads the page
