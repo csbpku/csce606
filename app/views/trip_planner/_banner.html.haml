@@ -81,28 +81,23 @@
             %button.btn.btn-default{:type => "submit"} Show Layers
         .modal-footer
           %button.btn.btn-default{"data-dismiss" => "modal", :type => "button"} Close
-  #path_finder.modal.fade{:role => "dialog"}
-    .modal-dialog
+  #path_finder{:role => "dialog"}
+    .pathFinderDlg
       / Modal content
-      .modal-content
-        .modal-header
-          %button.close{"data-dismiss" => "modal", :type => "button"} ×
-          %h4.modal-title Trip planner
+      .pathFinderDlg-content
         .modal-body
-          %form{:id=>"pathFinderForm"}
+          %form#pathFinderForm
             .btn-group{"data-toggle" => "buttons", :style => "margin-bottom:20px"}
-              %button.btn.btn-default{:id => "bike_route", :type => "click"}
+              %button#bike_route.btn.btn-default.btn-styles-cls{:type => "click"}
                 Bike
-              %button.btn.btn-default{:id => "walk_route", :type => "click"}
+              %button#walk_route.btn.btn-default.btn-styles-cls{:type => "click"}
                 Walk
-              %button.btn.btn-default{:id => "car_route", :type => "click"}
+              %button#car_route.btn.btn-default.btn-styles-cls{:type => "click"}
                 Drive
-	            %button.btn.btn-default{:id => "best_route", :type => "click"}
+              %button#best_route.btn.btn-default.btn-styles-cls{:type => "click"}
                 Best
-              %br
+              %br/
             .form-group
-              %input#from.form-control{:type => "text", :id=>"from", :placeholder => 'Where are you going from'}/
-              %br
-              %input#from.form-control{:type => "text", :id=>"to", :placeholder => 'Where are you going to'}/
-        .modal-footer
-          %button.btn.btn-default{"data-dismiss" => "modal", :type => "button"} Close
+              %input#from_from.form-control{:type => "text", :placeholder => 'Where are you going from'}/
+              %br/
+              %input#from_to.form-control{:type => "text", :placeholder => 'Where are you going to'}/
