@@ -68,3 +68,34 @@
     height: 0px;
 }
 
+#pathFinderDlg{
+    vertical-align: 3.7em;
+    left:0px;
+    background-color: red
+}
+
+.pathFinderDlg{
+    border: 1px solid black;
+    background-color: white;
+    height: 13em;
+    width: 21em;
+    border-radius: .5em;
+    margin-left: 0.5em;
+    margin-top: -1em;
+}
+
+#bike_route.btn-styles-cls,#walk_route.btn-styles-cls,#car_route.btn-styles-cls,#best_route.btn-styles-cls{
+    border-radius: 0.5em;
+    width: 4.58em;
+    height: 2.5em;
+    margin-left: 0.1em;
+    text-align: center;
+    vertical-align: middle;
+    line-height: inherit;
+    word-break: break-all;
+}
+
+#loginDlg{
+    height: 20em;
+    width: 20em;
+}
