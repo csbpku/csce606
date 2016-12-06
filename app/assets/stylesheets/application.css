@@ -38,6 +38,7 @@
 }
 .modeless{
     top:50px;
+    min-width:300px;
     width:25%;
     bottom:auto;
     right:auto;
