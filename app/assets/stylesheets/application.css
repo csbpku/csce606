@@ -28,31 +28,36 @@
 /* Map div style*/
 #map {
     position: absolute;
-    top: 3em;
+    top: 50px;
     right: 0;
     bottom: 0;
     left: 0;
-    z-index: -1;
 }
-
+.pac-container {
+    z-index: 1051 !important;
+}
+.modeless{
+    top:50px;
+    width:25%;
+    bottom:auto;
+    right:auto;
+}
 /* Menu bar styles*/
 .navbar-brand {
   margin: 0px;
   padding: 0px;
 }
-.navbar-brand>img {
-  height: 220%;
-  width: auto;
-  margin: -30px -20px -10px -30px
-}
+
 .navbar 
 {
 	background-color: #500000;
+	z-index:1000;
 }
 
 .navbar-default .navbar-nav > li > a {
     color: white;
 }
+
 #floating-panel {
         position: absolute;
         top: 30px;
@@ -62,3 +67,62 @@
         text-align: left;
         line-height: 30px;
 }
+
+.pac-container:after {
+    background-image: none !important;
+    height: 0px;
+}
+
+#pathFinderDlg{
+    vertical-align: 3.7em;
+    left:0px;
+    background-color: red
+}
+
+.pathFinderDlg{
+    border: 1px solid black;
+    background-color: white;
+    height: 13em;
+    width: 21em;
+    border-radius: .5em;
+    margin-left: 0.5em;
+    margin-top: -1em;
+}
+
+#bike_route.btn-styles-cls,#walk_route.btn-styles-cls,#car_route.btn-styles-cls,#best_route.btn-styles-cls{
+    border-radius: 0.5em;
+    width: 4.58em;
+    height: 2.5em;
+    margin-left: 0.1em;
+    text-align: center;
+    vertical-align: middle;
+    line-height: inherit;
+    word-break: break-all;
+}
+
+#loginDlg{
+    height: 20em;
+    width: 20em;
+}
+#loginDlg{
+    top:50px;
+    width:10%;
+    padding: inherit
+}
+
+#loginImg{
+    position:relative;
+    padding-left: 10%;
+    height: auto;
+    max-height: 100%
+}
+
+.loginStyle {
+    height: 4em;
+    text-align: center;
+}
+
+.style_image{
+    margin-right: 15px;
+    display: block;
+} 

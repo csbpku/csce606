@@ -134,6 +134,20 @@ ActiveRecord::Schema.define(version: 20161203230755) do
     t.index ["route_id"], name: "index_trips_on_route_id", using: :btree
   end
 
+  create_table "users", force: :cascade do |t|
+    t.string   "provider",   null: false
+    t.string   "uid",        null: false
+    t.string   "name"
+    t.string   "location"
+    t.string   "image_url"
+    t.string   "url"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["provider", "uid"], name: "index_users_on_provider_and_uid", unique: true
+    t.index ["provider"], name: "index_users_on_provider"
+    t.index ["uid"], name: "index_users_on_uid"
+  end
+
   create_table "walks", force: :cascade do |t|
   end
 
