@@ -44,24 +44,25 @@ function popupcontent(type, point) {
     case 'Building':
       return '<div><strong>' + point.name + '</strong><br>' +
              + point.address + '<br>' +
-              point.lat + ', '+ + point.lon + '<br>' + '</div>'+'<a href="#dir">Direction</a>';
+              point.lat + ', '+ + point.lon + '<br>' + '</div>'+'<a href="Javascript:myJsFunc(\'' + type + '\');">Direction</a>';
 
     case 'Parking':
       return '<div><strong>' + point.lotname + '</strong><br>' +
              'Lot type: ' + point.lottype + '<br>' + 
-             point.lat + ', '+ + point.lon + '<br>' + '</div>'+'<a href="Javascript:myJsFunc();">Direction</a>';
+             point.lat + ', '+ + point.lon + '<br>' + '</div>'+'<a href="Javascript:myJsFunc(\'' + type + '\');">Direction</a>';
     case 'Bikes':
       return '<div><strong>' + point.typeofrack + '</strong><br>' +
              'Currently Filled: ' + point.typeQuantity + '<br>' +
              'Total Capacity: ' + point.total_Capacity + '<br>' +
-             point.lat + ', '+ + point.lon + '<br>' + '</div>'+'<a href="Javascript:myJsFunc();">Direction</a>';
+             point.lat + ', '+ + point.lon + '<br>' + '</div>'+'<a href="Javascript:myJsFunc(\'' + type + '\');">Direction</a>';
   }
 }
 
-function myJsFunc() {
+function myJsFunc(mode) {
        var ol =  document.getElementById("leftMenu");
        var tag = ol.getElementsByTagName("li");
        tag[0].getElementsByTagName('a')[0].click();
+       //document.getElementById('directionsForm').getElementsByTagName('label')[1].getElementsByTagName('input')[0].checked = true
 }
 
 // This function is first when user loads the page
