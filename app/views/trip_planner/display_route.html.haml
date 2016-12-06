@@ -133,7 +133,6 @@
     function processSnapToRoadResponse(data) {
       snappedCoordinates = [];
       placeIdArray = [];
-      console.log(data.snappedPoints)
       for (var i = 0; i < data.snappedPoints.length; i++) {
         var latlng = new google.maps.LatLng(
             data.snappedPoints[i].location.latitude,
@@ -144,8 +143,9 @@
     }
     
     function getColorForRoute(route_name) {
+      route_name = route_name.replace(/\D/g,'')
       var myColors = ['#d59563', '#d59563', '#263c3f','#6b9a76', '#38414e' ,'#212a37','#9ca5b3', '#746855', '#1f2835', '#f3d19c', '#2f3948', '#d59563', '#17263c','#515c6d', '#17263c', 'purple', 'red', 'orange','yellow'];
-      var ind =  Math.floor(route_name%myColors.length);
+      var ind =  Math.floor(Number(route_name)%myColors.length);
       return myColors[ind];
     }
     
@@ -183,8 +183,6 @@
       }
       else{
         text = instructions[0];
-        console.log(text)
-        console.log(points.length)
       }
 
       var infowindow = new google.maps.InfoWindow({
