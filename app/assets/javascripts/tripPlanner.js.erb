@@ -231,6 +231,25 @@ function route(src_id, dest_id, mode)
 
 function updateRoutes(element)
 {
+     switch (element.id) {
+        case 'WALKING':
+            directionsDisplay.setOptions({ polylineOptions: {
+                strokeColor: "DarkOrange"
+            }});
+            break;
+        case 'DRIVING':
+            directionsDisplay.setOptions({ polylineOptions: {
+                strokeColor: "DarkBlue"
+            }});
+            break;
+        case 'BICYCLING':
+            directionsDisplay.setOptions({ polylineOptions: {
+                strokeColor: "DarkCyan"
+            }});
+            break;
+        default:
+            return;
+    }
     if (directionResponse[element.id]!=null)
     {
         directionsDisplay.setDirections(directionResponse[element.id]);
