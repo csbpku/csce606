@@ -60,7 +60,10 @@
           = label :trip_planner, :to, "To:"
           = text_field :trip_planner, :to, class:'form-control', :required => true
           %br
-          = submit_tag 'Find Directions', class: 'btn btn-default'
+          = submit_tag 'Find Directions', class: 'btn btn-default', id: 'findDirections'
+          %button.btn.btn-default.pull-right{:id => "clearDirections"} Clear Directions
+      .modal-footer{:id => "results",:style => "overflow-y: auto; max-height: 250px; text-align: center;"}
+        %h5 No Results
   #layer.modal.fade.modeless{:role => "dialog", "data-backdrop" => "false"}
     .modal-content
       .modal-header

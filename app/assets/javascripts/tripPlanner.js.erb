@@ -13,11 +13,14 @@
 var map;
 var markerGroup = {'Bikes':[], 'Parking':[], 'Building':[]};
 var displayState = {'Bikes':false, 'Parking':false, 'Building':false};
+var directionResponse = {'WALKING':null, 'DRIVING':null, 'BICYCLING':null};
+var directionKeys = ['WALKING','DRIVING','BICYCLING'];
 var markerCluster = null;
 var originAddress;
 var destAddress;
 var directionsDisplay;
 var directionsService;
+var respCount = 0;
 
 var icons = {
   Building: {
@@ -76,7 +79,7 @@ function initMap() {
 	// Setup Directions renderer
 	    directionsService = new google.maps.DirectionsService;
         directionsDisplay = new google.maps.DirectionsRenderer;
-        directionsDisplay.setMap(map);
+        directionsDisplay.setMap(null);
 }
 
 // This function is to create pop up
@@ -199,18 +202,60 @@ function route(src_id, dest_id, mode)
         default:
             return;
     }
-    directionsService.route({
-        origin: {'placeId': src_id},
-        destination: {'placeId': dest_id},
-        travelMode: travel_mode
-    }, function(response, status) {
-        if (status === 'OK') {
-          directionsDisplay.setDirections(response);
-        } else {
-          window.alert('Directions request failed due to ' + status);
-        }
-    });
+    
+    directionsDisplay.setMap(map);
+    for(var i = 0; i<directionKeys.length; i++)
+    {
+        directionsService.route({
+            origin: {'placeId': src_id},
+            destination: {'placeId': dest_id},
+            travelMode: directionKeys[i]
+        }, function(response, status) {
+            if (status === 'OK') {
+                if (travel_mode == response.request.travelMode)
+                    directionsDisplay.setDirections(response);
+                directionResponse[response.request.travelMode] = response;
+                respCount++;
+                if(respCount == directionKeys.length)
+                {
+                    // Display results
+                    displayResults();
+                }
+            } else {
+              window.alert('Directions request failed due to ' + status);
+            }
+        });
+    }
 
+}
+
+function updateRoutes(element)
+{
+    if (directionResponse[element.id]!=null)
+    {
+        directionsDisplay.setDirections(directionResponse[element.id]);
+    }
+}
+//Displays Results
+function displayResults()
+{
+  var htmlText = "<h4>Trip Results:</h4><hr></hr>";
+  var tempTextTime;
+  var tempTextDist;
+  var i;
+  for (i = 0; i < (directionKeys.length - 1); i++)
+  {
+      tempTextTime = directionResponse[directionKeys[i]].routes[0].legs[0].duration.text;
+      tempTextDist = directionResponse[directionKeys[i]].routes[0].legs[0].distance.text;
+      htmlText+="<button onclick=\"updateRoutes(this)\" id="+directionKeys[i]+">"+directionKeys[i].toLowerCase();
+      htmlText+= "<b> Distance: </b>"+ tempTextDist+"<b>  Travel time: </b>"+tempTextTime+"</button><hr></hr>";
+  }
+  tempTextTime = directionResponse[directionKeys[i]].routes[0].legs[0].duration.text;
+  tempTextDist = directionResponse[directionKeys[i]].routes[0].legs[0].distance.text;
+  htmlText+="<button onclick=\"updateRoutes(this)\" id="+directionKeys[i]+">"+directionKeys[i].toLowerCase();
+  htmlText+= "<b> Distance: </b>"+ tempTextDist+"<b>  Travel time: </b>"+tempTextTime+"</button>";
+  $("#results").html(htmlText);
+  respCount = 0;
 }
 /*-----------------------------------Jquery/AJAX--------------------------------*/
 // Layer populater
@@ -238,9 +283,24 @@ $(function(){
 
 });
 
+// clear directions
+$(function() {
+      $("#clearDirections").click( function(event)
+        {
+            directionsDisplay.setDirections({routes: []});
+            event.preventDefault();
+            for (var i = 0; i < directionKeys.length; i++)
+            {
+                directionResponse[directionKeys[i]] = null;
+            }
+            $("#results").html("<h5>No Results</h5>");
+        }
+      );
+});
+
 // Process directions form
 $(document).ready(function(){
-    $("#directionsInputForm").click(function(event){
+    $("#findDirections").click(function(event){
      
       // handle non-transit queries
        if($("input[name=optradio]:checked").val() != "Transit")
@@ -250,10 +310,9 @@ $(document).ready(function(){
            var src_id = originAddress.getPlace().place_id;
            var dest_id = destAddress.getPlace().place_id;
            var mode = $("input[name=optradio]:checked").val();
-           console.log(src_id);
            event.preventDefault();
            route(src_id,dest_id,mode);
        }
        // transit queries are handled by the server
-    });   
+    }); 
 });
