@@ -37,7 +37,7 @@ function geocodeAddress(geocoder, resultsMap, address, callback) {
           alert("No results found");
         }
     } else {
-      alert('Geocode was not successful for the following reason: ' + status);
+      alert('Could not find the guiven location.');
     }
   });
 }
@@ -61,7 +61,7 @@ function draw_Route(from, to, mode){
             if (status=='OK') {
               directionsDisplay.setDirections(response);
             } else {
-              window.alert('Directions request failed due to ' + status);
+              window.alert('Directions request failed');
             }
             });
         });
