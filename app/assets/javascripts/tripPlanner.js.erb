@@ -14,6 +14,11 @@ var map;
 var markerGroup = {'Bikes':[], 'Parking':[], 'Building':[]};
 var displayState = {'Bikes':false, 'Parking':false, 'Building':false};
 var markerCluster = null;
+var originAddress;
+var destAddress;
+var directionsDisplay;
+var directionsService;
+
 var icons = {
   Building: {
     icon:   "<%= asset_path('markers/industries.png') %>"
@@ -61,10 +66,17 @@ function initMap() {
             position: google.maps.ControlPosition.TOP_RIGHT
         }
     });
+    
+    // Setup places autocomplete
     	var input1 = document.getElementById('trip_planner_from');
-		var autocomplete1 = new google.maps.places.Autocomplete(input1);
+		originAddress = new google.maps.places.Autocomplete(input1);
 		var input2 = document.getElementById('trip_planner_to');
-		var autocomplete2 = new google.maps.places.Autocomplete(input2);
+		destAddress = new google.maps.places.Autocomplete(input2);
+	
+	// Setup Directions renderer
+	    directionsService = new google.maps.DirectionsService;
+        directionsDisplay = new google.maps.DirectionsRenderer;
+        directionsDisplay.setMap(map);
 }
 
 // This function is to create pop up
@@ -157,6 +169,49 @@ function toggleMarkers(element)
     }
 }
 
+// Displayes the route on the map
+function route(src_id, dest_id, mode)
+{
+    var travel_mode;
+    if (!src_id || !dest_id) 
+    {
+            return;
+    }
+    switch (mode) {
+        case 'Walking':
+            travel_mode = 'WALKING';
+            directionsDisplay.setOptions({ polylineOptions: {
+                strokeColor: "DarkOrange"
+            }});
+            break;
+        case 'Driving':
+            travel_mode = 'DRIVING';
+            directionsDisplay.setOptions({ polylineOptions: {
+                strokeColor: "DarkBlue"
+            }});
+            break;
+        case 'Bike':
+            travel_mode = 'BICYCLING';
+            directionsDisplay.setOptions({ polylineOptions: {
+                strokeColor: "DarkCyan"
+            }});
+            break;
+        default:
+            return;
+    }
+    directionsService.route({
+        origin: {'placeId': src_id},
+        destination: {'placeId': dest_id},
+        travelMode: travel_mode
+    }, function(response, status) {
+        if (status === 'OK') {
+          directionsDisplay.setDirections(response);
+        } else {
+          window.alert('Directions request failed due to ' + status);
+        }
+    });
+
+}
 /*-----------------------------------Jquery/AJAX--------------------------------*/
 // Layer populater
 function requestData(element)
@@ -181,4 +236,24 @@ $(function(){
          $("#layer").modal('hide');
     });
 
+});
+
+// Process directions form
+$(document).ready(function(){
+    $("#directionsInputForm").click(function(event){
+     
+      // handle non-transit queries
+       if($("input[name=optradio]:checked").val() != "Transit")
+       {
+           if($('#trip_planner_from').val() == '' || $('#trip_planner_to').val() == '')
+                return;
+           var src_id = originAddress.getPlace().place_id;
+           var dest_id = destAddress.getPlace().place_id;
+           var mode = $("input[name=optradio]:checked").val();
+           console.log(src_id);
+           event.preventDefault();
+           route(src_id,dest_id,mode);
+       }
+       // transit queries are handled by the server
+    });   
 });

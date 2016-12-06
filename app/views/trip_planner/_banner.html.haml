@@ -43,7 +43,20 @@
         %button.close{"data-dismiss" => "modal", :type => "button"} ×
         %h4.modal-title Trip planner
       .modal-body
-        = form_tag trip_planner_trip_planning_path, :method => :post do
+        %form{:id=>"directionsForm"}
+          %label.radio-inline
+            %input{:name => "optradio",:value => "Bike",:type => "radio", :checked => "checked"}/
+            Bike
+          %label.radio-inline
+            %input{:name => "optradio",:value => "Driving",:type => "radio"}/
+            Driving
+          %label.radio-inline
+            %input{:name => "optradio",:value => "Transit",:type => "radio"}/
+            Transit
+          %label.radio-inline
+            %input{:name => "optradio",:value => "Walking",:type => "radio"}/
+            Walking
+        = form_tag trip_planner_trip_planning_path,:id=> "directionsInputForm",:method => :post do
           = label :trip_planner, :from, "From:"
           = text_field :trip_planner, :from, class:'form-control', :required => true
           = label :trip_planner, :to, "To:"
