@@ -21,8 +21,12 @@ RSpec.describe TripPlannerController, :type => :controller  do
   
   describe "Find routes that all have the same stop" do
     it "Finds the correct routes" do
+<<<<<<< HEAD
       expect(controller.find_routes_set_by_stop(Stop.find(10), Time.now)[0].id).to eq(42)
 
+=======
+      expect(controller.find_routes_set_by_stop(Stop.find(1))[0].id).to eq(10)
+>>>>>>> master
     end
   end
 end
