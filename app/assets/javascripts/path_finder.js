@@ -9,7 +9,7 @@
 var map;
 /*-----------------------------Functions-----------------------------------------*/
 // This function is first when user loads the page
-function initMap() {
+function reInitMap() {
     var tamuCenter = {lat: 30.6187199, lng: -96.3364829};
     map = new google.maps.Map(document.getElementById('map'), {
         zoom: 15,
@@ -23,6 +23,8 @@ function initMap() {
     var input2 = document.getElementById('from_to');
     var autocomplete1 = new google.maps.places.Autocomplete(input1);
     var autocomplete2 = new google.maps.places.Autocomplete(input2);
+    autocomplete1.bindTo('bounds', map);
+    autocomplete2.bindTo('bounds', map);
 }
 
 function geocodeAddress(geocoder, resultsMap, address, callback) {
@@ -41,7 +43,7 @@ function geocodeAddress(geocoder, resultsMap, address, callback) {
 }
 
 function draw_Route(from, to, mode){
-    initMap();
+    reInitMap();
     var directionsService = new google.maps.DirectionsService;
         var directionsDisplay = new google.maps.DirectionsRenderer;
         directionsDisplay.setMap(map);
