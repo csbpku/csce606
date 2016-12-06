@@ -231,21 +231,40 @@ function route(src_id, dest_id, mode)
 
 function updateRoutes(element)
 {
+    var i;
      switch (element.id) {
         case 'WALKING':
             directionsDisplay.setOptions({ polylineOptions: {
                 strokeColor: "DarkOrange"
             }});
+            document.getElementById(element.id).style.backgroundColor = 'silver';
+            for(i = 0; i<directionKeys.length; i++)
+            {
+                if (directionKeys[i] != element.id)
+                    document.getElementById(directionKeys[i]).style.backgroundColor = 'white';
+            }
             break;
         case 'DRIVING':
             directionsDisplay.setOptions({ polylineOptions: {
                 strokeColor: "DarkBlue"
             }});
+            document.getElementById(element.id).style.backgroundColor = 'silver';
+            for(i = 0; i<directionKeys.length; i++)
+            {
+                if (directionKeys[i] != element.id)
+                    document.getElementById(directionKeys[i]).style.backgroundColor = 'white';
+            }
             break;
         case 'BICYCLING':
             directionsDisplay.setOptions({ polylineOptions: {
                 strokeColor: "DarkCyan"
             }});
+            document.getElementById(element.id).style.backgroundColor = 'silver';
+            for(i = 0; i<directionKeys.length; i++)
+            {
+                if (directionKeys[i] != element.id)
+                    document.getElementById(directionKeys[i]).style.backgroundColor = 'white';
+            }
             break;
         default:
             return;
@@ -254,8 +273,11 @@ function updateRoutes(element)
     {
         directionsDisplay.setDirections(directionResponse[element.id]);
     }
+    
 }
+
 //Displays Results
+
 function displayResults()
 {
   var htmlText = "<h4>Trip Results:</h4><hr></hr>";
