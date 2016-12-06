@@ -23,18 +23,29 @@
         - if current_user
           %ul.nav.navbar-nav.navbar-right
             %li
-              %img{:src => current_user.image_url}/
+              %img{:src => current_user.image_url,:height => "42", :width => "42"}/
             %li
               %a{:href => logout_path}
                 Log out
         - else
           %ul.nav.navbar-nav.navbar-right
             %li
-              %a{:href => "/auth/twitter"}
+              %a{"data-toggle" => "modal", :href => "#login", :style => "align: center"}
                 %span.glyphicon.glyphicon-log-in
                 Login
       / /.nav-collapse
     / /.container-fluid
+  #login.modal.fade{:role => "dialog"}
+    #loginDlg.modal-dialog
+      .modal-content
+        .modal-header
+          %h4.modal-title Login
+        .loginStyle
+          #loginImg.form-group
+            %a.navbar-brand{:href => "/auth/twitter"}
+              %img{:src => "http://cdn.androidbeat.com/wp-content/uploads/2014/11/image-Twitter-logo.png", :width=>"35", :height=>"35", :class => "style_image"}/
+            %a.navbar-brand{:href => "/auth/google_oauth2"}
+              %img{:src => "http://www.presidentialpressurewashing.net/sitebuilder/images/Red-signin-Small-press-44dp-120x120.png", :class => "style_image", :width=>"35", :height=>"35"}/
   #dir.modal.fade.modeless{:role => "dialog", "data-backdrop" => "false"}
     .modal-content
       .modal-header
