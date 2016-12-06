@@ -9,7 +9,7 @@
     var snappedCoordinates = [];
     var placeIdArray = [];
     
-    function initMap() {
+    function initMapNew() {
         var tamuCenter = {lat: 30.6187199, lng: -96.3364829};
     
         map = new google.maps.Map(document.getElementById('map'), {
@@ -27,7 +27,7 @@
             //function(item) {var s = item.split("="), k = s[0], v = s[1] && decodeURIComponent(s[1]); (qd[k] = qd[k] || []).push(v)})
     function display() 
     {
-        initMap();
+        initMapNew();
         $.ajax({url: 'display_route',
                dataType: 'json',
                timeout: 5000,
