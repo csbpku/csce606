@@ -44,7 +44,7 @@ function popupcontent(type, point) {
     case 'Building':
       return '<div><strong>' + point.name + '</strong><br>' +
              + point.address + '<br>' +
-              point.lat + ', '+ + point.lon + '<br>' + '</div>'+'<a href="url">Direction</a>';
+              point.lat + ', '+ + point.lon + '<br>' + '</div>'+'<a href="Javascript:myJsFunc();">Direction</a>';
 
     case 'Parking':
       return '<div><strong>' + point.lotname + '</strong><br>' +
@@ -56,6 +56,10 @@ function popupcontent(type, point) {
              'Total Capacity: ' + point.total_Capacity + '<br>' +
              point.lat + ', '+ + point.lon + '<br>' + '</div>'+'<a href="url">Direction</a>';
   }
+}
+
+function myJsFunc() {
+    alert("Directions");
 }
 
 // This function is first when user loads the page
