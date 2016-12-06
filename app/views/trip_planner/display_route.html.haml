@@ -1,11 +1,14 @@
 = render :partial => 'banner'
 
+#right-panel
 #map
 
   :javascript
     var apiKey = 'AIzaSyAOoWZdZFz8nFtVjBlWRysnSoSoSguqCII';
     var map;
     var snappedCoordinates = [];
+    var placeIdArray = [];
+    
     function initMap() {
         var tamuCenter = {lat: 30.6187199, lng: -96.3364829};
     
@@ -18,7 +21,7 @@
             }
           });
        }
-       
+      
     //var qd = {};
     //location.search.substr(1).split("&").forEach(
             //function(item) {var s = item.split("="), k = s[0], v = s[1] && decodeURIComponent(s[1]); (qd[k] = qd[k] || []).push(v)})
@@ -47,8 +50,8 @@
             runGNavigation(path.nav_points);
             break;
           case "bus":
-            runSnapToRoad(path.nav_points.map(toString))
-            add_markers(path.nav_points, path.bus_route_name);
+            runSnapToRoad(path.nav_points.map(toString), path.bus_route_name);
+            displayBusInformation(path.nav_points, path.bus_route_name);
         }
       }
     }
@@ -84,41 +87,88 @@
         if (status === 'OK') {
           directionStartToEnd.setDirections(response);
           var route = response.routes[0];
+          var walk_latlng=[];
+          var instructionArr=[];
+          
+            for (var i =0; i < response.routes[0].legs[0].steps.length; i++){
+                //instructionArr.push(response.routes[0].legs[0].steps[i].instructions);
+                walk_latlng.push(
+                {
+                  lat: response.routes[0].legs[0].steps[i].start_point.lat(),
+                  lng: response.routes[0].legs[0].steps[i].start_point.lng()
+                }
+                )
+            }
+            
+            instructionArr.push('Walking takes ' + response.routes[0].legs[0].duration.text);
+            add_markers(walk_latlng, "Walking", instructionArr, false);
+          
         } else {
           window.alert('Directions request failed due to ' + status);
         }
       });
     }
 
-    function runSnapToRoad(path) {  
+    function runSnapToRoad(path, route_name) {  
       $.get('https://roads.googleapis.com/v1/snapToRoads', {
         interpolate: true,
         key: apiKey,
         path: path.join('|')
       }, function(data) {
         processSnapToRoadResponse(data);
-        drawSnappedPolyline();
+        drawSnappedFullPolyline(route_name);
       });
+    }
+    
+    function displayBusInformation(points, route_name){
+      var instructionArr=[];
+      var time = 1;
+      instructionArr.push("Taking bus #"+ route_name + " might take " + time*points.length+ " mins");
+      add_markers(points, route_name, instructionArr, false) 
+      add_markers(points.slice(0, Math.floor(points.length/2)), route_name, instructionArr, true)
+
     }
     
     // Store snapped polyline returned by the snap-to-road service.
     function processSnapToRoadResponse(data) {
       snappedCoordinates = [];
       placeIdArray = [];
+      console.log(data.snappedPoints)
       for (var i = 0; i < data.snappedPoints.length; i++) {
         var latlng = new google.maps.LatLng(
             data.snappedPoints[i].location.latitude,
             data.snappedPoints[i].location.longitude);
         snappedCoordinates.push(latlng);
-        //placeIdArray.push(data.snappedPoints[i].placeId);
+        placeIdArray.push(data.snappedPoints[i].placeId);
       }
     }
     
+    function getColorForRoute(route_name) {
+      var myColors = ['#d59563', '#d59563', '#263c3f','#6b9a76', '#38414e' ,'#212a37','#9ca5b3', '#746855', '#1f2835', '#f3d19c', '#2f3948', '#d59563', '#17263c','#515c6d', '#17263c', 'purple', 'red', 'orange','yellow'];
+      var ind =  Math.floor(route_name%myColors.length);
+      return myColors[ind];
+    }
+    
+    function drawSnappedFullPolyline(route_name){
+      //console.log(placeIdArray.length/100)
+      //for (var i = 0; i <= Math.floor(placeIdArray.length / 100); i++){
+      //  var start = i * 100;
+     //   var end = Math.min((i+1)*100, placeIdArray.length);
+     //   console.log(start)
+      //  console.log(end)
+        drawSnappedPolyline(route_name); //, start, end);
+      //}
+    }
+
+    
     // Draws the snapped polyline (after processing snap-to-road response).
-    function drawSnappedPolyline() {
+    function drawSnappedPolyline(route_name, mystart, myend) {
+      var color = getColorForRoute(route_name);
+      var coords = snappedCoordinates;
+      
       var snappedPolyline = new google.maps.Polyline({
-        path: snappedCoordinates,
-        strokeColor: 'red',
+        path: coords,
+        strokeColor: color,
         strokeWeight: 3
       });
     
@@ -126,19 +176,31 @@
       //polylines.push(snappedPolyline);
     }
     
-    function add_markers(points, route_name) {       
-        var infowindow = new google.maps.InfoWindow({
-            content: "Bus route:" + route_name
-         });
-        var marker = new google.maps.Marker({
-            position: points[1],
-            map: map,
-            title: route_name
-        });
+    function add_markers(points, route_name, instructions, flag) {  
+      var text = [];
+      if(flag){
+        text = "Bus route:" + route_name;
+      }
+      else{
+        text = instructions[0];
+        console.log(text)
+        console.log(points.length)
+      }
+
+      var infowindow = new google.maps.InfoWindow({
+        content: text
+      });
+         
+      var ind = Math.floor(points.length/2);
+      var marker = new google.maps.Marker({
+        position: points[ind],
+        map: map,
+        title: route_name
+      });
         
-        marker.addListener('click', function() {
-            infowindow.open(map, marker);
-        });
+      marker.addListener('click', function() {
+        infowindow.open(map, marker);
+      });
     }
   %script{:async => "", :defer => "defer", :src => "https://maps.googleapis.com/maps/api/js?key=AIzaSyBGXhzWszzxqmajf5w0AzEmFi5hbgA8VRY&callback=display"}
   :cdata
