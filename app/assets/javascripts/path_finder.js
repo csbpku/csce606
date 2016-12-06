@@ -41,6 +41,7 @@ function geocodeAddress(geocoder, resultsMap, address, callback) {
 }
 
 function draw_Route(from, to, mode){
+    initMap();
     var directionsService = new google.maps.DirectionsService;
         var directionsDisplay = new google.maps.DirectionsRenderer;
         directionsDisplay.setMap(map);
