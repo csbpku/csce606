@@ -56,6 +56,12 @@ function initMap() {
             position: google.maps.ControlPosition.TOP_RIGHT
         }
     });
+    var input1 = document.getElementById('from_from');
+    var input2 = document.getElementById('from_to');
+    var autocomplete1 = new google.maps.places.Autocomplete(input1);
+    var autocomplete2 = new google.maps.places.Autocomplete(input2);
+    autocomplete1.bindTo('bounds', map);
+    autocomplete2.bindTo('bounds', map);
 }
 
 // This function is to create pop up
