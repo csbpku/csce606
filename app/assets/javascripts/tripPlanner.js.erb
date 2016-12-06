@@ -40,18 +40,18 @@ function popupcontent(type, point) {
  switch (type){
     case 'Building':
       return '<div><strong>' + point.name + '</strong><br>' +
-             'Address: ' + point.address + '<br>' +
-              point.lat + ', '+ + point.lon + '<br>' + '</div>';
+             + point.address + '<br>' +
+              point.lat + ', '+ + point.lon + '<br>' + '</div>'+'<a href="url">find routes</a>';
 
     case 'Parking':
       return '<div><strong>' + point.lotname + '</strong><br>' +
-             'Type: ' + point.lottype + '<br>' + 
-             point.lat + ', '+ + point.lon + '<br>' + '</div>';
+             'Lot type: ' + point.lottype + '<br>' + 
+             point.lat + ', '+ + point.lon + '<br>' + '</div>'+'<a href="url">find routes</a>';
     case 'Bikes':
       return '<div><strong>' + point.typeofrack + '</strong><br>' +
-             'Current Filled: ' + point.typeQuantity + '<br>' +
+             'Currently Filled: ' + point.typeQuantity + '<br>' +
              'Total Capacity: ' + point.total_Capacity + '<br>' +
-             point.lat + ', '+ + point.lon + '<br>' + '</div>';
+             point.lat + ', '+ + point.lon + '<br>' + '</div>'+'<a href="url">find routes</a>';
   }
 }
 
