@@ -20,9 +20,22 @@ class User < ActiveRecord::Base
       user.name = auth_hash['info']['name']
       user.location = auth_hash['info']['location']
       user.image_url = auth_hash['info']['image']
-      user.url = auth_hash['info']['urls'][provider.capitalize]
+      user.url = get_social_url_for user.provider, auth_hash['info']['urls']
       user.save!
       user
     end
+
+    private
+
+    def get_social_url_for(provider, urls_hash)
+      case provider
+        when 'linkedin'
+          urls_hash['public_profile']
+        else
+          urls_hash[provider.capitalize]
+      end
+    end
   end
+
+
 end
