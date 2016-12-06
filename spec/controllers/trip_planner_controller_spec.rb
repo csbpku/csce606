@@ -9,7 +9,8 @@ RSpec.describe TripPlannerController, :type => :controller  do
   
   describe "Find the nearest bus stop given a location" do
     it "Finds the nearest stop" do
-      expect(controller.find_nearest_stop([30.6189722, -96.3387678]).code).to eq(416)
+      curr_date = Date.new(2016, 12, 6)
+      expect(controller.find_nearest_stop([30.6189722, -96.3387678], curr_date).code).to eq(416)
     end
   end
   
@@ -21,12 +22,8 @@ RSpec.describe TripPlannerController, :type => :controller  do
   
   describe "Find routes that all have the same stop" do
     it "Finds the correct routes" do
-<<<<<<< HEAD
       expect(controller.find_routes_set_by_stop(Stop.find(10), Time.now)[0].id).to eq(42)
 
-=======
-      expect(controller.find_routes_set_by_stop(Stop.find(1))[0].id).to eq(10)
->>>>>>> master
     end
   end
 end
