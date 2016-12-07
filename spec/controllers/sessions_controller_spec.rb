@@ -33,4 +33,12 @@ RSpec.describe SessionsController do
             expect(response).to redirect_to root_path
         end
     end
+    
+    describe "redirect to home page if login fails" do
+        it "Successfully redirect to home page if SSO fails" do
+            get :auth_failure
+            expect(response).to redirect_to(root_path)
+        end
+    end
+
 end
