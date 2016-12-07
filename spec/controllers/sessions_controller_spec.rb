@@ -24,4 +24,13 @@ RSpec.describe SessionsController do
             session[:user_id].should be_nil
         end
     end
+    
+    describe "after session destroy redirect link to home page" do
+        it "should redirect to the home page" do
+            request.env['omniauth.auth'] = {'uid' => 1, 'provider' => 'facebook', 'info' => {'name' => 'xyz', 'location' => 'abs', 'image' =>'', 'urls' => 'wwww'}}
+            post :create
+            delete :destroy
+            expect(response).to redirect_to root_path
+        end
+    end
 end
