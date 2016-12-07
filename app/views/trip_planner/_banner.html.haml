@@ -11,9 +11,9 @@
         %a.navbar-brand{:href => "http://www.tamu.edu"}
           %img{:src => "http://brandguide.tamu.edu/images/tam-primarymark.png", :width=>"228", :height=>"45"}/
       #navbar1.navbar-collapse.collapse
-        %ul.nav.navbar-nav
+        %ul.nav.navbar-nav{:id => 'leftMenu'}
           %li
-            %a{"data-toggle" => "modal", :href => "#dir"} 
+            %a{"data-toggle" => "modal", :href => "#dir", :onclick => "#dir"} 
               %span.glyphicon.glyphicon-move
               Directions
           %li
