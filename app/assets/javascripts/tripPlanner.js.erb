@@ -63,9 +63,9 @@ function direction(name) {
        var tag = ol.getElementsByTagName("li");
        tag[0].getElementsByTagName('a')[0].click();
        if(name.length != 0)
-           document.getElementById('trip_planner_to').value = name;
+           document.getElementById('toDirection').value = name;
         else
-            document.getElementById('trip_planner_to').placeholder="Enter a location";
+            document.getElementById('toDirection').placeholder="Enter a location";
             
        
 }
@@ -83,9 +83,9 @@ function initMap() {
     });
     
     // Setup places autocomplete
-    	var input1 = document.getElementById('trip_planner_from');
+    	var input1 = document.getElementById('fromDirection');
 		originAddress = new google.maps.places.Autocomplete(input1);
-		var input2 = document.getElementById('trip_planner_to');
+		var input2 = document.getElementById('toDirection');
 		destAddress = new google.maps.places.Autocomplete(input2);
 	
 	// Setup Directions renderer
@@ -358,7 +358,7 @@ $(document).ready(function(){
       // handle non-transit queries
        if($("input[name=optradio]:checked").val() != "Transit")
        {
-           if($('#trip_planner_from').val() == '' || $('#trip_planner_to').val() == '')
+           if($('#fromDirection').val() == '' || $('#toDirection').val() == '')
                 return;
            var src_id = originAddress.getPlace().place_id;
            var dest_id = destAddress.getPlace().place_id;
@@ -369,12 +369,12 @@ $(document).ready(function(){
        // transit queries are handled by the server
     });
     
-    $("#trip_planner_from").keydown(function(event){
+    $("#fromDirection").keydown(function(event){
         if(event.keyCode == 13)
             event.preventDefault();
     }); 
     
-    $("#trip_planner_to").keydown(function(event){
+    $("#toDirection").keydown(function(event){
         if(event.keyCode == 13)
             event.preventDefault();
     }); 

@@ -69,7 +69,7 @@
           = label :trip_planner, :from, "From:"
           = text_field :trip_planner, :from, class:'form-control', :id=> 'fromDirection', :required => true
           = label :trip_planner, :to, "To:"
-          = text_field :trip_planner, :to, class:'form-control', :required => true
+          = text_field :trip_planner, :to, class:'form-control', :id=> 'toDirection', :required => true
           %br
           = submit_tag 'Find Directions', class: 'btn btn-default', id: 'findDirections'
           %button.btn.btn-default.pull-right{:id => "clearDirections"} Clear Directions
