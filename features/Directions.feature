@@ -1,6 +1,5 @@
 Feature: Directions from Home page
 
-@javascript 
 Scenario: Checking Login
 Given I am on the Home page
 When I click Directions
