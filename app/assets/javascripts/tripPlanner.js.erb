@@ -348,7 +348,7 @@ $(function() {
 
 // Process directions form
 $(document).ready(function(){
-    $("#findDirections").on('keypress click',function(event){
+    $("#findDirections").click(function(event){
      
       // handle non-transit queries
        if($("input[name=optradio]:checked").val() != "Transit")
@@ -362,5 +362,15 @@ $(document).ready(function(){
            route(src_id,dest_id,mode);
        }
        // transit queries are handled by the server
+    });
+    
+    $("#trip_planner_from").keydown(function(event){
+        if(event.keyCode == 13)
+            event.preventDefault();
+    }); 
+    
+    $("#trip_planner_to").keydown(function(event){
+        if(event.keyCode == 13)
+            event.preventDefault();
     }); 
 });
