@@ -10,7 +10,7 @@ RSpec.describe User do
     it 'Return url of selected provider' do
         dummy = {'uid' => 1, 'provider' => 'linkedin', 'info' => {'name' => 'xyz', 'location' => 'abs', 'image' =>'', 'urls' => {'public_profile' => 'www'}}}
         result = User.get_social_url_for('linkedin', dummy['info']['urls'])
-        expect(result).to eq(nil)
+        expect(result).to eq("www")
     end
     
 end

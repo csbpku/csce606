@@ -14,5 +14,11 @@ RSpec.describe LayersController, type: :controller do
             expect(response.body).to eq("{\"layer\":[{\"objtype\":\"Parking\",\"points\":[]}]}") 
         end
     end
-
+    
+    describe "Get data for bike parking" do
+        it "Successfully return bike parking object if params exist" do
+            get :dropPins, {:layer => {:bicycle => '1'}}
+            expect(response.body).to eq("{\"layer\":[{\"objtype\":\"Bikes\",\"points\":[]}]}") 
+        end
+    end
 end
