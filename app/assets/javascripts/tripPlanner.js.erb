@@ -353,7 +353,7 @@ $(function() {
 
 // Process directions form
 $(document).ready(function(){
-    $("#findDirections").click(function(event){
+    $("#findDirections").on('keypress click',function(event){
      
       // handle non-transit queries
        if($("input[name=optradio]:checked").val() != "Transit")
