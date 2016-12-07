@@ -11,20 +11,20 @@ Then(/^I should see the Popup that contains "Layers"$/) do
 end
 
 When(/^I select "Academic Buildings"$/) do
-    find("#building").set true
+    find("#Building").set true
 end
 
 When(/^I select "Parking Lots"$/) do
-    find("#parking").set true
+    find("#Parking").set true
 end
 
 And(/^I click on "Show Layers" with Buildings$/) do
-    click_on "Show Layers"
+    click_on "Layers"
     get "/dropPins?layer%5Bbuilding%5D=1"
 end
 
 And(/^I click on "Show Layers" with Parking$/) do
-    click_on "Show Layers"
+    click_on "Layers"
     get "/dropPins?layer%5Bparking%5D=1"
 end
 
