@@ -25,8 +25,6 @@ class User < ActiveRecord::Base
       user
     end
 
-    private
-
     def get_social_url_for(provider, urls_hash)
       case provider
         when 'linkedin'
