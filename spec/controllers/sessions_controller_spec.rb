@@ -14,4 +14,14 @@ RSpec.describe SessionsController do
             expect(response).to redirect_to(root_path)
         end
     end
+    
+    describe "#destroy" do
+        it "should clear the session" do
+            request.env['omniauth.auth'] = {'uid' => 1, 'provider' => 'facebook', 'info' => {'name' => 'xyz', 'location' => 'abs', 'image' =>'', 'urls' => 'wwww'}}
+            post :create
+            session[:user_id].should_not be_nil
+            delete :destroy
+            session[:user_id].should be_nil
+        end
+    end
 end
